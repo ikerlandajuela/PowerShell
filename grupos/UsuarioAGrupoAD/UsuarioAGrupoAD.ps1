@@ -47,7 +47,7 @@ function MainUsuarioAGrupoAD()
 {
 	$ADGroupName = "Escritorio Remoto"
 	$SamAccountName = Read-Host "Deme nombre de cuenta (Ejemplo: i.landajuela)"
-	$exists = CheckExisteUser($SamAccountName)
+	$exists = CheckExisteUsuario($SamAccountName)
 	if ( $exists -eq $true )
 	{
 		UsuarioAGrupoAD($SamAccountName,$ADGroupName)	
