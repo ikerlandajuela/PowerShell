@@ -1,6 +1,6 @@
 ######################################################
 #
-#	AddAccountEscritorioRemoto_group.ps1
+#	UsuarioAGrupoAD.ps1
 #	Autor: Iker Landajuela <i.landajuela@koopera.org>
 #	Versión: 0.1
 #	Fecha: 20171207
@@ -19,41 +19,42 @@ import-module ActiveDirectory
 
 #-----------------------------------------------------------------------------------------
 
-function CheckExisteUser([string] $SamAccountName="")
+function CheckExisteUsuario([string] $SamAccountName="")
 {
-	Write-Debug "Checking if account name '$SamAccountName' exists and is enabled"	
+	Write-Debug "Comprobando si existe nombre cuenta '$SamAccountName' y está habilitada"	
 	
 	$count = @(Get-AdUser -filter {sAMAccountName -Like $SamAccountName -and enabled -eq $true} ).count
 	
-    Write-Debug "Number object result found : $count"
+    Write-Debug "Número de objetos encontrados : $count"
 	
     If($count -eq 0) 
     { 
-		Write-Host "Error account name not found or not enabled"
+		Write-Host "Error nombre cuenta no existe o no está habilitado"
         $return = $false
 		#break
     } 	
 	else
 	{
-		Write-Debug "Account name found ok"
+		Write-Debug "Nombre cuenta encontrado"
 		$return = $true
 	}
 	return $return
-} # FIN UserExists
+} # FIN CheckExisteUsuario
 
 #-----------------------------------------------------------------------------------------
 
 function MainUsuarioAGrupoAD()
 {
+	$ADGroupName = "Escritorio Remoto"
 	$SamAccountName = Read-Host "Deme nombre de cuenta (Ejemplo: i.landajuela)"
 	$exists = CheckExisteUser($SamAccountName)
 	if ( $exists -eq $true )
 	{
-		UsuarioAGrupoAD($SamAccountName,"Escritorio Remoto")	
+		UsuarioAGrupoAD($SamAccountName,$ADGroupName)	
 	}
 	else
 	{
-		Write-Debug "Exiting nothing done"
+		Write-Debug "Saliendo sin hacer nada"
 	}
 } # FIN MainUsuarioAGrupoAD
 
@@ -61,7 +62,7 @@ function MainUsuarioAGrupoAD()
 
 function UsuarioAGrupoAD([string] $SamAccountName="",[string] $GroupId="")
 {	
-	Write-Debug "Adding $SamAccountName to $GroupId security group."
+	Write-Debug "Añadiendo $SamAccountName a grupo seguridad $GroupId."
 	try
 	{
 		Add-ADGroupMember -Identity $GroupId -Member $SamAccountName
@@ -79,4 +80,4 @@ function UsuarioAGrupoAD([string] $SamAccountName="",[string] $GroupId="")
 
 MainUsuarioAGrupoAD
 
-Write-Debug "Exiting script."
+Write-Debug "Saliendo del script."
