@@ -23,6 +23,10 @@ import-module ActiveDirectory
 
 #-----------------------------------------------------------------------------------------
 
+<#
+.SYNOPSIS
+	Función que recibe nombre cuenta AD, si existe y está activada retorna true, en caso contrario retorna false.
+#>
 function CheckExisteUsuario([string] $SamAccountName="")
 {
 	Write-Debug "Comprobando si existe nombre cuenta '$SamAccountName' y está habilitada"	
@@ -47,6 +51,10 @@ function CheckExisteUsuario([string] $SamAccountName="")
 
 #-----------------------------------------------------------------------------------------
 
+<#
+.SYNOPSIS
+	Función que recibe nombre cuenta AD, si existe y está activada retorna true, en caso contrario retorna false.
+#>
 function MainUsuarioAGrupoAD()
 {
 	$ADGroupName = "Escritorio Remoto"
@@ -65,6 +73,10 @@ function MainUsuarioAGrupoAD()
 
 #-----------------------------------------------------------------------------------------
 
+<#
+.SYNOPSIS
+	Función que recibe nombre cuenta AD, si existe y está activada retorna true, en caso contrario retorna false.
+#>
 function UsuarioAGrupoAD([string] $SamAccountName="",[string] $GroupId="")
 {	
 	Write-Debug "Añadiendo '$SamAccountName' a grupo seguridad '$GroupId'."

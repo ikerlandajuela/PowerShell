@@ -1,0 +1,1 @@
+* Nombre grupo introducido por usuario también?
