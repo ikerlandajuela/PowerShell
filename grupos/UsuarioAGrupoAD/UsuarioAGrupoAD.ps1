@@ -26,6 +26,8 @@ import-module ActiveDirectory
 <#
 .SYNOPSIS
 	Función que recibe nombre cuenta AD, si existe y está activada retorna true, en caso contrario retorna false.
+.EXAMPLE
+	CheckExisteUsuario "b.sinclair"	
 #>
 function CheckExisteUsuario([string] $SamAccountName="")
 {
@@ -53,7 +55,7 @@ function CheckExisteUsuario([string] $SamAccountName="")
 
 <#
 .SYNOPSIS
-	Función que recibe nombre cuenta AD, si existe y está activada retorna true, en caso contrario retorna false.
+	Función con la lógica principal de la aplicación.
 #>
 function MainUsuarioAGrupoAD()
 {
@@ -75,8 +77,10 @@ function MainUsuarioAGrupoAD()
 
 <#
 .SYNOPSIS
-	Función que recibe nombre cuenta AD, si existe y está activada retorna true, en caso contrario retorna false.
-#>
+	Función que recibe nombre cuenta AD y nombre grupo seguridad y añade la cuenta al grupo.
+.EXAMPLE
+	UsuarioAGrupoAD "b.sinclair" "Escritorio Remoto"
+#> 
 function UsuarioAGrupoAD([string] $SamAccountName="",[string] $GroupId="")
 {	
 	Write-Debug "Añadiendo '$SamAccountName' a grupo seguridad '$GroupId'."
