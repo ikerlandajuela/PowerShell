@@ -1,13 +1,17 @@
-######################################################
-#
-#	UsuarioAGrupoAD.ps1
-#	Autor: Iker Landajuela <i.landajuela@koopera.org>
-#	Versión: 0.1
-#	Fecha: 20171207
-#
-#	Ejemplo: .\UsuarioAGrupoAD.ps1
-#   Objetivo: Añadir un usuario a grupo seguridad 
-######################################################
+# Script UsuarioAGrupoAD.ps1
+<# .SYNOPSIS
+    Añadir un usuario a grupo seguridad   
+.DESCRIPTION
+	Script que añade una cuenta introducida por el usuario (usuario de login de la cuenta o sAMAccountName) 
+	a un grupo de seguridad de AD (Active Directory).
+.NOTES
+     Author     : Iker Landajuela - i.landajuela@koopera.org
+.LINK
+	https://ikerlandajuela.wordpress.com/2017/12/07/powershell-incluir-usuario-en-una-cuenta-de-seguridad/
+.EXAMPLE	
+	.\UsuarioAGrupoAD.ps1
+#>
+
 # Continue = muestra mensaje, SilentlyContinue = No muestra mensaje
 # Stop = muestra y para, Inquire = pregunta al usuario 
 $DebugPreference = "Continue"
