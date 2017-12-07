@@ -50,7 +50,8 @@ function MainUsuarioAGrupoAD()
 	$exists = CheckExisteUsuario($SamAccountName)
 	if ( $exists -eq $true )
 	{
-		UsuarioAGrupoAD($SamAccountName,$ADGroupName)	
+		Write-Debug "Llamando función UsuarioAGrupoAD($SamAccountName,$ADGroupName)"
+		UsuarioAGrupoAD $SamAccountName $ADGroupName
 	}
 	else
 	{
@@ -62,7 +63,7 @@ function MainUsuarioAGrupoAD()
 
 function UsuarioAGrupoAD([string] $SamAccountName="",[string] $GroupId="")
 {	
-	Write-Debug "Añadiendo $SamAccountName a grupo seguridad $GroupId."
+	Write-Debug "Añadiendo '$SamAccountName' a grupo seguridad '$GroupId'."
 	try
 	{
 		Add-ADGroupMember -Identity $GroupId -Member $SamAccountName
