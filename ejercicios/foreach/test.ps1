@@ -1,7 +1,11 @@
+$Proc = Get-Process
+#$Proc.length
+#$Proc[0]
 
-Get-Service | Foreach {$_.name + " Status:-" + $_.status}
+#Para conocer los atributos de cada objeto
+Get-Process | Get-Member
 
-#Foreach ($item in Get-Service)
-#{
-#	$_.name
-#}
+ForEach ($IndProc in $Proc)
+{
+	#$IndProc.ProcessName
+}
