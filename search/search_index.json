@@ -9,6 +9,26 @@
             "location": "/#inicio", 
             "text": "", 
             "title": "Inicio"
+        }, 
+        {
+            "location": "/sintaxis/foreach/foreach/", 
+            "text": "Inicio", 
+            "title": "Foreach"
+        }, 
+        {
+            "location": "/sintaxis/foreach/foreach/#inicio", 
+            "text": "", 
+            "title": "Inicio"
+        }, 
+        {
+            "location": "/active-directory/instalar-modulo/", 
+            "text": "Inicio", 
+            "title": "Instalaci\u00f3n del modulo"
+        }, 
+        {
+            "location": "/active-directory/instalar-modulo/#inicio", 
+            "text": "", 
+            "title": "Inicio"
         }
     ]
 }
