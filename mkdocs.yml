@@ -1,2 +1,10 @@
 site_name: PSFabrik
+default: Iker Landajuela
 theme: readthedocs
+repo_url: https://github.com/ikerlandajuela/PowerShell/
+pages:
+    - Inicio: index.md
+    - Sintaxis:
+        - 'Foreach': 'sintaxis/foreach/foreach.md'
+    - Active Directory:
+        - 'Instalación del modulo':  'active-directory/instalar-modulo.md'
