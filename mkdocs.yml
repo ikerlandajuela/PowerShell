@@ -5,6 +5,7 @@ repo_url: https://github.com/ikerlandajuela/PowerShell/
 pages:
     - Inicio: index.md
     - Sintaxis:
-        - 'Foreach': 'sintaxis/foreach/foreach.md'
+        - 'Bucles': 'sintaxis/bucles.md'
     - Active Directory:
         - 'Instalación del modulo':  'active-directory/instalar-modulo.md'
+    - Recursos: recursos.md

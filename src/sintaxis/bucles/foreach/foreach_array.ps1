@@ -1,15 +1,9 @@
-# Definición de 3 variables
-Write-Host "Definición de variables"
 $a = 5 
 $b = 6
 $c = 7
 
-# Mostramos contenido variables por consola
-Write-Host "Contenido variable a:"
 $a
-Write-Host "Contenido variable b:"
 $b
-Write-Host "Contenido variable c:"
 $c
 
 # Creamos un array de 3 elementos con las variables

@@ -4,7 +4,35 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-12-20</lastmod>
+     <lastmod>2017-12-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>/sintaxis/bucles/</loc>
+     <lastmod>2017-12-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/active-directory/instalar-modulo/</loc>
+     <lastmod>2017-12-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>/recursos/</loc>
+     <lastmod>2017-12-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
