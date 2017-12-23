@@ -2,23 +2,48 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Inicio\n\n\nWeb dedicada al scripting en PS (PowerShell) en MS Win, especialmente en servidores con Active Directory y Exchange.", 
-            "title": "Inicio"
-        }, 
-        {
-            "location": "/#inicio", 
             "text": "Web dedicada al scripting en PS (PowerShell) en MS Win, especialmente en servidores con Active Directory y Exchange.", 
             "title": "Inicio"
         }, 
         {
-            "location": "/sintaxis/bucles/", 
-            "text": "ForEach", 
-            "title": "Bucles"
+            "location": "/sintaxis/foreach/", 
+            "text": "ForEach con arrays\n\n\n\n\nForEach\n permite crear bucles que ejecutan una serie de rutinas de forma iterativa.\n\n\nSintaxis:\n\n\nForEach (item In collection) {ScriptBlock}\n\n\n\n\nRecorre una colecci\u00f3n de elementos y en cada iteraci\u00f3n nos proporciona el siguiente elemento (item) de la colecci\u00f3n (collection).\n\n\nForEach con arrays\n\n\nforeach_array.ps1\n\n\nDeclaramos tres variables que contienen n\u00fameros enteros:\n\n\n$a = 1 \n$b = 2\n$c = 3\n\n\n\n\nCon las tres variables componemos un array:\n\n\n$d = $a,$b,$c\n\n\n\n\nEn el caso de arrays de enteros podemos usar el operador de rango para crear una secuencia ordenada de n\u00fameros, para el ejemplo superior hubiese sido equivalente crearlo as\u00ed:\n\n\n$d = 1..3\n\n\n\n\nPodemos acceder a cada elemento del array \n\n\nEnlaces", 
+            "title": "Foreach"
         }, 
         {
-            "location": "/sintaxis/bucles/#foreach", 
+            "location": "/sintaxis/foreach/#foreach-con-arrays", 
+            "text": "foreach_array.ps1  Declaramos tres variables que contienen n\u00fameros enteros:  $a = 1 \n$b = 2\n$c = 3  Con las tres variables componemos un array:  $d = $a,$b,$c  En el caso de arrays de enteros podemos usar el operador de rango para crear una secuencia ordenada de n\u00fameros, para el ejemplo superior hubiese sido equivalente crearlo as\u00ed:  $d = 1..3  Podemos acceder a cada elemento del array", 
+            "title": "ForEach con arrays"
+        }, 
+        {
+            "location": "/sintaxis/foreach/#enlaces", 
             "text": "", 
-            "title": "ForEach"
+            "title": "Enlaces"
+        }, 
+        {
+            "location": "/sintaxis/variables/", 
+            "text": "Arrays\n\n\nCreando un array\n\n\nArrays Asociativos o Hashtable\n\n\nRecursos arrays\n\n\n\n\n\n\n\n\nArrays\n\n\nUn array contiene una lista de elementos de datos. Una diferencia frente a otros lenguajes de programaci\u00f3n es que los elementos del array no tienen porque ser del mismo tipo a no ser que se defina el tipo de datos que alberga de forma explicita (strongly typed).\n\n\nCreando un array\n\n\nFuente:\n \narray.ps1\n\n\nPara crear un array definimos cada elemento separado por \",\".\n\n\n$myArray = 1,\nHola\n,3.5,\nMundo\n\n$myArray    \n\n\n\n\nO usando la sintaxis explicita:\n\n\n$myArray = @(1,\nHola\n,3.5,\nMundo\n)\n\n\n\n\nPara distribuir los elementos en variables individuales:\n\n\n$var1,$var2,$var3 = $myArray\n\n\n\n\nCon un array de enteros (int) podemos usar el operador de rango para crear una secuencia de n\u00fameros ordenada\n\n\n$myArray = 1,2,3,4,5,6,7\n$myArray = (1..7)\n\n\n\n\nTambi\u00e9n podemos crear arrays multidimensionales, por ejemplo un array de 2x3:\n\n\n$myMultiArray = @(\n    (1,2,3),\n    (40,50,60)\n)\n\n\n\n\nA\u00f1adir valores al array\n: Usamos el operador \n+=\n.\n\n\nArrays Asociativos o Hashtable\n\n\n$myHashtable = @{ Key1 = \nValue1\n; \nKey 2\n = 1,2,3 }\n\n\n\n\nRecursos arrays\n\n\n\n\nhttps://ss64.com/ps/syntax-arrays.html", 
+            "title": "Variables"
+        }, 
+        {
+            "location": "/sintaxis/variables/#arrays", 
+            "text": "Un array contiene una lista de elementos de datos. Una diferencia frente a otros lenguajes de programaci\u00f3n es que los elementos del array no tienen porque ser del mismo tipo a no ser que se defina el tipo de datos que alberga de forma explicita (strongly typed).", 
+            "title": "Arrays"
+        }, 
+        {
+            "location": "/sintaxis/variables/#creando-un-array", 
+            "text": "Fuente:   array.ps1  Para crear un array definimos cada elemento separado por \",\".  $myArray = 1, Hola ,3.5, Mundo \n$myArray      O usando la sintaxis explicita:  $myArray = @(1, Hola ,3.5, Mundo )  Para distribuir los elementos en variables individuales:  $var1,$var2,$var3 = $myArray  Con un array de enteros (int) podemos usar el operador de rango para crear una secuencia de n\u00fameros ordenada  $myArray = 1,2,3,4,5,6,7\n$myArray = (1..7)  Tambi\u00e9n podemos crear arrays multidimensionales, por ejemplo un array de 2x3:  $myMultiArray = @(\n    (1,2,3),\n    (40,50,60)\n)  A\u00f1adir valores al array : Usamos el operador  += .", 
+            "title": "Creando un array"
+        }, 
+        {
+            "location": "/sintaxis/variables/#arrays-asociativos-o-hashtable", 
+            "text": "$myHashtable = @{ Key1 =  Value1 ;  Key 2  = 1,2,3 }", 
+            "title": "Arrays Asociativos o Hashtable"
+        }, 
+        {
+            "location": "/sintaxis/variables/#recursos-arrays", 
+            "text": "https://ss64.com/ps/syntax-arrays.html", 
+            "title": "Recursos arrays"
         }, 
         {
             "location": "/active-directory/instalar-modulo/", 

@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Bucles - PSFabrik</title>
+  <title>Foreach - PSFabrik</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Bucles";
-    var mkdocs_page_input_path = "sintaxis\\bucles.md";
-    var mkdocs_page_url = "/sintaxis/bucles/";
+    var mkdocs_page_name = "Foreach";
+    var mkdocs_page_input_path = "sintaxis\\foreach.md";
+    var mkdocs_page_url = "/sintaxis/foreach/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -58,13 +58,23 @@
     <ul class="subnav">
                 <li class=" current">
                     
-    <a class="current" href="./">Bucles</a>
+    <a class="current" href="./">Foreach</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#foreach">ForEach</a></li>
+    <li class="toctree-l3"><a href="#foreach-con-arrays">ForEach con arrays</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#enlaces">Enlaces</a></li>
+        
+        </ul>
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../variables/">Variables</a>
                 </li>
     </ul>
 	    </li>
@@ -111,10 +121,10 @@
         
       
     
-    <li>Bucles</li>
+    <li>Foreach</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/sintaxis/bucles.md"
+        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/sintaxis/foreach.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -124,7 +134,33 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="foreach">ForEach</h1>
+                <ul>
+<li><a href="#foreach-con-arrays">ForEach con arrays</a></li>
+</ul>
+<p><strong>ForEach</strong> permite crear bucles que ejecutan una serie de rutinas de forma iterativa.</p>
+<p>Sintaxis:</p>
+<pre><code class="powershell">ForEach (item In collection) {ScriptBlock}
+</code></pre>
+
+<p>Recorre una colección de elementos y en cada iteración nos proporciona el siguiente elemento (item) de la colección (collection).</p>
+<h1 id="foreach-con-arrays">ForEach con arrays</h1>
+<p><a href="../../src/sintaxis/bucles/foreach/foreach_array.ps1">foreach_array.ps1</a></p>
+<p>Declaramos tres variables que contienen números enteros:</p>
+<pre><code class="powershell">$a = 1 
+$b = 2
+$c = 3
+</code></pre>
+
+<p>Con las tres variables componemos un array:</p>
+<pre><code class="powershell">$d = $a,$b,$c
+</code></pre>
+
+<p>En el caso de arrays de enteros podemos usar el operador de rango para crear una secuencia ordenada de números, para el ejemplo superior hubiese sido equivalente crearlo así:</p>
+<pre><code class="powershell">$d = 1..3
+</code></pre>
+
+<p>Podemos acceder a cada elemento del array </p>
+<h2 id="enlaces">Enlaces</h2>
               
             </div>
           </div>
@@ -132,7 +168,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../active-directory/instalar-modulo/" class="btn btn-neutral float-right" title="Instalación del modulo">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../variables/" class="btn btn-neutral float-right" title="Variables">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../.." class="btn btn-neutral" title="Inicio"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -166,7 +202,7 @@
         <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../active-directory/instalar-modulo/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../variables/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
