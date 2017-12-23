@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Variables - PSFabrik</title>
+  <title>Arrays - PSFabrik</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Variables";
-    var mkdocs_page_input_path = "sintaxis\\variables.md";
-    var mkdocs_page_url = "/sintaxis/variables/";
+    var mkdocs_page_name = "Arrays";
+    var mkdocs_page_input_path = "sintaxis\\array.md";
+    var mkdocs_page_url = "/sintaxis/array/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -56,29 +56,35 @@
 		
     <span class="caption-text">Sintaxis</span>
     <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../foreach/">Foreach</a>
-                </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Variables</a>
+    <a class="current" href="./">Arrays</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#arrays">Arrays</a></li>
+    <li class="toctree-l3"><a href="#creando-un-array">Creando un array</a></li>
     
-        <ul>
-        
-            <li><a class="toctree-l4" href="#creando-un-array">Creando un array</a></li>
-        
-            <li><a class="toctree-l4" href="#arrays-asociativos-o-hashtable">Arrays Asociativos o Hashtable</a></li>
-        
-            <li><a class="toctree-l4" href="#recursos-arrays">Recursos arrays</a></li>
-        
-        </ul>
+
+    <li class="toctree-l3"><a href="#anadir-valores-a-un-array">Añadir valores a un array</a></li>
+    
+
+    <li class="toctree-l3"><a href="#obtener-elementos-de-un-array">Obtener elementos de un array</a></li>
+    
+
+    <li class="toctree-l3"><a href="#arrays-asociativos-o-hashtable">Arrays Asociativos o Hashtable</a></li>
+    
+
+    <li class="toctree-l3"><a href="#recursos-arrays">Recursos arrays</a></li>
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../for/">For</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../foreach/">Foreach</a>
                 </li>
     </ul>
 	    </li>
@@ -125,10 +131,10 @@
         
       
     
-    <li>Variables</li>
+    <li>Arrays</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/sintaxis/variables.md"
+        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/sintaxis/array.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -138,19 +144,10 @@
           <div role="main">
             <div class="section">
               
-                <ul>
-<li><a href="#arrays">Arrays</a><ul>
-<li><a href="#creando-un-array">Creando un array</a></li>
-<li><a href="#arrays-asociativos-o-hashtable">Arrays Asociativos o Hashtable</a></li>
-<li><a href="#recursos-arrays">Recursos arrays</a></li>
-</ul>
-</li>
-</ul>
-<h1 id="arrays">Arrays</h1>
-<p>Un array contiene una lista de elementos de datos. Una diferencia frente a otros lenguajes de programación es que los elementos del array no tienen porque ser del mismo tipo a no ser que se defina el tipo de datos que alberga de forma explicita (strongly typed).</p>
+                <p>Un array contiene una lista de elementos de datos. Una diferencia frente a otros lenguajes de programación es que los elementos del array no tienen porque ser del mismo tipo a no ser que se defina el tipo de datos que alberga de forma explicita (<em>strongly typed</em>).</p>
 <h2 id="creando-un-array">Creando un array</h2>
 <p><strong>Fuente:</strong> <a href="../../src/sintaxis/variables/arrays/array.ps1">array.ps1</a></p>
-<p>Para crear un array definimos cada elemento separado por ",".</p>
+<p>Para crear un array definimos cada elemento separado por <code>,</code>.</p>
 <pre><code class="powershell">$myArray = 1,&quot;Hola&quot;,3.5,&quot;Mundo&quot;
 $myArray    
 </code></pre>
@@ -159,6 +156,7 @@ $myArray
 <pre><code class="powershell">$myArray = @(1,&quot;Hola&quot;,3.5,&quot;Mundo&quot;)
 </code></pre>
 
+<p>Podemos el valor de un elemento determinado por su posición <code>$myArray[1]</code> contiene la cadena "Hola" (<strong>la primera posición de un array es la 0</strong>).</p>
 <p>Para distribuir los elementos en variables individuales:</p>
 <pre><code class="powershell">$var1,$var2,$var3 = $myArray
 </code></pre>
@@ -168,6 +166,7 @@ $myArray
 $myArray = (1..7)
 </code></pre>
 
+<p>Para obtener el número de elementos usamos el miembro del objeto array length: <code>$myArray.length</code>. </p>
 <p>También podemos crear arrays multidimensionales, por ejemplo un array de 2x3:</p>
 <pre><code class="powershell">$myMultiArray = @(
     (1,2,3),
@@ -175,7 +174,16 @@ $myArray = (1..7)
 )
 </code></pre>
 
-<p><strong>Añadir valores al array</strong>: Usamos el operador <code>+=</code>.</p>
+<h2 id="anadir-valores-a-un-array">Añadir valores a un array</h2>
+<p>Para añadir nuevos valores al array** usamos el operador <code>+=</code>.</p>
+<pre><code class="powershell">$myArray += 12
+$countries += 'Hola'
+</code></pre>
+
+<h2 id="obtener-elementos-de-un-array">Obtener elementos de un array</h2>
+<p><code>$myArray</code>: Retorna todos los elementos del array, arriba ya hemos visto como acceder a elementos individuales por su posición.</p>
+<p>Para obtener un rango de elementos usamos por ejemplo <code>$myArray[4..6]</code> para obtener los valores comprendidos entre la posición 4 y la 6.</p>
+<p>Para </p>
 <h2 id="arrays-asociativos-o-hashtable">Arrays Asociativos o Hashtable</h2>
 <pre><code class="powershell">$myHashtable = @{ Key1 = &quot;Value1&quot;; &quot;Key 2&quot; = 1,2,3 }
 </code></pre>
@@ -191,10 +199,10 @@ $myArray = (1..7)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../active-directory/instalar-modulo/" class="btn btn-neutral float-right" title="Instalación del modulo">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../for/" class="btn btn-neutral float-right" title="For">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../foreach/" class="btn btn-neutral" title="Foreach"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../.." class="btn btn-neutral" title="Inicio"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -222,10 +230,10 @@ $myArray = (1..7)
           <a href="https://github.com/ikerlandajuela/PowerShell/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../foreach/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../active-directory/instalar-modulo/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../for/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
