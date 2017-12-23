@@ -33,4 +33,5 @@ $myMultiArray = @(
 "Accedemos por su posición fila x columna a un array de 2 dimensiones"
 $myMultiArray[0][1]
 
-
+# Forma alternativa para añadir valores
+#$myArray.SetValue(64,4)

@@ -1,0 +1,2 @@
+$myArray = Get-Process
+$myArray

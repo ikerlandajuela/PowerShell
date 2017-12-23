@@ -65,7 +65,13 @@
     <a class="current" href="./">For</a>
     <ul class="subnav">
             
+    <li class="toctree-l3"><a href="#for-basico">For básico</a></li>
+    
+
     <li class="toctree-l3"><a href="#bucle-for-con-arrays">Bucle For con Arrays</a></li>
+    
+
+    <li class="toctree-l3"><a href="#recursos">Recursos</a></li>
     
 
     </ul>
@@ -132,18 +138,51 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="bucle-for-con-arrays">Bucle For con Arrays</h1>
-<pre><code class="powershell">$array = @(&quot;test1&quot;, &quot;test2&quot;, &quot;test3&quot;)
-for ($i=0; $i -lt $array.length; $i++) {
-    $array[$i]
+                <p>Los bucles <code>for</code> ejecutan un bloque de comandos n veces basándose en una condición de parada.</p>
+<p>Sintaxis:</p>
+<pre><code>for (init; condition; repeat) 
+{
+    # command_block
+    # ...
 }
 </code></pre>
 
-<pre><code class="powershell">$array = (&quot;test1&quot;, &quot;test2&quot;, &quot;test3&quot;)
-$array |foreach {
-    $_
+<p><em>init</em> se usa normalmente para inicializar una variable a un valor para usarla dentro del bucle como contador de iteraciones, <em>condition</em> suele tener la condición de parada del bucle y <em>repeat</em> contiene comandos, normalmente cuando se usa como contador contendrá como se incrementa la variable inicializada en <em>init</em> como en este primer ejemplo. </p>
+<h1 id="for-basico">For básico</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/bucles/for/for_basico.ps1">array.ps1</a></p>
+<p>La variable <code>$i</code> se inicializa con el valor 1, mientrás <code>$i</code> sea menor o igual que 10 (ver <a href="https://ss64.com/ps/syntax-compare.html">comparison operators</a> su valor se incrementará y ejecutará el bloque de comandos entre llaves. </p>
+<pre><code class="powershell">PS&gt; for($i=1; $i -le 10; $i++){$i} 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</code></pre>
+
+<h1 id="bucle-for-con-arrays">Bucle For con Arrays</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/bucles/for/for_array.ps1.ps1">for_array.ps1</a></p>
+<p>Probablemente tiene más sentido recorrer un array usando <a href="#sintaxis/foreach.md">ForEach</a> pero es muy común hacerlo también con contador para recorrer cada elemento del array conociendo su longitud:</p>
+<pre><code class="powershell">$myarray = @(&quot;test1&quot;, &quot;test2&quot;, &quot;test3&quot;)
+for ($i=0; $i -lt $myarray.length; $i++) 
+{
+    $myarray[$i]
 }
 </code></pre>
+
+<p>Algo más avanzando es hacerlo con una tubería (<em>pipe</em>).</p>
+<pre><code class="powershell">$myarray |foreach { $_ }
+</code></pre>
+
+<h1 id="recursos">Recursos</h1>
+<ul>
+<li><a href="https://ss64.com/ps/for.html">https://ss64.com/ps/for.html</a>.</li>
+<li>[comparison operators](https://ss64.com/ps/syntax-compare.html.</li>
+</ul>
               
             </div>
           </div>
