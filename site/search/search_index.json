@@ -6,6 +6,66 @@
             "title": "Inicio"
         }, 
         {
+            "location": "/sintaxis/array/", 
+            "text": "Un array contiene una lista de elementos de datos. Una diferencia frente a otros lenguajes de programaci\u00f3n es que los elementos del array no tienen porque ser del mismo tipo a no ser que se defina el tipo de datos que alberga de forma explicita (\nstrongly typed\n).\n\n\nCreando un array\n\n\nFuente:\n \narray.ps1\n\n\nPara crear un array definimos cada elemento separado por \n,\n.\n\n\n$myArray = 1,\nHola\n,3.5,\nMundo\n\n$myArray    \n\n\n\n\nO usando la sintaxis explicita:\n\n\n$myArray = @(1,\nHola\n,3.5,\nMundo\n)\n\n\n\n\nPodemos el valor de un elemento determinado por su posici\u00f3n \n$myArray[1]\n contiene la cadena \"Hola\" (\nla primera posici\u00f3n de un array es la 0\n).\n\n\nPara distribuir los elementos en variables individuales:\n\n\n$var1,$var2,$var3 = $myArray\n\n\n\n\nCon un array de enteros (int) podemos usar el operador de rango para crear una secuencia de n\u00fameros ordenada\n\n\n$myArray = 1,2,3,4,5,6,7\n$myArray = (1..7)\n\n\n\n\nPara obtener el n\u00famero de elementos usamos el miembro del objeto array length: \n$myArray.length\n. \n\n\nTambi\u00e9n podemos crear arrays multidimensionales, por ejemplo un array de 2x3:\n\n\n$myMultiArray = @(\n    (1,2,3),\n    (40,50,60)\n)\n\n\n\n\nA\u00f1adir valores a un array\n\n\nPara a\u00f1adir nuevos valores al array** usamos el operador \n+=\n.\n\n\n$myArray += 12\n$countries += 'Hola'\n\n\n\n\nObtener elementos de un array\n\n\n$myArray\n: Retorna todos los elementos del array, arriba ya hemos visto como acceder a elementos individuales por su posici\u00f3n.\n\n\nPara obtener un rango de elementos usamos por ejemplo \n$myArray[4..6]\n para obtener los valores comprendidos entre la posici\u00f3n 4 y la 6.\n\n\nPara \n\n\nArrays Asociativos o Hashtable\n\n\n$myHashtable = @{ Key1 = \nValue1\n; \nKey 2\n = 1,2,3 }\n\n\n\n\nArrays de objetos\n\n\nFuente:\n \narray_objects.ps1\n\n\nCuando se crea un array sin especificar el tipo de datos que alberga PS crea el array como un array de objetos. Nosotros tambi\u00e9n podemos crear un array de objetos usando el cmdlet \nNew-Object\n.\n\n\n# Creamos un array de objetos de tipo string\n$myArray = New-Object string[] 10\n$myArray[5] = \nHola\n \n# Permite hacer esto\n$myArray[1] = 12\n\n$myArray\n\n$myArray.gettype()\n\n\n\n\nFuente:\n \narray_obj_strong_typed.ps1\n\n\nSi queremos crear un array cuyo tipo de dato base sea inmutable podemos usar la siguiente sintaxis:\n\n\n$myList = New-Object Collections.Generic.List[Int]\n$myList.Add(10)\n# Esto produce error\n$myList.Add(\nHola\n)\n\n\n\n\nFuente:\n \narray_get_process.ps1\n\n\nPara almacenar la salida de un comando que genera una lista (\nGet-Process\n) usamos la una asignaci\u00f3n a una varible, el siguiente ejemplo muestra todos los procesos corriendo un nuestro ordenador.\n\n\n$myArray = Get-Process\n$myArray\n\n\n\n\nArray de objetos creados a medida\n\n\nFuente:\n \narray_custom_obj.ps1\n\n\nPowerShell a pesar de ser un lenguaje interpretado demuestra ser muy avanzando ya que permite crear objetos a medida y jugar con ellos en un array.\n\n\n# Creamos un objeto propio\n$myObject = New-Object System.Object\n\n# A\u00f1adimos nuestras propiedades al objeto\n$myObject | Add-Member -type NoteProperty -name Name -Value \nIker_PC\n\n$myObject | Add-Member -type NoteProperty -name Manufacturer -Value \nDell\n\n$myObject | Add-Member -type NoteProperty -name ProcessorSpeed -Value \n3 Ghz\n\n$myObject | Add-Member -type NoteProperty -name Memory -Value \n6 GB\n\n\n$myObject\n\n\nMemory is: \n+$myObject.Memory\n\nif ( (Test-Connection $myObject.Name -quiet) -eq $false)\n{\n    $myObject.Name + \n ICMP echo request error\n\n}\nelse \n{\n    $myObject.Name + \n ICMP echo request ok\n\n}\n\n# Modificamos una propiedad de un objeto\n$myObject.Manufacturer = \nHP\n\n$myObject\n\n\n\n\nAhora creamos un nuevo objeto y a\u00f1adimos ambos a un array:\n\n\n# Creamos un array vacio\n$myArray = @()\n$myArray += $myObject\n\n#Definimos un nuevo objeto\n$myObject2 = New-Object System.Object\n$myObject2 | Add-Member -type NoteProperty -name Name -Value \nAsier_PC\n\n$myObject2 | Add-Member -type NoteProperty -name Manufacturer -Value \nAcer\n\n$myObject2 | Add-Member -type NoteProperty -name ProcessorSpeed -Value \n3 Ghz\n\n$myObject2 | Add-Member -type NoteProperty -name Memory -Value \n4 GB\n\n\n$myArray += $myObject2\n\n$myArray | Select-Object name\n\n\n\n\nRecursos arrays\n\n\n\n\nhttps://ss64.com/ps/syntax-arrays.html\n\n\nGet-Blog : Ryan\u2019s PowerShell Blog \nCreating an Array of Custom Objects in Powershell\n.\n\n\nNew-Object\n.\n\n\nWindows PowerShell Cookbook by Lee Holmes\n.\n\n\nUsing the Get-Process Cmdlet\n.\n\n\nGet-Process\n.\n\n\nTest-Connection\n: Sends ICMP echo request packets (\"pings\") to one or more computers.", 
+            "title": "Arrays"
+        }, 
+        {
+            "location": "/sintaxis/array/#creando-un-array", 
+            "text": "Fuente:   array.ps1  Para crear un array definimos cada elemento separado por  , .  $myArray = 1, Hola ,3.5, Mundo \n$myArray      O usando la sintaxis explicita:  $myArray = @(1, Hola ,3.5, Mundo )  Podemos el valor de un elemento determinado por su posici\u00f3n  $myArray[1]  contiene la cadena \"Hola\" ( la primera posici\u00f3n de un array es la 0 ).  Para distribuir los elementos en variables individuales:  $var1,$var2,$var3 = $myArray  Con un array de enteros (int) podemos usar el operador de rango para crear una secuencia de n\u00fameros ordenada  $myArray = 1,2,3,4,5,6,7\n$myArray = (1..7)  Para obtener el n\u00famero de elementos usamos el miembro del objeto array length:  $myArray.length .   Tambi\u00e9n podemos crear arrays multidimensionales, por ejemplo un array de 2x3:  $myMultiArray = @(\n    (1,2,3),\n    (40,50,60)\n)", 
+            "title": "Creando un array"
+        }, 
+        {
+            "location": "/sintaxis/array/#anadir-valores-a-un-array", 
+            "text": "Para a\u00f1adir nuevos valores al array** usamos el operador  += .  $myArray += 12\n$countries += 'Hola'", 
+            "title": "A\u00f1adir valores a un array"
+        }, 
+        {
+            "location": "/sintaxis/array/#obtener-elementos-de-un-array", 
+            "text": "$myArray : Retorna todos los elementos del array, arriba ya hemos visto como acceder a elementos individuales por su posici\u00f3n.  Para obtener un rango de elementos usamos por ejemplo  $myArray[4..6]  para obtener los valores comprendidos entre la posici\u00f3n 4 y la 6.  Para", 
+            "title": "Obtener elementos de un array"
+        }, 
+        {
+            "location": "/sintaxis/array/#arrays-asociativos-o-hashtable", 
+            "text": "$myHashtable = @{ Key1 =  Value1 ;  Key 2  = 1,2,3 }", 
+            "title": "Arrays Asociativos o Hashtable"
+        }, 
+        {
+            "location": "/sintaxis/array/#arrays-de-objetos", 
+            "text": "Fuente:   array_objects.ps1  Cuando se crea un array sin especificar el tipo de datos que alberga PS crea el array como un array de objetos. Nosotros tambi\u00e9n podemos crear un array de objetos usando el cmdlet  New-Object .  # Creamos un array de objetos de tipo string\n$myArray = New-Object string[] 10\n$myArray[5] =  Hola  \n# Permite hacer esto\n$myArray[1] = 12\n\n$myArray\n\n$myArray.gettype()  Fuente:   array_obj_strong_typed.ps1  Si queremos crear un array cuyo tipo de dato base sea inmutable podemos usar la siguiente sintaxis:  $myList = New-Object Collections.Generic.List[Int]\n$myList.Add(10)\n# Esto produce error\n$myList.Add( Hola )  Fuente:   array_get_process.ps1  Para almacenar la salida de un comando que genera una lista ( Get-Process ) usamos la una asignaci\u00f3n a una varible, el siguiente ejemplo muestra todos los procesos corriendo un nuestro ordenador.  $myArray = Get-Process\n$myArray", 
+            "title": "Arrays de objetos"
+        }, 
+        {
+            "location": "/sintaxis/array/#array-de-objetos-creados-a-medida", 
+            "text": "Fuente:   array_custom_obj.ps1  PowerShell a pesar de ser un lenguaje interpretado demuestra ser muy avanzando ya que permite crear objetos a medida y jugar con ellos en un array.  # Creamos un objeto propio\n$myObject = New-Object System.Object\n\n# A\u00f1adimos nuestras propiedades al objeto\n$myObject | Add-Member -type NoteProperty -name Name -Value  Iker_PC \n$myObject | Add-Member -type NoteProperty -name Manufacturer -Value  Dell \n$myObject | Add-Member -type NoteProperty -name ProcessorSpeed -Value  3 Ghz \n$myObject | Add-Member -type NoteProperty -name Memory -Value  6 GB \n\n$myObject Memory is:  +$myObject.Memory\n\nif ( (Test-Connection $myObject.Name -quiet) -eq $false)\n{\n    $myObject.Name +   ICMP echo request error \n}\nelse \n{\n    $myObject.Name +   ICMP echo request ok \n}\n\n# Modificamos una propiedad de un objeto\n$myObject.Manufacturer =  HP \n$myObject  Ahora creamos un nuevo objeto y a\u00f1adimos ambos a un array:  # Creamos un array vacio\n$myArray = @()\n$myArray += $myObject\n\n#Definimos un nuevo objeto\n$myObject2 = New-Object System.Object\n$myObject2 | Add-Member -type NoteProperty -name Name -Value  Asier_PC \n$myObject2 | Add-Member -type NoteProperty -name Manufacturer -Value  Acer \n$myObject2 | Add-Member -type NoteProperty -name ProcessorSpeed -Value  3 Ghz \n$myObject2 | Add-Member -type NoteProperty -name Memory -Value  4 GB \n\n$myArray += $myObject2\n\n$myArray | Select-Object name", 
+            "title": "Array de objetos creados a medida"
+        }, 
+        {
+            "location": "/sintaxis/array/#recursos-arrays", 
+            "text": "https://ss64.com/ps/syntax-arrays.html  Get-Blog : Ryan\u2019s PowerShell Blog  Creating an Array of Custom Objects in Powershell .  New-Object .  Windows PowerShell Cookbook by Lee Holmes .  Using the Get-Process Cmdlet .  Get-Process .  Test-Connection : Sends ICMP echo request packets (\"pings\") to one or more computers.", 
+            "title": "Recursos arrays"
+        }, 
+        {
+            "location": "/sintaxis/for/", 
+            "text": "Los bucles \nfor\n ejecutan un bloque de comandos n veces bas\u00e1ndose en una condici\u00f3n de parada.\n\n\nSintaxis:\n\n\nfor (init; condition; repeat) \n{\n    # command_block\n    # ...\n}\n\n\n\n\ninit\n se usa normalmente para inicializar una variable a un valor para usarla dentro del bucle como contador de iteraciones, \ncondition\n suele tener la condici\u00f3n de parada del bucle y \nrepeat\n contiene comandos, normalmente cuando se usa como contador contendr\u00e1 como se incrementa la variable inicializada en \ninit\n como en este primer ejemplo. \n\n\nFor b\u00e1sico\n\n\nFuente:\n \narray.ps1\n\n\nLa variable \n$i\n se inicializa con el valor 1, mientr\u00e1s \n$i\n sea menor o igual que 10 (ver \ncomparison operators\n su valor se incrementar\u00e1 y ejecutar\u00e1 el bloque de comandos entre llaves. \n\n\nPS\n for($i=1; $i -le 10; $i++){$i} \n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n\n\n\n\nBucle For con Arrays\n\n\nFuente:\n \nfor_array.ps1\n\n\nProbablemente tiene m\u00e1s sentido recorrer un array usando \nForEach\n pero es muy com\u00fan hacerlo tambi\u00e9n con contador para recorrer cada elemento del array conociendo su longitud:\n\n\n$myarray = @(\ntest1\n, \ntest2\n, \ntest3\n)\nfor ($i=0; $i -lt $myarray.length; $i++) \n{\n    $myarray[$i]\n}\n\n\n\n\nAlgo m\u00e1s avanzando es hacerlo con una tuber\u00eda (\npipe\n).\n\n\n$myarray |foreach { $_ }\n\n\n\n\nRecursos\n\n\n\n\nhttps://ss64.com/ps/for.html\n.\n\n\n[comparison operators](https://ss64.com/ps/syntax-compare.html.", 
+            "title": "For"
+        }, 
+        {
+            "location": "/sintaxis/for/#for-basico", 
+            "text": "Fuente:   array.ps1  La variable  $i  se inicializa con el valor 1, mientr\u00e1s  $i  sea menor o igual que 10 (ver  comparison operators  su valor se incrementar\u00e1 y ejecutar\u00e1 el bloque de comandos entre llaves.   PS  for($i=1; $i -le 10; $i++){$i} \n1\n2\n3\n4\n5\n6\n7\n8\n9\n10", 
+            "title": "For b\u00e1sico"
+        }, 
+        {
+            "location": "/sintaxis/for/#bucle-for-con-arrays", 
+            "text": "Fuente:   for_array.ps1  Probablemente tiene m\u00e1s sentido recorrer un array usando  ForEach  pero es muy com\u00fan hacerlo tambi\u00e9n con contador para recorrer cada elemento del array conociendo su longitud:  $myarray = @( test1 ,  test2 ,  test3 )\nfor ($i=0; $i -lt $myarray.length; $i++) \n{\n    $myarray[$i]\n}  Algo m\u00e1s avanzando es hacerlo con una tuber\u00eda ( pipe ).  $myarray |foreach { $_ }", 
+            "title": "Bucle For con Arrays"
+        }, 
+        {
+            "location": "/sintaxis/for/#recursos", 
+            "text": "https://ss64.com/ps/for.html .  [comparison operators](https://ss64.com/ps/syntax-compare.html.", 
+            "title": "Recursos"
+        }, 
+        {
             "location": "/sintaxis/foreach/", 
             "text": "ForEach con arrays\n\n\n\n\nForEach\n permite crear bucles que ejecutan una serie de rutinas de forma iterativa.\n\n\nSintaxis:\n\n\nForEach (item In collection) {ScriptBlock}\n\n\n\n\nRecorre una colecci\u00f3n de elementos y en cada iteraci\u00f3n nos proporciona el siguiente elemento (item) de la colecci\u00f3n (collection).\n\n\nForEach con arrays\n\n\nforeach_array.ps1\n\n\nDeclaramos tres variables que contienen n\u00fameros enteros:\n\n\n$a = 1 \n$b = 2\n$c = 3\n\n\n\n\nCon las tres variables componemos un array:\n\n\n$d = $a,$b,$c\n\n\n\n\nEn el caso de arrays de enteros podemos usar el operador de rango para crear una secuencia ordenada de n\u00fameros, para el ejemplo superior hubiese sido equivalente crearlo as\u00ed:\n\n\n$d = 1..3\n\n\n\n\nPodemos acceder a cada elemento del array \n\n\nEnlaces", 
             "title": "Foreach"
@@ -19,31 +79,6 @@
             "location": "/sintaxis/foreach/#enlaces", 
             "text": "", 
             "title": "Enlaces"
-        }, 
-        {
-            "location": "/sintaxis/variables/", 
-            "text": "Arrays\n\n\nCreando un array\n\n\nArrays Asociativos o Hashtable\n\n\nRecursos arrays\n\n\n\n\n\n\n\n\nArrays\n\n\nUn array contiene una lista de elementos de datos. Una diferencia frente a otros lenguajes de programaci\u00f3n es que los elementos del array no tienen porque ser del mismo tipo a no ser que se defina el tipo de datos que alberga de forma explicita (strongly typed).\n\n\nCreando un array\n\n\nFuente:\n \narray.ps1\n\n\nPara crear un array definimos cada elemento separado por \",\".\n\n\n$myArray = 1,\nHola\n,3.5,\nMundo\n\n$myArray    \n\n\n\n\nO usando la sintaxis explicita:\n\n\n$myArray = @(1,\nHola\n,3.5,\nMundo\n)\n\n\n\n\nPara distribuir los elementos en variables individuales:\n\n\n$var1,$var2,$var3 = $myArray\n\n\n\n\nCon un array de enteros (int) podemos usar el operador de rango para crear una secuencia de n\u00fameros ordenada\n\n\n$myArray = 1,2,3,4,5,6,7\n$myArray = (1..7)\n\n\n\n\nTambi\u00e9n podemos crear arrays multidimensionales, por ejemplo un array de 2x3:\n\n\n$myMultiArray = @(\n    (1,2,3),\n    (40,50,60)\n)\n\n\n\n\nA\u00f1adir valores al array\n: Usamos el operador \n+=\n.\n\n\nArrays Asociativos o Hashtable\n\n\n$myHashtable = @{ Key1 = \nValue1\n; \nKey 2\n = 1,2,3 }\n\n\n\n\nRecursos arrays\n\n\n\n\nhttps://ss64.com/ps/syntax-arrays.html", 
-            "title": "Variables"
-        }, 
-        {
-            "location": "/sintaxis/variables/#arrays", 
-            "text": "Un array contiene una lista de elementos de datos. Una diferencia frente a otros lenguajes de programaci\u00f3n es que los elementos del array no tienen porque ser del mismo tipo a no ser que se defina el tipo de datos que alberga de forma explicita (strongly typed).", 
-            "title": "Arrays"
-        }, 
-        {
-            "location": "/sintaxis/variables/#creando-un-array", 
-            "text": "Fuente:   array.ps1  Para crear un array definimos cada elemento separado por \",\".  $myArray = 1, Hola ,3.5, Mundo \n$myArray      O usando la sintaxis explicita:  $myArray = @(1, Hola ,3.5, Mundo )  Para distribuir los elementos en variables individuales:  $var1,$var2,$var3 = $myArray  Con un array de enteros (int) podemos usar el operador de rango para crear una secuencia de n\u00fameros ordenada  $myArray = 1,2,3,4,5,6,7\n$myArray = (1..7)  Tambi\u00e9n podemos crear arrays multidimensionales, por ejemplo un array de 2x3:  $myMultiArray = @(\n    (1,2,3),\n    (40,50,60)\n)  A\u00f1adir valores al array : Usamos el operador  += .", 
-            "title": "Creando un array"
-        }, 
-        {
-            "location": "/sintaxis/variables/#arrays-asociativos-o-hashtable", 
-            "text": "$myHashtable = @{ Key1 =  Value1 ;  Key 2  = 1,2,3 }", 
-            "title": "Arrays Asociativos o Hashtable"
-        }, 
-        {
-            "location": "/sintaxis/variables/#recursos-arrays", 
-            "text": "https://ss64.com/ps/syntax-arrays.html", 
-            "title": "Recursos arrays"
         }, 
         {
             "location": "/active-directory/instalar-modulo/", 
@@ -62,13 +97,23 @@
         }, 
         {
             "location": "/recursos/", 
-            "text": "Libros\n\n\n\n\n\n\nGitBook \ndevops-collective-inc\n: A US 501(c)(3) nonprofit dedicated to DevOps and automation education.\n\n\n\n\nThe Big Book of PowerShell Gotchas\n: PowerShell is full of \"gotchas\" - little things that just get in your way and are hard to figure out on your own. This short book is intended to help you figure them out and avoid them.\n\n\nCreating HTML Reports in PowerShell\n: Create beautiful, colorful, multi-section HTML reports from PowerShell - with very little knowledge of CSS or HTML needed!.\n\n\n\n\n\n\n\n\nhttp://ramblingcookiemonster.github.io/Pages/PowerShellResources/index.html\n.", 
+            "text": "Libros\n\n\n\n\nGitBook \ndevops-collective-inc\n: A US 501(c)(3) nonprofit dedicated to DevOps and automation education.\n\n\nThe Big Book of PowerShell Gotchas\n: PowerShell is full of \"gotchas\" - little things that just get in your way and are hard to figure out on your own. This short book is intended to help you figure them out and avoid them.\n\n\nCreating HTML Reports in PowerShell\n: Create beautiful, colorful, multi-section HTML reports from PowerShell - with very little knowledge of CSS or HTML needed!.    \n\n\n\n\n\n\nhttp://ramblingcookiemonster.github.io/Pages/PowerShellResources/index.html\n.\n\n\n\n\nCmdlets\n\n\n\n\nWindows PowerShell Cookbook\n: The following applies to example files from material published by O\u2019Reilly Media, Inc. \n\n\nCmdlet Samples\n: This section describes sample code that is provided in the Windows PowerShell 2.0 SDK.\n\n\nA Task-Based Guide to Windows PowerShell Cmdlets\n: Cmdlets are the heart-and-soul of Windows PowerShell, Microsoft's latest command shell/scripting language. \n\n\n\n\nWebs", 
             "title": "Recursos"
         }, 
         {
             "location": "/recursos/#libros", 
-            "text": "GitBook  devops-collective-inc : A US 501(c)(3) nonprofit dedicated to DevOps and automation education.   The Big Book of PowerShell Gotchas : PowerShell is full of \"gotchas\" - little things that just get in your way and are hard to figure out on your own. This short book is intended to help you figure them out and avoid them.  Creating HTML Reports in PowerShell : Create beautiful, colorful, multi-section HTML reports from PowerShell - with very little knowledge of CSS or HTML needed!.     http://ramblingcookiemonster.github.io/Pages/PowerShellResources/index.html .", 
+            "text": "GitBook  devops-collective-inc : A US 501(c)(3) nonprofit dedicated to DevOps and automation education.  The Big Book of PowerShell Gotchas : PowerShell is full of \"gotchas\" - little things that just get in your way and are hard to figure out on your own. This short book is intended to help you figure them out and avoid them.  Creating HTML Reports in PowerShell : Create beautiful, colorful, multi-section HTML reports from PowerShell - with very little knowledge of CSS or HTML needed!.        http://ramblingcookiemonster.github.io/Pages/PowerShellResources/index.html .", 
             "title": "Libros"
+        }, 
+        {
+            "location": "/recursos/#cmdlets", 
+            "text": "Windows PowerShell Cookbook : The following applies to example files from material published by O\u2019Reilly Media, Inc.   Cmdlet Samples : This section describes sample code that is provided in the Windows PowerShell 2.0 SDK.  A Task-Based Guide to Windows PowerShell Cmdlets : Cmdlets are the heart-and-soul of Windows PowerShell, Microsoft's latest command shell/scripting language.", 
+            "title": "Cmdlets"
+        }, 
+        {
+            "location": "/recursos/#webs", 
+            "text": "", 
+            "title": "Webs"
         }
     ]
 }

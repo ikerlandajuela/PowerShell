@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Variables - PSFabrik</title>
+  <title>For - PSFabrik</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Variables";
-    var mkdocs_page_input_path = "sintaxis\\variables.md";
-    var mkdocs_page_url = "/sintaxis/variables/";
+    var mkdocs_page_name = "For";
+    var mkdocs_page_input_path = "sintaxis\\for.md";
+    var mkdocs_page_url = "/sintaxis/for/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -58,27 +58,27 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../foreach/">Foreach</a>
+    <a class="" href="../array/">Arrays</a>
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Variables</a>
+    <a class="current" href="./">For</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#arrays">Arrays</a></li>
+    <li class="toctree-l3"><a href="#for-basico">For básico</a></li>
     
-        <ul>
-        
-            <li><a class="toctree-l4" href="#creando-un-array">Creando un array</a></li>
-        
-            <li><a class="toctree-l4" href="#arrays-asociativos-o-hashtable">Arrays Asociativos o Hashtable</a></li>
-        
-            <li><a class="toctree-l4" href="#recursos-arrays">Recursos arrays</a></li>
-        
-        </ul>
+
+    <li class="toctree-l3"><a href="#bucle-for-con-arrays">Bucle For con Arrays</a></li>
+    
+
+    <li class="toctree-l3"><a href="#recursos">Recursos</a></li>
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../foreach/">Foreach</a>
                 </li>
     </ul>
 	    </li>
@@ -125,10 +125,10 @@
         
       
     
-    <li>Variables</li>
+    <li>For</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/sintaxis/variables.md"
+        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/sintaxis/for.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -138,51 +138,50 @@
           <div role="main">
             <div class="section">
               
-                <ul>
-<li><a href="#arrays">Arrays</a><ul>
-<li><a href="#creando-un-array">Creando un array</a></li>
-<li><a href="#arrays-asociativos-o-hashtable">Arrays Asociativos o Hashtable</a></li>
-<li><a href="#recursos-arrays">Recursos arrays</a></li>
-</ul>
-</li>
-</ul>
-<h1 id="arrays">Arrays</h1>
-<p>Un array contiene una lista de elementos de datos. Una diferencia frente a otros lenguajes de programación es que los elementos del array no tienen porque ser del mismo tipo a no ser que se defina el tipo de datos que alberga de forma explicita (strongly typed).</p>
-<h2 id="creando-un-array">Creando un array</h2>
-<p><strong>Fuente:</strong> <a href="../../src/sintaxis/variables/arrays/array.ps1">array.ps1</a></p>
-<p>Para crear un array definimos cada elemento separado por ",".</p>
-<pre><code class="powershell">$myArray = 1,&quot;Hola&quot;,3.5,&quot;Mundo&quot;
-$myArray    
+                <p>Los bucles <code>for</code> ejecutan un bloque de comandos n veces basándose en una condición de parada.</p>
+<p>Sintaxis:</p>
+<pre><code>for (init; condition; repeat) 
+{
+    # command_block
+    # ...
+}
 </code></pre>
 
-<p>O usando la sintaxis explicita:</p>
-<pre><code class="powershell">$myArray = @(1,&quot;Hola&quot;,3.5,&quot;Mundo&quot;)
+<p><em>init</em> se usa normalmente para inicializar una variable a un valor para usarla dentro del bucle como contador de iteraciones, <em>condition</em> suele tener la condición de parada del bucle y <em>repeat</em> contiene comandos, normalmente cuando se usa como contador contendrá como se incrementa la variable inicializada en <em>init</em> como en este primer ejemplo. </p>
+<h1 id="for-basico">For básico</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/bucles/for/for_basico.ps1">array.ps1</a></p>
+<p>La variable <code>$i</code> se inicializa con el valor 1, mientrás <code>$i</code> sea menor o igual que 10 (ver <a href="https://ss64.com/ps/syntax-compare.html">comparison operators</a> su valor se incrementará y ejecutará el bloque de comandos entre llaves. </p>
+<pre><code class="powershell">PS&gt; for($i=1; $i -le 10; $i++){$i} 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
 </code></pre>
 
-<p>Para distribuir los elementos en variables individuales:</p>
-<pre><code class="powershell">$var1,$var2,$var3 = $myArray
+<h1 id="bucle-for-con-arrays">Bucle For con Arrays</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/bucles/for/for_array.ps1.ps1">for_array.ps1</a></p>
+<p>Probablemente tiene más sentido recorrer un array usando <a href="#sintaxis/foreach.md">ForEach</a> pero es muy común hacerlo también con contador para recorrer cada elemento del array conociendo su longitud:</p>
+<pre><code class="powershell">$myarray = @(&quot;test1&quot;, &quot;test2&quot;, &quot;test3&quot;)
+for ($i=0; $i -lt $myarray.length; $i++) 
+{
+    $myarray[$i]
+}
 </code></pre>
 
-<p>Con un array de enteros (int) podemos usar el operador de rango para crear una secuencia de números ordenada</p>
-<pre><code class="powershell">$myArray = 1,2,3,4,5,6,7
-$myArray = (1..7)
+<p>Algo más avanzando es hacerlo con una tubería (<em>pipe</em>).</p>
+<pre><code class="powershell">$myarray |foreach { $_ }
 </code></pre>
 
-<p>También podemos crear arrays multidimensionales, por ejemplo un array de 2x3:</p>
-<pre><code class="powershell">$myMultiArray = @(
-    (1,2,3),
-    (40,50,60)
-)
-</code></pre>
-
-<p><strong>Añadir valores al array</strong>: Usamos el operador <code>+=</code>.</p>
-<h2 id="arrays-asociativos-o-hashtable">Arrays Asociativos o Hashtable</h2>
-<pre><code class="powershell">$myHashtable = @{ Key1 = &quot;Value1&quot;; &quot;Key 2&quot; = 1,2,3 }
-</code></pre>
-
-<h2 id="recursos-arrays">Recursos arrays</h2>
+<h1 id="recursos">Recursos</h1>
 <ul>
-<li><a href="https://ss64.com/ps/syntax-arrays.html">https://ss64.com/ps/syntax-arrays.html</a></li>
+<li><a href="https://ss64.com/ps/for.html">https://ss64.com/ps/for.html</a>.</li>
+<li>[comparison operators](https://ss64.com/ps/syntax-compare.html.</li>
 </ul>
               
             </div>
@@ -191,10 +190,10 @@ $myArray = (1..7)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../active-directory/instalar-modulo/" class="btn btn-neutral float-right" title="Instalación del modulo">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../foreach/" class="btn btn-neutral float-right" title="Foreach">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../foreach/" class="btn btn-neutral" title="Foreach"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../array/" class="btn btn-neutral" title="Arrays"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -222,10 +221,10 @@ $myArray = (1..7)
           <a href="https://github.com/ikerlandajuela/PowerShell/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../foreach/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../array/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../active-directory/instalar-modulo/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../foreach/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

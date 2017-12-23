@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Arrays - PSFabrik</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Arrays";
+    var mkdocs_page_input_path = "sintaxis\\array.md";
+    var mkdocs_page_url = "/sintaxis/array/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> PSFabrik</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Inicio</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Sintaxis</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Arrays</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#creando-un-array">Creando un array</a></li>
+    
+
+    <li class="toctree-l3"><a href="#anadir-valores-a-un-array">Añadir valores a un array</a></li>
+    
+
+    <li class="toctree-l3"><a href="#obtener-elementos-de-un-array">Obtener elementos de un array</a></li>
+    
+
+    <li class="toctree-l3"><a href="#arrays-asociativos-o-hashtable">Arrays Asociativos o Hashtable</a></li>
+    
+
+    <li class="toctree-l3"><a href="#arrays-de-objetos">Arrays de objetos</a></li>
+    
+
+    <li class="toctree-l3"><a href="#array-de-objetos-creados-a-medida">Array de objetos creados a medida</a></li>
+    
+
+    <li class="toctree-l3"><a href="#recursos-arrays">Recursos arrays</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../for/">For</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../foreach/">Foreach</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Active Directory</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../active-directory/instalar-modulo/">Instalación del modulo</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../recursos/">Recursos</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">PSFabrik</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Sintaxis &raquo;</li>
+        
+      
+    
+    <li>Arrays</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/sintaxis/array.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Un array contiene una lista de elementos de datos. Una diferencia frente a otros lenguajes de programación es que los elementos del array no tienen porque ser del mismo tipo a no ser que se defina el tipo de datos que alberga de forma explicita (<em>strongly typed</em>).</p>
+<h1 id="creando-un-array">Creando un array</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/variables/arrays/array.ps1">array.ps1</a></p>
+<p>Para crear un array definimos cada elemento separado por <code>,</code>.</p>
+<pre><code class="powershell">$myArray = 1,&quot;Hola&quot;,3.5,&quot;Mundo&quot;
+$myArray    
+</code></pre>
+
+<p>O usando la sintaxis explicita:</p>
+<pre><code class="powershell">$myArray = @(1,&quot;Hola&quot;,3.5,&quot;Mundo&quot;)
+</code></pre>
+
+<p>Podemos el valor de un elemento determinado por su posición <code>$myArray[1]</code> contiene la cadena "Hola" (<strong>la primera posición de un array es la 0</strong>).</p>
+<p>Para distribuir los elementos en variables individuales:</p>
+<pre><code class="powershell">$var1,$var2,$var3 = $myArray
+</code></pre>
+
+<p>Con un array de enteros (int) podemos usar el operador de rango para crear una secuencia de números ordenada</p>
+<pre><code class="powershell">$myArray = 1,2,3,4,5,6,7
+$myArray = (1..7)
+</code></pre>
+
+<p>Para obtener el número de elementos usamos el miembro del objeto array length: <code>$myArray.length</code>. </p>
+<p>También podemos crear arrays multidimensionales, por ejemplo un array de 2x3:</p>
+<pre><code class="powershell">$myMultiArray = @(
+    (1,2,3),
+    (40,50,60)
+)
+</code></pre>
+
+<h1 id="anadir-valores-a-un-array">Añadir valores a un array</h1>
+<p>Para añadir nuevos valores al array** usamos el operador <code>+=</code>.</p>
+<pre><code class="powershell">$myArray += 12
+$countries += 'Hola'
+</code></pre>
+
+<h1 id="obtener-elementos-de-un-array">Obtener elementos de un array</h1>
+<p><code>$myArray</code>: Retorna todos los elementos del array, arriba ya hemos visto como acceder a elementos individuales por su posición.</p>
+<p>Para obtener un rango de elementos usamos por ejemplo <code>$myArray[4..6]</code> para obtener los valores comprendidos entre la posición 4 y la 6.</p>
+<p>Para </p>
+<h1 id="arrays-asociativos-o-hashtable">Arrays Asociativos o Hashtable</h1>
+<pre><code class="powershell">$myHashtable = @{ Key1 = &quot;Value1&quot;; &quot;Key 2&quot; = 1,2,3 }
+</code></pre>
+
+<h1 id="arrays-de-objetos">Arrays de objetos</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/variables/arrays/array_objects.ps1">array_objects.ps1</a></p>
+<p>Cuando se crea un array sin especificar el tipo de datos que alberga PS crea el array como un array de objetos. Nosotros también podemos crear un array de objetos usando el cmdlet <code>New-Object</code>.</p>
+<pre><code class="powershell"># Creamos un array de objetos de tipo string
+$myArray = New-Object string[] 10
+$myArray[5] = &quot;Hola&quot; 
+# Permite hacer esto
+$myArray[1] = 12
+
+$myArray
+
+$myArray.gettype()
+</code></pre>
+
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/variables/arrays/array_obj_strong_typed.ps1">array_obj_strong_typed.ps1</a></p>
+<p>Si queremos crear un array cuyo tipo de dato base sea inmutable podemos usar la siguiente sintaxis:</p>
+<pre><code class="powershell">$myList = New-Object Collections.Generic.List[Int]
+$myList.Add(10)
+# Esto produce error
+$myList.Add(&quot;Hola&quot;)
+</code></pre>
+
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/variables/arrays/array_get_process.ps1">array_get_process.ps1</a></p>
+<p>Para almacenar la salida de un comando que genera una lista (<a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-5.1">Get-Process</a>) usamos la una asignación a una varible, el siguiente ejemplo muestra todos los procesos corriendo un nuestro ordenador.</p>
+<pre><code class="powershell">$myArray = Get-Process
+$myArray
+</code></pre>
+
+<h1 id="array-de-objetos-creados-a-medida">Array de objetos creados a medida</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/variables/arrays/array_custom_obj.ps1">array_custom_obj.ps1</a></p>
+<p>PowerShell a pesar de ser un lenguaje interpretado demuestra ser muy avanzando ya que permite crear objetos a medida y jugar con ellos en un array.</p>
+<pre><code class="powershell"># Creamos un objeto propio
+$myObject = New-Object System.Object
+
+# Añadimos nuestras propiedades al objeto
+$myObject | Add-Member -type NoteProperty -name Name -Value &quot;Iker_PC&quot;
+$myObject | Add-Member -type NoteProperty -name Manufacturer -Value &quot;Dell&quot;
+$myObject | Add-Member -type NoteProperty -name ProcessorSpeed -Value &quot;3 Ghz&quot;
+$myObject | Add-Member -type NoteProperty -name Memory -Value &quot;6 GB&quot;
+
+$myObject
+
+&quot;Memory is: &quot;+$myObject.Memory
+
+if ( (Test-Connection $myObject.Name -quiet) -eq $false)
+{
+    $myObject.Name + &quot; ICMP echo request error&quot;
+}
+else 
+{
+    $myObject.Name + &quot; ICMP echo request ok&quot;
+}
+
+# Modificamos una propiedad de un objeto
+$myObject.Manufacturer = &quot;HP&quot;
+$myObject
+</code></pre>
+
+<p>Ahora creamos un nuevo objeto y añadimos ambos a un array:</p>
+<pre><code class="powershell"># Creamos un array vacio
+$myArray = @()
+$myArray += $myObject
+
+#Definimos un nuevo objeto
+$myObject2 = New-Object System.Object
+$myObject2 | Add-Member -type NoteProperty -name Name -Value &quot;Asier_PC&quot;
+$myObject2 | Add-Member -type NoteProperty -name Manufacturer -Value &quot;Acer&quot;
+$myObject2 | Add-Member -type NoteProperty -name ProcessorSpeed -Value &quot;3 Ghz&quot;
+$myObject2 | Add-Member -type NoteProperty -name Memory -Value &quot;4 GB&quot;
+
+$myArray += $myObject2
+
+$myArray | Select-Object name
+</code></pre>
+
+<h1 id="recursos-arrays">Recursos arrays</h1>
+<ul>
+<li><a href="https://ss64.com/ps/syntax-arrays.html">https://ss64.com/ps/syntax-arrays.html</a></li>
+<li>Get-Blog : Ryan’s PowerShell Blog <a href="http://www.get-blog.com/?p=82">Creating an Array of Custom Objects in Powershell</a>.</li>
+<li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/new-object?view=powershell-5.1">New-Object</a>.</li>
+<li><a href="https://www.safaribooksonline.com/library/view/windows-powershell-cookbook/9780596528492/ch11s02.html">Windows PowerShell Cookbook by Lee Holmes</a>.</li>
+<li><a href="https://technet.microsoft.com/es-es/library/ee176855.aspx">Using the Get-Process Cmdlet</a>.</li>
+<li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-5.1">Get-Process</a>.</li>
+<li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/test-connection?view=powershell-5.1">Test-Connection</a>: Sends ICMP echo request packets ("pings") to one or more computers.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../for/" class="btn btn-neutral float-right" title="For">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Inicio"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ikerlandajuela/PowerShell/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../for/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

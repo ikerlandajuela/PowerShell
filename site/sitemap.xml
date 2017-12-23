@@ -12,13 +12,19 @@
     
         
     <url>
-     <loc>/sintaxis/foreach/</loc>
+     <loc>/sintaxis/array/</loc>
      <lastmod>2017-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/sintaxis/variables/</loc>
+     <loc>/sintaxis/for/</loc>
+     <lastmod>2017-12-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/sintaxis/foreach/</loc>
      <lastmod>2017-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
