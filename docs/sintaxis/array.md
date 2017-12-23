@@ -54,9 +54,9 @@ $countries += 'Hola'
 
 `$myArray`: Retorna todos los elementos del array, arriba ya hemos visto como acceder a elementos individuales por su posición.
 
-Para obtener un rango de elementos  
+Para obtener un rango de elementos usamos por ejemplo `$myArray[4..6]` para obtener los valores comprendidos entre la posición 4 y la 6.
 
-
+Para 
 
 ## Arrays Asociativos o Hashtable 	
 
