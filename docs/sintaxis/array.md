@@ -155,6 +155,9 @@ $myArray += $myObject2
 $myArray | Select-Object name
 ```
 
+**Fuente:** [array_custom_obj_alt.ps1](/src/sintaxis/variables/arrays/array_custom_obj_alt.ps1)
+
+Podemos crear objetos a medida creando las propiedades como un array para el objeto de tipo PSObject.
 
 # Recursos arrays
 
@@ -165,3 +168,5 @@ $myArray | Select-Object name
 * [Using the Get-Process Cmdlet](https://technet.microsoft.com/es-es/library/ee176855.aspx).
 * [Get-Process](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-5.1).
 * [Test-Connection](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/test-connection?view=powershell-5.1): Sends ICMP echo request packets ("pings") to one or more computers.
+* [Powershell: Array of Custom Objects (PSCustomObject/PSObject)](https://www.sepago.com/blog/2016/01/06/powershell-array-of-custom-objects-pscustomobject-psobject-arrays).
+* [PSObject Class](https://docs.microsoft.com/en-us/dotnet/api/system.management.automation.psobject?view=powershellsdk-1.1.0).
