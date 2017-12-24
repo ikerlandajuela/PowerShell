@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Instalación del modulo - PSFabrik</title>
+  <title>Directorios - PSFabrik</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Instalaci\u00f3n del modulo";
-    var mkdocs_page_input_path = "active-directory\\instalar-modulo.md";
-    var mkdocs_page_url = "/active-directory/instalar-modulo/";
+    var mkdocs_page_name = "Directorios";
+    var mkdocs_page_input_path = "sistema-archivos\\directorios.md";
+    var mkdocs_page_url = "/sistema-archivos/directorios/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -75,9 +75,21 @@
 		
     <span class="caption-text">Sistema archivos</span>
     <ul class="subnav">
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../sistema-archivos/directorios/">Directorios</a>
+    <a class="current" href="./">Directorios</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#obtener-los-ficheros-de-un-directorio">Obtener los ficheros de un directorio</a></li>
+    
+
+    <li class="toctree-l3"><a href="#buscar-los-ficheros-modificados-antes-de-una-determinada-fecha">Buscar los ficheros modificados antes de una determinada fecha</a></li>
+    
+
+    <li class="toctree-l3"><a href="#recursos-externos">Recursos externos</a></li>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -86,21 +98,9 @@
 		
     <span class="caption-text">Active Directory</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Instalación del modulo</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#inicio">Inicio</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#modulo-ad">Modulo AD</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../active-directory/instalar-modulo/">Instalación del modulo</a>
                 </li>
     </ul>
 	    </li>
@@ -132,14 +132,14 @@
     
       
         
-          <li>Active Directory &raquo;</li>
+          <li>Sistema archivos &raquo;</li>
         
       
     
-    <li>Instalación del modulo</li>
+    <li>Directorios</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/active-directory/instalar-modulo.md"
+        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/sistema-archivos/directorios.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -149,8 +149,35 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="inicio">Inicio</h1>
-<h2 id="modulo-ad">Modulo AD</h2>
+                <h1 id="obtener-los-ficheros-de-un-directorio">Obtener los ficheros de un directorio</h1>
+<p>Para obtener una lista de los archivos de un directorio empleamos el cmdlet <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-5.1">Get-ChildItem</a>. Para obtener un item especifico usamos <a href="">Get-Item</a>.</p>
+<p><strong>Fuente:</strong> <a href="../../src/sistema-archivos/directorios/get_files_dir.ps1">get_files_dir.ps1</a></p>
+<p>Para obtener todos los elementos del directorio actual:</p>
+<pre><code class="powershell">Get-ChildItem
+</code></pre>
+
+<p>Podemos buscar aquellos elementos que cumplan un patrón:</p>
+<pre><code class="powershell">Get-ChildItem *.ps1
+</code></pre>
+
+<p>Si queremos buscar de forma recursiva dentro de las subcarpetas también</p>
+<pre><code class="powershell">Get-ChildItem *.txt -Recurse
+</code></pre>
+
+<p>Especificamos la ruta donde queremos buscar y excluimos ciertos elementos</p>
+<pre><code class="powershell">Get-ChildItem -Path C:\Windows -Exclude *.png
+</code></pre>
+
+<p>Si solo queremos listar los directorios.</p>
+<pre><code class="powershell">Get-ChildItem &quot;C:\Windows&quot; | where {$_.Attributes -match'Directory'}
+</code></pre>
+
+<h1 id="buscar-los-ficheros-modificados-antes-de-una-determinada-fecha">Buscar los ficheros modificados antes de una determinada fecha</h1>
+<h1 id="recursos-externos">Recursos externos</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-5.1">Get-ChildItem</a>: Gets the items and child items in one or more specified locations.</li>
+<li><a href="https://docs.microsoft.com/es-es/powershell/scripting/getting-started/cookbooks/working-with-files-and-folders?view=powershell-5.1">Trabajar con archivos y carpetas</a>: Navegar a través de unidades de Windows PowerShell y manipular los elementos son procesos similares al de manipulación de archivos y carpetas en unidades de disco físico de Windows. Explicaremos cómo tratar con tareas específicas de manipulación de archivos y carpetas en esta sección.</li>
+</ul>
               
             </div>
           </div>
@@ -158,10 +185,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../recursos/" class="btn btn-neutral float-right" title="Recursos">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../active-directory/instalar-modulo/" class="btn btn-neutral float-right" title="Instalación del modulo">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../sistema-archivos/directorios/" class="btn btn-neutral" title="Directorios"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../sintaxis/foreach/" class="btn btn-neutral" title="Foreach"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -189,10 +216,10 @@
           <a href="https://github.com/ikerlandajuela/PowerShell/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../sistema-archivos/directorios/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../sintaxis/foreach/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../recursos/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../active-directory/instalar-modulo/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
