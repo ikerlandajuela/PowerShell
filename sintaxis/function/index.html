@@ -88,6 +88,12 @@
     <li class="toctree-l3"><a href="#retornar-datos-de-una-funcion">Retornar datos de una función</a></li>
     
 
+    <li class="toctree-l3"><a href="#valores-por-defecto-para-los-parametros">Valores por defecto para los parámetros</a></li>
+    
+
+    <li class="toctree-l3"><a href="#retornando-una-coleccion-arraylist">Retornando una colección (ArrayList)</a></li>
+    
+
     <li class="toctree-l3"><a href="#recursos-externos">Recursos externos</a></li>
     
 
@@ -250,11 +256,26 @@ param([int] $a, [int] $b)
 &quot;Media de números: $(Get-Average 3 5)&quot;
 </code></pre>
 
+<h1 id="valores-por-defecto-para-los-parametros">Valores por defecto para los parámetros</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/function/Get-Greeting.ps1">Get-Greeting.ps1</a></p>
+<p>Podemos definir valores por defecto para los parámetros, este es un ejemplo muy sencillo.</p>
+<pre><code class="powershell">function Get-Greeting {
+param([string] $subject=&quot;World&quot;)
+    Write-Host  &quot;Hello $subject&quot;
+} #end Get-Greeting
+
+Get-Greeting 
+Get-Greeting &quot;Mundo&quot;
+</code></pre>
+
+<h1 id="retornando-una-coleccion-arraylist">Retornando una colección (ArrayList)</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/function/Get-ArrayList.ps1">Get-ArrayList.ps1</a></p>
 <h1 id="recursos-externos">Recursos externos</h1>
 <ul>
 <li>ikerlandajuela.wordpress.com <a href="https://ikerlandajuela.wordpress.com/2017/09/15/powershell-ejemplos-basicos/">PowerShell: Ejemplos básicos</a>.</li>
 <li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-wmiobject?view=powershell-5.1">Get-WmiObject</a>.</li>
 <li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-date?view=powershell-5.1">Get-Date</a>.</li>
+<li><a href="https://ss64.com/ps/return.html">https://ss64.com/ps/return.html</a>.</li>
 </ul>
               
             </div>
