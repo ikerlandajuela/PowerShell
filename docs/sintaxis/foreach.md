@@ -1,5 +1,3 @@
-* [ForEach con arrays](#foreach-con-arrays)
-
 **ForEach** permite crear bucles que ejecutan una serie de rutinas de forma iterativa.
 
 Sintaxis:

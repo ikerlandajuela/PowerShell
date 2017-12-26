@@ -8,6 +8,7 @@ pages:
         - 'Arrays': 'sintaxis/array.md'   
         - 'For': 'sintaxis/for.md'
         - 'Foreach': 'sintaxis/foreach.md'
+        - 'Function': 'sintaxis/function.md'
     - Sistema archivos:
         - 'Directorios': 'sistema-archivos/directorios.md'
     - Active Directory:
