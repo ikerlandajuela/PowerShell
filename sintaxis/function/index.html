@@ -82,6 +82,12 @@
     <li class="toctree-l3"><a href="#funcion-con-parametros-crear-un-directorio">Función con parámetros: Crear un directorio</a></li>
     
 
+    <li class="toctree-l3"><a href="#parametros-con-tipo">Parámetros con tipo</a></li>
+    
+
+    <li class="toctree-l3"><a href="#retornar-datos-de-una-funcion">Retornar datos de una función</a></li>
+    
+
     <li class="toctree-l3"><a href="#recursos-externos">Recursos externos</a></li>
     
 
@@ -162,17 +168,17 @@
 </code></pre>
 
 <h1 id="funcion-basica">Función básica</h1>
-<p><strong>Fuente:</strong> <a href="../../src/sintaxis/function/basic_function.ps1">basic_function.ps1</a></p>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/function/Write-HolaMundo.ps1">Write-HolaMundo.ps1</a></p>
 <p>El siguiente ejemplo ilustra una función super sencilla, cada vez que invocamos a la función por su nombre (una función debe "llamarse" para que ejecute sus comandos) ejecuta las líneas de comandos encerradas entre las llaves <code>{ }</code>.   </p>
-<pre><code class="powershell">Function Write-Hola
+<pre><code class="powershell">Function Write-HolaMundo
 {
     &quot;Hola&quot;
     &quot;Mundo&quot;
 }
 
-Write-Hola
+Write-HolaMundo
 # Podemos invocar la función por su nombre tantas veces queramos.
-Write-Hola
+Write-HolaMundo
 </code></pre>
 
 <h1 id="funcion-para-obtener-la-version-del-sistema-operativo">Función para obtener la versión del sistema operativo</h1>
@@ -207,11 +213,48 @@ New-Directory-Ext &quot;MyDir1&quot;
 New-Directory-Ext &quot;MyDir2&quot;
 </code></pre>
 
-<h1 id="_1"></h1>
+<h1 id="parametros-con-tipo">Parámetros con tipo</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/function/Get-Sum.ps1">Get-Sum.ps1</a></p>
+<p>Podemos restringir el tipo de dato que acepta una parámetro de una función, si por ejemplo queremos recibir dos enteros como parámetros para realizar una suma usamos <code>[int]</code>:</p>
+<pre><code class="powershell">function Get-Sum([int] $n1,[int] $n2)
+{
+    $n1+$n2
+} #end Get-Sum
+
+&quot;Suma de números: $(Get-Sum 3 5)&quot;
+
+# Esta llamada produciría un error 
+# &quot;Suma de números:&quot;+ $(Get-Sum &quot;Tres&quot; 5)
+</code></pre>
+
+<p>Otros tipos usados de forma común son <code>[String]</code>, <code>[double]</code> o <code>[DateTime]</code>.</p>
+<h1 id="retornar-datos-de-una-funcion">Retornar datos de una función</h1>
+<p>Como hemos visto más arriba para retornar datos de la función simplemente podemos escribir los datos de salida. </p>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/function/Get-SysDate.ps1">Get-SysDate.ps1</a></p>
+<pre><code class="powershell">function Get-SysDate {
+    Get-Date
+} #end Get-SysDate
+
+$tomorrow = (Get-SysDate).AddDays(1)
+$tomorrow
+</code></pre>
+
+<p>El cmdlet <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-date?view=powershell-5.1">Get-Date</a> genera la salida que capturamos desde donde invoca la función.</p>
+<p>Si queremos ser más explicitos sobre el dato retornado PS continua soportando la palabra clave <code>return</code>.</p>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/function/Get-Average.ps1">Get-Average.ps1</a></p>
+<pre><code class="powershell">function Get-Average {
+param([int] $a, [int] $b)
+    return ($a+$b)/2    
+} #end Get-Average
+
+&quot;Media de números: $(Get-Average 3 5)&quot;
+</code></pre>
+
 <h1 id="recursos-externos">Recursos externos</h1>
 <ul>
 <li>ikerlandajuela.wordpress.com <a href="https://ikerlandajuela.wordpress.com/2017/09/15/powershell-ejemplos-basicos/">PowerShell: Ejemplos básicos</a>.</li>
-<li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-wmiobject?view=powershell-5.1">Get-WmiObject</a></li>
+<li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-wmiobject?view=powershell-5.1">Get-WmiObject</a>.</li>
+<li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-date?view=powershell-5.1">Get-Date</a>.</li>
 </ul>
               
             </div>
