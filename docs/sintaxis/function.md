@@ -115,8 +115,25 @@ param([int] $a, [int] $b)
 "Media de números: $(Get-Average 3 5)"
 ```
 
+# Valores por defecto para los parámetros
+
+**Fuente:** [Get-Greeting.ps1](/src/sintaxis/function/Get-Greeting.ps1)
+
+Podemos definir valores por defecto para los parámetros, este es un ejemplo muy sencillo.
+
+```powershell
+function Get-Greeting {
+param([string] $subject="World")
+	Write-Host 	"Hello $subject"
+} #end Get-Greeting
+
+Get-Greeting 
+Get-Greeting "Mundo"
+``` 
+
 # Recursos externos
 
 * ikerlandajuela.wordpress.com [PowerShell: Ejemplos básicos](https://ikerlandajuela.wordpress.com/2017/09/15/powershell-ejemplos-basicos/).
 * [Get-WmiObject](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-wmiobject?view=powershell-5.1).
 * [Get-Date](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-date?view=powershell-5.1).
+* [https://ss64.com/ps/return.html](https://ss64.com/ps/return.html).
