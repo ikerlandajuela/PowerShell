@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-12-23</lastmod>
+     <lastmod>2017-12-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,19 +13,25 @@
         
     <url>
      <loc>/sintaxis/array/</loc>
-     <lastmod>2017-12-23</lastmod>
+     <lastmod>2017-12-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/for/</loc>
-     <lastmod>2017-12-23</lastmod>
+     <lastmod>2017-12-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/foreach/</loc>
-     <lastmod>2017-12-23</lastmod>
+     <lastmod>2017-12-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/sintaxis/function/</loc>
+     <lastmod>2017-12-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -35,7 +41,7 @@
         
     <url>
      <loc>/sistema-archivos/directorios/</loc>
-     <lastmod>2017-12-23</lastmod>
+     <lastmod>2017-12-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -45,7 +51,7 @@
         
     <url>
      <loc>/active-directory/instalar-modulo/</loc>
-     <lastmod>2017-12-23</lastmod>
+     <lastmod>2017-12-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -54,7 +60,7 @@
     
     <url>
      <loc>/recursos/</loc>
-     <lastmod>2017-12-23</lastmod>
+     <lastmod>2017-12-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
