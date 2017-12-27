@@ -4,7 +4,7 @@
 
 La librería SQLite es muy liviana, en total ocupa menos de 500KiB, como decía más arriba ideal para entornos reducidos como Smartphones Android o una PDA.
 
-# System.Data.SQLite
+# System.Data.SQLite ADO.NET
 
 **System.Data.SQLite** es un proveedor ADO.NET para [SQLite](https://www.sqlite.org/). ADO.NET es un conjunto de clases que exponen servicios de acceso a datos para programadores de .NET Framework.
 
@@ -39,8 +39,9 @@ PS> .\nuget.exe install System.Data.SQLite -Version 1.0.106
 Runtime [x64](http://www.microsoft.com/en-gb/download/details.aspx?id=13523) y 
 [x86](http://www.microsoft.com/en-us/download/details.aspx?id=8328).
 
-
 # PSSQLite PowerShell Module
+
+PSSQLite ([GitHub](https://github.com/RamblingCookieMonster/PSSQLite)) es un módulo de PS para trabajar con bases de datos **SQLite**. Está disponible de forma libre en GitHub para su descarga.
 
 ```powershell
 PS> git clone https://github.com/RamblingCookieMonster/PSSQLite.git
@@ -50,9 +51,6 @@ PS> Get-Command -Module PSSQLite
 ```
 
 ## PSSQLite: Creando la BD y una tabla
-
-PSSQLite ([GitHub](https://github.com/RamblingCookieMonster/PSSQLite)) 
-
 
 **Fuente:** [PSSQLite_Ex1.ps1](/src/bases_de_datos/sqlite/PSSQLite_Ex1.ps1) 
 
