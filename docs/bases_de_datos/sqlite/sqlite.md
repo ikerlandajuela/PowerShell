@@ -1,4 +1,6 @@
-**SQLite** es una base de datos empotrada, no sigue el clásico esquema de cliente servidor sino que el motor de la base de datos se incluye en nuestras aplicaciones, esto lo convierte en altamente portable y ideal para entornos embebidos con limitaciones y características reducidas (podemos copiar y pegar nuestra aplicación sin necesidad de instalaciones adicionales como el sistema de gestión de bases de datos). Además el código fuente es de dominio público y esta apadrinado por SQLite Consortium entre cuyos miembros se incluyen: Mozilla, Bloomberg y otros. Esto ya es garantía de solidez y de futuro desarrollo.
+![SQLite_Logo_4.png](./img/SQLite_Logo_4.png)
+
+**[SQLite](https://www.sqlite.org/)** es una base de datos empotrada, no sigue el clásico esquema de cliente servidor sino que el motor de la base de datos se incluye en nuestras aplicaciones, esto lo convierte en altamente portable y ideal para entornos embebidos con limitaciones y características reducidas (podemos copiar y pegar nuestra aplicación sin necesidad de instalaciones adicionales como el sistema de gestión de bases de datos). Además el código fuente es de dominio público y esta apadrinado por [SQLite Consortium](https://www.sqlite.org/consortium.html) entre cuyos miembros se incluyen: Mozilla, Bloomberg y otros. Esto ya es garantía de solidez y de futuro desarrollo.
 
 **SQLite almacena toda la BD (Base de Datos) en un sólo fichero de disco** (junto con los índices, triggers, etc,.).
 
@@ -56,12 +58,33 @@ PS> Get-Command -Module PSSQLite
 
 **Fuente:** [PSSQLite_Ex1.ps1](/src/bases_de_datos/sqlite/PSSQLite_Ex1.ps1) 
 
-```powershell
-$Query = "CREATE TABLE NAMES (fullname VARCHAR(20) PRIMARY KEY, surname TEXT, givenname TEXT, BirthDate DATETIME)"
-$DataSource = ".\Names.SQLite"
+A continuación vamos a crear la base de datos en el fichero _"Names.SQLite"_ y una tabla de ejemplo.
 
-Invoke-SqliteQuery -Query $Query -DataSource $DataSource
+Para importar el módulo **PSSQLite** he usado prestadas unas líneas de código que no vienen al caso pero que se puede consultar en el script de ejemplo. 
+
+Para evitar errores primero compruebo si ya existe la BD con `Test-Path`, en ese caso borro el fichero 
+
+```powershell
+$Database = ".\Names.SQLite"
+# Si ya existe el fichero con la BD previamente lo borramos
+if (Test-Path $Database) {Remove-Item $Database}
+
+$Query = "CREATE TABLE NAMES (
+	fullname VARCHAR(20) PRIMARY KEY, 
+	surname TEXT, 
+	givenname TEXT, 
+	BirthDate DATETIME)"
+
+# Create a database and a table
+Invoke-SqliteQuery -Query $Query -DataSource $Database
+
+# Veamos la información de la tabla recien creada
+Invoke-SqliteQuery -DataSource $Database -Query "PRAGMA table_info(NAMES)"
 ```
+
+# PSSQLite: Insertar un registro
+
+ 
 
 # CodePlex: SQLite PowerShell Provider Module
 
@@ -75,13 +98,14 @@ Sitio [SQLite PowerShell Provider](https://psqlite.codeplex.com/).
 * [https://www.nuget.org/packages/System.Data.SQLite](https://www.nuget.org/packages/System.Data.SQLite)
 * [3 ways to download files with PowerShell](https://blog.jourdant.me/post/3-ways-to-download-files-with-powershell).
 * [Using Windows PowerShell to Create BITS Transfer Jobs (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/ee663885(v=vs.85).aspx).
-
 * En mi blog:
 	* [SQLite Base de datos embebida para C](https://ikerlandajuela.wordpress.com/2015/11/30/sqlite-base-de-datos-embebida-para-c/).
 	* [C# SQLiteBook: Catalogo de libros con SQLite (I)](https://ikerlandajuela.wordpress.com/2016/08/28/c-sqlitebook-catalogo-de-libros-con-sqlite-i/).
 	* [C# SQLiteBook: Catalogo de libros con SQLite (II)](https://ikerlandajuela.wordpress.com/2016/08/29/c-sqlitebook-catalogo-de-libros-con-sqlite-ii/).
+	* [Import-Module - Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/import-module).
+* [Test-Path - Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/test-path).
 
-https://social.technet.microsoft.com/wiki/contents/articles/30562.powershell-accessing-sqlite-databases.aspx
+	https://social.technet.microsoft.com/wiki/contents/articles/30562.powershell-accessing-sqlite-databases.aspx
 https://github.com/RamblingCookieMonster/PSSQLite
 http://ramblingcookiemonster.github.io/SQLite-and-PowerShell/
 https://www.red-gate.com/simple-talk/sql/t-sql-programming/using-sqlite-powershell-sql-server/
