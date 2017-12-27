@@ -12,7 +12,7 @@ La librería SQLite es muy liviana, en total ocupa menos de 500KiB, como decía 
 
 Para instalar el componente SQLite vamos a descargar previamente [Nuget](https://www.nuget.org/downloads) CLI (Command Line Interface) para usarlo desde línea de comandos sin necesidad de usarlo desde el IDE Visual Studio ([nuget.exe Windows x86 Commandline v4.4.1](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)).
 
-**Fuente:** [nuget_exe_lastest_download.ps1](/src/bases_de_datos/sqlite/nuget_exe_lastest_download.ps1)
+**Fuente:** [Get-NuGet-Latest-Cli.ps1](/src/bases_de_datos/sqlite/Get-NuGet-Latest-Cli.ps1)
 
 ```powershell
 $url = "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
@@ -45,7 +45,7 @@ Runtime [x64](http://www.microsoft.com/en-gb/download/details.aspx?id=13523) y
 
 PSSQLite ([GitHub](https://github.com/RamblingCookieMonster/PSSQLite)) es un módulo de PS para trabajar con bases de datos **SQLite**. Está disponible de forma libre en GitHub para su descarga.
 
-Yo lo he descargado e integrado en mis fuentes con el resto de scripts, también lo he descargado comprimido como [PSSQLite-master.zip](/src/bases_de_datos/sqlite/PSSQLite-master.zip) para mantener intactos los fuentes originales.
+Yo lo he descargado e integrado en mis fuentes con el resto de scripts, también lo he descargado comprimido como [PSSQLite-master.zip](/src/bases_de_datos/sqlite/PSSQLite-master.zip) para mantener intactos los fuentes originales (Usar sino [Install-PSSQLite.ps1](/src/bases_de_datos/sqlite/Install-PSSQLite.ps1) para hacerlo todo con un script).
 
 ```powershell
 PS> git clone https://github.com/RamblingCookieMonster/PSSQLite.git
@@ -86,11 +86,25 @@ Invoke-SqliteQuery -DataSource $Database -Query "PRAGMA table_info(NAMES)"
 
 **Fuente:** [PSSQLite_Ex2.ps1](/src/bases_de_datos/sqlite/PSSQLite_Ex2.ps1) 
  
+```powershell
+$Database = ".\Names.SQLite"
+$query = "INSERT INTO NAMES (Fullname, Surname, Givenname, Birthdate)
+	VALUES ('Iker', 'Landajuela', 'Popu',19790510)"
 
+Invoke-SqliteQuery -DataSource $Database -Query $query
+
+# Leemos el contenido de la tabla
+Invoke-SqliteQuery -DataSource $Database -Query "SELECT * FROM NAMES"
+```
+Podemos consultar más ejemplos y toda la documentación en este [enlace](http://ramblingcookiemonster.github.io/SQLite-and-PowerShell/).
 
 # CodePlex: SQLite PowerShell Provider Module
 
 Sitio [SQLite PowerShell Provider](https://psqlite.codeplex.com/).
+
+Ahora vamos a probar un poco el módulo de CodePlex.
+
+```
 
 # Referencias externas
 
@@ -107,8 +121,4 @@ Sitio [SQLite PowerShell Provider](https://psqlite.codeplex.com/).
 	* [Import-Module - Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/import-module).
 * [Test-Path - Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/test-path).
 
-	https://social.technet.microsoft.com/wiki/contents/articles/30562.powershell-accessing-sqlite-databases.aspx
-https://github.com/RamblingCookieMonster/PSSQLite
-http://ramblingcookiemonster.github.io/SQLite-and-PowerShell/
-https://www.red-gate.com/simple-talk/sql/t-sql-programming/using-sqlite-powershell-sql-server/
 https://psqlite.codeplex.com/
