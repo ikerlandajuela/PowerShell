@@ -43,6 +43,8 @@ Runtime [x64](http://www.microsoft.com/en-gb/download/details.aspx?id=13523) y
 
 PSSQLite ([GitHub](https://github.com/RamblingCookieMonster/PSSQLite)) es un módulo de PS para trabajar con bases de datos **SQLite**. Está disponible de forma libre en GitHub para su descarga.
 
+Yo lo he descargado e integrado en mis fuentes con el resto de scripts, también lo he descargado comprimido como [PSSQLite-master.zip](/src/bases_de_datos/sqlite/PSSQLite-master.zip) para mantener intactos los fuentes originales.
+
 ```powershell
 PS> git clone https://github.com/RamblingCookieMonster/PSSQLite.git
 PS> Import-Module PSSQLite.psm1
