@@ -11,6 +11,8 @@ pages:
         - 'Function': 'sintaxis/function.md'
     - Sistema archivos:
         - 'Directorios': 'sistema-archivos/directorios.md'
+    - Bases de datos:
+        - 'SQLite': 'bases_de_datos/sqlite/sqlite.md'
     - Active Directory:
         - 'Instalación del modulo':  'active-directory/instalar-modulo.md'
     - Recursos: recursos.md

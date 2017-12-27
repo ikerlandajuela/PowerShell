@@ -136,7 +136,6 @@ Get-Greeting "Mundo"
 **Fuente:** [Get-ArrayList.ps1](/src/sintaxis/function/Get-ArrayList.ps1)
 
 
-
 # Recursos externos
 
 * ikerlandajuela.wordpress.com [PowerShell: Ejemplos básicos](https://ikerlandajuela.wordpress.com/2017/09/15/powershell-ejemplos-basicos/).
