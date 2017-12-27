@@ -84,7 +84,9 @@ Invoke-SqliteQuery -DataSource $Database -Query "PRAGMA table_info(NAMES)"
 
 # PSSQLite: Insertar un registro
 
+**Fuente:** [PSSQLite_Ex2.ps1](/src/bases_de_datos/sqlite/PSSQLite_Ex2.ps1) 
  
+
 
 # CodePlex: SQLite PowerShell Provider Module
 
