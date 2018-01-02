@@ -7,3 +7,6 @@ Get-ADUser -Identity 'b.sinclair' -Properties Description,Office
 
 # Para ver TODAS las propiedades de forma paginada
 Get-ADUser -Identity 'b.sinclair' -Properties * | more 
+
+
+Get-ADUser -Identity 'b.sinclair' -Properties msDS-UserPasswordExpiryTimeComputed, PasswordLastSet, CannotChangePassword, PasswordExpired

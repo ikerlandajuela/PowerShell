@@ -6,4 +6,5 @@ Set-ADUser -Identity 'b.sinclair' -Manager 'i.landajuela'
 # Get-ADUser -Identity 'b.sinclair' | Set-ADUser -Manager 'i.landajuela'
 Get-ADUser -Identity 'b.sinclair' -Properties Manager
 
-Get-ADUser -Identity 'i.landajuela' -Properties AccountExpirationDate
+# Para comprobar si la clave a expirado
+Get-ADUser -Identity 'b.sinclair' -Properties PasswordExpired
