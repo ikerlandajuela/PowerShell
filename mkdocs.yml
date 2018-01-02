@@ -16,5 +16,5 @@ pages:
     - Admin:
         - 'Event Logs': 'admin/event-log.md'
     - Active Directory:
-        - 'Instalación del modulo':  'active-directory/instalar-modulo.md'
+        - 'Cuentas usuarios':  'active-directory/cuentas-usuarios.md'
     - Recursos: recursos.md

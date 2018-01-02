@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Cuentas usuarios - PSFabrik</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Cuentas usuarios";
+    var mkdocs_page_input_path = "active-directory\\cuentas-usuarios.md";
+    var mkdocs_page_url = "/active-directory/cuentas-usuarios/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> PSFabrik</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Inicio</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Sintaxis</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../sintaxis/array/">Arrays</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../sintaxis/for/">For</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../sintaxis/foreach/">Foreach</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../sintaxis/function/">Function</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Sistema archivos</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../sistema-archivos/directorios/">Directorios</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Bases de datos</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../bases_de_datos/sqlite/sqlite/">SQLite</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Admin</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../admin/event-log/">Event Logs</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Active Directory</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Cuentas usuarios</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#visualizar-las-propiedades-de-una-cuenta">Visualizar las propiedades de una cuenta</a></li>
+    
+
+    <li class="toctree-l3"><a href="#propiedades-adicionales">Propiedades adicionales</a></li>
+    
+
+    <li class="toctree-l3"><a href="#modificar-las-propiedades-de-un-usuarios">Modificar las propiedades de un usuarios</a></li>
+    
+
+    <li class="toctree-l3"><a href="#add-remove-replace-and-clear">Add, Remove, Replace and Clear</a></li>
+    
+
+    <li class="toctree-l3"><a href="#ejemplos-avanzados">Ejemplos avanzados</a></li>
+    
+
+    <li class="toctree-l3"><a href="#seguridad-de-cuentas-de-usuarios">Seguridad de cuentas de usuarios</a></li>
+    
+
+    <li class="toctree-l3"><a href="#recursos-externos">Recursos externos</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../recursos/">Recursos</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">PSFabrik</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Active Directory &raquo;</li>
+        
+      
+    
+    <li>Cuentas usuarios</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/active-directory/cuentas-usuarios.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="visualizar-las-propiedades-de-una-cuenta">Visualizar las propiedades de una cuenta</h1>
+<p><strong>Fuente:</strong> <a href="../../src/active_directory/users/Get-ADUser-basics.ps1">Get-ADUser-basics.ps1</a></p>
+<p>El cmdlet <a href="https://technet.microsoft.com/en-us/library/ee617241.aspx">Get-ADUser</a> permite obtener los datos de uno o mas usuarios de AD (Active-Directory).</p>
+<p>Este es el ejemplo más sencillo, <strong>la siguiente consulta obtiene sólo algunas de la propiedades de la cuenta</strong>, buscamos una cuenta de un empleado ficticio llamado Bob Sinclair:</p>
+<pre><code class="powershell">Get-ADUser -Identity 'b.sinclair'
+# Podemos hacer lo mismo filtrando por la propiedad Name
+Get-ADUser -Filter 'Name -like &quot;Bob Sinclair&quot;'
+</code></pre>
+
+<h1 id="propiedades-adicionales">Propiedades adicionales</h1>
+<p>Si queremos visualizar propiedades que no se muestran por defecto, por ejemplo la oficina de trabajo y la descripción de la cuenta:</p>
+<pre><code class="powershell">Get-ADUser -Identity 'b.sinclair' -Properties Description,Office
+# Para ver TODAS las propiedades de forma paginada
+Get-ADUser -Identity 'b.sinclair' -Properties * | more 
+Get-ADUser -Identity 'b.sinclair' -Properties msDS-UserPasswordExpiryTimeComputed, PasswordLastSet, CannotChangePassword, PasswordExpired
+</code></pre>
+
+<h1 id="modificar-las-propiedades-de-un-usuarios">Modificar las propiedades de un usuarios</h1>
+<p>Set-ADUser permite modificar un usuario AD (advertencia: La cuenta de Manager debe existir en AD)</p>
+<pre><code class="powershell">Set-ADUser -Identity 'b.sinclair' -Office 'London'
+Get-ADUser -Identity 'b.sinclair' -Properties Office
+
+Set-ADUser -Identity 'b.sinclair' -Manager 'i.landajuela'
+# Otra forma de hacerlo usando un pipe
+# Get-ADUser -Identity 'b.sinclair' | Set-ADUser -Manager 'i.landajuela'
+Get-ADUser -Identity 'b.sinclair' -Properties Manager
+
+# Para comprobar si la clave a expirado
+Get-ADUser -Identity 'b.sinclair' -Properties PasswordExpired
+</code></pre>
+
+<h1 id="add-remove-replace-and-clear">Add, Remove, Replace and Clear</h1>
+<h1 id="ejemplos-avanzados">Ejemplos avanzados</h1>
+<p><strong>Fuente:</strong> <a href="../../src/active_directory/users/Filter-Users.ps1">Filter-Users.ps1</a></p>
+<p>Las fecha de caducidad de la clave y la fecha cuando se estableció la clave por última vez siempre son valores interesantes para los admins. Si queremos realizar varias operaciones sobre una lista de usuarios primero lo almacenamos en una lista de objetos.</p>
+<p>El siguiente comando filtra las cuentas de usuarios habilitadas y que sus claves expiren.  </p>
+<pre><code class="powershell">$Users = Get-ADUser -filter {Enabled -eq $True -and PasswordNeverExpires -eq $False} -Properties msDS-UserPasswordExpiryTimeComputed, PasswordLastSet, CannotChangePassword
+</code></pre>
+
+<p>Si solo queremos mostrar una lista de usuarios junto a fecha de expiración de la clave y la última vez que se modifico la clave:</p>
+<pre><code class="powershell">$Users | select Name, @{Name=&quot;ExpiryDate&quot;;Expression={[datetime]::FromFileTime($_.&quot;msDS-UserPasswordExpiryTimeComputed&quot;)}}, PasswordLastSet
+</code></pre>
+
+<p>Como el atributo <code>UserPasswordExpiryTimeComputed</code> no se almacena de forma legible para humanos usamos la función <code>FromFileTime</code>. </p>
+<h1 id="seguridad-de-cuentas-de-usuarios">Seguridad de cuentas de usuarios</h1>
+<p><strong>Fuente:</strong> <a href="../../src/active_directory/users/Users-SecOp.ps1">Users-SecOp.ps1</a>.</p>
+<p>Algunas operaciones básicas de seguridad para administrar usuarios:</p>
+<pre><code class="powershell"># Deshabilitar una cuenta 
+Disable-ADAccount -Identity 'b.sinclair' 
+
+# Habilitar una cuenta 
+Enable-ADAccount -Identity 'b.sinclair' 
+
+# Desbloquear una cuenta de usuario
+Unlock-ADAccount -Identity 'b.sinclair' 
+
+# Cambiar la clave 
+Set-ADAccountPassword -Identity b.sinclair -Reset -NewPassword (ConvertTo-SecureString -AsPlainText &quot;p@ssw0rd&quot; -Force)
+</code></pre>
+
+<h1 id="recursos-externos">Recursos externos</h1>
+<ul>
+<li><a href="https://technet.microsoft.com/en-us/library/ee617241.aspx">Get-ADUser - TechNet - Microsoft</a>.</li>
+<li><a href="https://technet.microsoft.com/en-us/library/ee617215.aspx">Set-ADUser - TechNet - Microsoft</a>.</li>
+<li><a href="https://www.oxfordsbsguy.com/2013/11/25/powershell-get-aduser-to-retrieve-password-last-set-and-expiry-information/">PowerShell: Get-ADUser to retrieve password last set and expiry information</a>.</li>
+<li><a href="https://4sysops.com/archives/obtaining-the-password-expiry-date-with-powershell/">Obtaining the password expiry date with PowerShell – 4sysops</a>.</li>
+<li><a href="https://ss64.com/ps/select-object.html">Select-Object - PowerShell - SS64.com</a>.</li>
+<li></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../recursos/" class="btn btn-neutral float-right" title="Recursos">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../admin/event-log/" class="btn btn-neutral" title="Event Logs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ikerlandajuela/PowerShell/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../admin/event-log/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../recursos/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

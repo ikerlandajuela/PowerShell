@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-12-27</lastmod>
+     <lastmod>2018-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,25 +13,25 @@
         
     <url>
      <loc>/sintaxis/array/</loc>
-     <lastmod>2017-12-27</lastmod>
+     <lastmod>2018-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/for/</loc>
-     <lastmod>2017-12-27</lastmod>
+     <lastmod>2018-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/foreach/</loc>
-     <lastmod>2017-12-27</lastmod>
+     <lastmod>2018-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/function/</loc>
-     <lastmod>2017-12-27</lastmod>
+     <lastmod>2018-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -41,7 +41,7 @@
         
     <url>
      <loc>/sistema-archivos/directorios/</loc>
-     <lastmod>2017-12-27</lastmod>
+     <lastmod>2018-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -51,7 +51,7 @@
         
     <url>
      <loc>/bases_de_datos/sqlite/sqlite/</loc>
-     <lastmod>2017-12-27</lastmod>
+     <lastmod>2018-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -60,8 +60,18 @@
     
         
     <url>
-     <loc>/active-directory/instalar-modulo/</loc>
-     <lastmod>2017-12-27</lastmod>
+     <loc>/admin/event-log/</loc>
+     <lastmod>2018-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/active-directory/cuentas-usuarios/</loc>
+     <lastmod>2018-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -70,7 +80,7 @@
     
     <url>
      <loc>/recursos/</loc>
-     <lastmod>2017-12-27</lastmod>
+     <lastmod>2018-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
