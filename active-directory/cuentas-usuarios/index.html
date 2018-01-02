@@ -117,7 +117,16 @@
     <a class="current" href="./">Cuentas usuarios</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#cambiar-contrasena-de-una-cuenta">Cambiar contraseña de una cuenta</a></li>
+    <li class="toctree-l3"><a href="#visualizar-las-propiedades-de-una-cuenta">Visualizar las propiedades de una cuenta</a></li>
+    
+
+    <li class="toctree-l3"><a href="#propiedades-adicionales">Propiedades adicionales</a></li>
+    
+
+    <li class="toctree-l3"><a href="#modificar-las-propiedades-de-un-usuarios">Modificar las propiedades de un usuarios</a></li>
+    
+
+    <li class="toctree-l3"><a href="#recursos-externos">Recursos externos</a></li>
     
 
     </ul>
@@ -169,7 +178,35 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="cambiar-contrasena-de-una-cuenta">Cambiar contraseña de una cuenta</h1>
+                <h1 id="visualizar-las-propiedades-de-una-cuenta">Visualizar las propiedades de una cuenta</h1>
+<p><strong>Fuente:</strong> <a href="../../src/active_directory/users/Get-ADUser-basics.ps1">Get-ADUser-basics.ps1</a></p>
+<p>El cmdlet <a href="https://technet.microsoft.com/en-us/library/ee617241.aspx">Get-ADUser</a> permite obtener los datos de uno o mas usuarios de AD (Active-Directory).</p>
+<p>Este es el ejemplo más sencillo, <strong>la siguiente consulta obtiene sólo algunas de la propiedades de la cuenta</strong>, buscamos una cuenta de un empleado ficticio llamado Bob Sinclair:</p>
+<pre><code class="powershell">Get-ADUser -Identity 'b.sinclair'
+# Podemos hacer lo mismo filtrando por la propiedad Name
+Get-ADUser -Filter 'Name -like &quot;Bob Sinclair&quot;'
+</code></pre>
+
+<h1 id="propiedades-adicionales">Propiedades adicionales</h1>
+<p>Si queremos visualizar propiedades que no se muestran por defecto, por ejemplo la oficina de trabajo y la descripción de la cuenta:</p>
+<pre><code class="powershell">Get-ADUser -Identity 'b.sinclair' -Properties Description,Office
+# Para ver TODAS las propiedades de forma paginada
+Get-ADUser -Identity 'b.sinclair' -Properties * | more 
+</code></pre>
+
+<h1 id="modificar-las-propiedades-de-un-usuarios">Modificar las propiedades de un usuarios</h1>
+<p>Set-ADUser permite modificar un usuario AD (advertencia: La cuenta de Manager debe existir en AD)</p>
+<pre><code class="powershell">Set-ADUser -Identity 'b.sinclair' -Manager 'i.landajuela'
+# Otra forma de hacerlo usando un pipe
+# Get-ADUser -Identity 'b.sinclair' | Set-ADUser -Manager 'i.landajuela'
+Get-ADUser -Identity 'b.sinclair' -Properties Manager
+</code></pre>
+
+<h1 id="recursos-externos">Recursos externos</h1>
+<ul>
+<li><a href="https://technet.microsoft.com/en-us/library/ee617241.aspx">Get-ADUser - TechNet - Microsoft</a>.</li>
+<li><a href="https://technet.microsoft.com/en-us/library/ee617215.aspx">Set-ADUser - TechNet - Microsoft</a>.</li>
+</ul>
               
             </div>
           </div>

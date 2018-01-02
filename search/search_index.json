@@ -192,13 +192,28 @@
         }, 
         {
             "location": "/active-directory/cuentas-usuarios/", 
-            "text": "Cambiar contrase\u00f1a de una cuenta", 
+            "text": "Visualizar las propiedades de una cuenta\n\n\nFuente:\n \nGet-ADUser-basics.ps1\n\n\nEl cmdlet \nGet-ADUser\n permite obtener los datos de uno o mas usuarios de AD (Active-Directory).\n\n\nEste es el ejemplo m\u00e1s sencillo, \nla siguiente consulta obtiene s\u00f3lo algunas de la propiedades de la cuenta\n, buscamos una cuenta de un empleado ficticio llamado Bob Sinclair:\n\n\nGet-ADUser -Identity 'b.sinclair'\n# Podemos hacer lo mismo filtrando por la propiedad Name\nGet-ADUser -Filter 'Name -like \nBob Sinclair\n'\n\n\n\n\nPropiedades adicionales\n\n\nSi queremos visualizar propiedades que no se muestran por defecto, por ejemplo la oficina de trabajo y la descripci\u00f3n de la cuenta:\n\n\nGet-ADUser -Identity 'b.sinclair' -Properties Description,Office\n# Para ver TODAS las propiedades de forma paginada\nGet-ADUser -Identity 'b.sinclair' -Properties * | more \n\n\n\n\nModificar las propiedades de un usuarios\n\n\nSet-ADUser permite modificar un usuario AD (advertencia: La cuenta de Manager debe existir en AD)\n\n\nSet-ADUser -Identity 'b.sinclair' -Manager 'i.landajuela'\n# Otra forma de hacerlo usando un pipe\n# Get-ADUser -Identity 'b.sinclair' | Set-ADUser -Manager 'i.landajuela'\nGet-ADUser -Identity 'b.sinclair' -Properties Manager\n\n\n\n\nRecursos externos\n\n\n\n\nGet-ADUser - TechNet - Microsoft\n.\n\n\nSet-ADUser - TechNet - Microsoft\n.", 
             "title": "Cuentas usuarios"
         }, 
         {
-            "location": "/active-directory/cuentas-usuarios/#cambiar-contrasena-de-una-cuenta", 
-            "text": "", 
-            "title": "Cambiar contrase\u00f1a de una cuenta"
+            "location": "/active-directory/cuentas-usuarios/#visualizar-las-propiedades-de-una-cuenta", 
+            "text": "Fuente:   Get-ADUser-basics.ps1  El cmdlet  Get-ADUser  permite obtener los datos de uno o mas usuarios de AD (Active-Directory).  Este es el ejemplo m\u00e1s sencillo,  la siguiente consulta obtiene s\u00f3lo algunas de la propiedades de la cuenta , buscamos una cuenta de un empleado ficticio llamado Bob Sinclair:  Get-ADUser -Identity 'b.sinclair'\n# Podemos hacer lo mismo filtrando por la propiedad Name\nGet-ADUser -Filter 'Name -like  Bob Sinclair '", 
+            "title": "Visualizar las propiedades de una cuenta"
+        }, 
+        {
+            "location": "/active-directory/cuentas-usuarios/#propiedades-adicionales", 
+            "text": "Si queremos visualizar propiedades que no se muestran por defecto, por ejemplo la oficina de trabajo y la descripci\u00f3n de la cuenta:  Get-ADUser -Identity 'b.sinclair' -Properties Description,Office\n# Para ver TODAS las propiedades de forma paginada\nGet-ADUser -Identity 'b.sinclair' -Properties * | more", 
+            "title": "Propiedades adicionales"
+        }, 
+        {
+            "location": "/active-directory/cuentas-usuarios/#modificar-las-propiedades-de-un-usuarios", 
+            "text": "Set-ADUser permite modificar un usuario AD (advertencia: La cuenta de Manager debe existir en AD)  Set-ADUser -Identity 'b.sinclair' -Manager 'i.landajuela'\n# Otra forma de hacerlo usando un pipe\n# Get-ADUser -Identity 'b.sinclair' | Set-ADUser -Manager 'i.landajuela'\nGet-ADUser -Identity 'b.sinclair' -Properties Manager", 
+            "title": "Modificar las propiedades de un usuarios"
+        }, 
+        {
+            "location": "/active-directory/cuentas-usuarios/#recursos-externos", 
+            "text": "Get-ADUser - TechNet - Microsoft .  Set-ADUser - TechNet - Microsoft .", 
+            "title": "Recursos externos"
         }, 
         {
             "location": "/recursos/", 
