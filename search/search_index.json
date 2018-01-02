@@ -181,19 +181,24 @@
             "title": "Referencias externas"
         }, 
         {
-            "location": "/active-directory/instalar-modulo/", 
-            "text": "Inicio\n\n\nModulo AD", 
-            "title": "Instalaci\u00f3n del modulo"
+            "location": "/admin/event-log/", 
+            "text": "Los logs de eventos son el pilar de la monitorizaci\u00f3n de sistemas Win. Para trabajar con los logs PS proporciona dos llamadas, los cmdlets \nGet-EventLog\n y \nGet-WinEvent\n.\n\n\nListado de todos los logs de eventos", 
+            "title": "Event Logs"
         }, 
         {
-            "location": "/active-directory/instalar-modulo/#inicio", 
+            "location": "/admin/event-log/#listado-de-todos-los-logs-de-eventos", 
             "text": "", 
-            "title": "Inicio"
+            "title": "Listado de todos los logs de eventos"
         }, 
         {
-            "location": "/active-directory/instalar-modulo/#modulo-ad", 
+            "location": "/active-directory/cuentas-usuarios/", 
+            "text": "Cambiar contrase\u00f1a de una cuenta", 
+            "title": "Cuentas usuarios"
+        }, 
+        {
+            "location": "/active-directory/cuentas-usuarios/#cambiar-contrasena-de-una-cuenta", 
             "text": "", 
-            "title": "Modulo AD"
+            "title": "Cambiar contrase\u00f1a de una cuenta"
         }, 
         {
             "location": "/recursos/", 
