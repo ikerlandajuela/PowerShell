@@ -126,6 +126,21 @@
             "title": "Recursos externos"
         }, 
         {
+            "location": "/sintaxis/select/", 
+            "text": "PowerShell destaca por el uso de los objetos de datos y como se pueden transmitir estos incluso usando tuber\u00edas (pipe) de un comando a otro. El cmdlet Select-Object como su nombre indica selecciona objetos. \n\n\nSeleccionando el n\u00famero de objetos\n\n\nUsamos el par\u00e1metro \n-First\n para seleccionar X objetos desde el principio o \n-Last\n para hacerlo desde el final.\n\n\nPor ejemplo \n\n\nGet-EventLog -List | Select -First 1 | Get-Member\n\n\n\n\nEnlaces externos\n\n\n\n\nPowerShell Basics: Select-Object | IT Pro\n.", 
+            "title": "Select"
+        }, 
+        {
+            "location": "/sintaxis/select/#seleccionando-el-numero-de-objetos", 
+            "text": "Usamos el par\u00e1metro  -First  para seleccionar X objetos desde el principio o  -Last  para hacerlo desde el final.  Por ejemplo   Get-EventLog -List | Select -First 1 | Get-Member", 
+            "title": "Seleccionando el n\u00famero de objetos"
+        }, 
+        {
+            "location": "/sintaxis/select/#enlaces-externos", 
+            "text": "PowerShell Basics: Select-Object | IT Pro .", 
+            "title": "Enlaces externos"
+        }, 
+        {
             "location": "/sistema-archivos/directorios/", 
             "text": "Obtener los ficheros de un directorio\n\n\nPara obtener una lista de los archivos de un directorio empleamos el cmdlet \nGet-ChildItem\n. Para obtener un item especifico usamos \nGet-Item\n.\n\n\nFuente:\n \nget_files_dir.ps1\n\n\nPara obtener todos los elementos del directorio actual:\n\n\nGet-ChildItem\n\n\n\n\nPodemos buscar aquellos elementos que cumplan un patr\u00f3n:\n\n\nGet-ChildItem *.ps1\n\n\n\n\nSi queremos buscar de forma recursiva dentro de las subcarpetas tambi\u00e9n\n\n\nGet-ChildItem *.txt -Recurse\n\n\n\n\nEspecificamos la ruta donde queremos buscar y excluimos ciertos elementos\n\n\nGet-ChildItem -Path C:\\Windows -Exclude *.png\n\n\n\n\nSi solo queremos listar los directorios.\n\n\nGet-ChildItem \nC:\\Windows\n | where {$_.Attributes -match'Directory'}\n\n\n\n\nBuscar los ficheros modificados antes de una determinada fecha\n\n\nRecursos externos\n\n\n\n\nGet-ChildItem\n: Gets the items and child items in one or more specified locations.\n\n\nTrabajar con archivos y carpetas\n: Navegar a trav\u00e9s de unidades de Windows PowerShell y manipular los elementos son procesos similares al de manipulaci\u00f3n de archivos y carpetas en unidades de disco f\u00edsico de Windows. Explicaremos c\u00f3mo tratar con tareas espec\u00edficas de manipulaci\u00f3n de archivos y carpetas en esta secci\u00f3n.", 
             "title": "Directorios"
