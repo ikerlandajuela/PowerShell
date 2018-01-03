@@ -126,6 +126,21 @@
             "title": "Recursos externos"
         }, 
         {
+            "location": "/sintaxis/select/", 
+            "text": "PowerShell destaca por el uso de los objetos de datos y como se pueden transmitir estos incluso usando tuber\u00edas (pipe) de un comando a otro. El cmdlet Select-Object como su nombre indica selecciona objetos. \n\n\nSeleccionando el n\u00famero de objetos\n\n\nUsamos el par\u00e1metro \n-First\n para seleccionar X objetos desde el principio o \n-Last\n para hacerlo desde el final.\n\n\nPor ejemplo \n\n\nGet-EventLog -List | Select -First 1 | Get-Member\n\n\n\n\nEnlaces externos\n\n\n\n\nPowerShell Basics: Select-Object | IT Pro\n.", 
+            "title": "Select"
+        }, 
+        {
+            "location": "/sintaxis/select/#seleccionando-el-numero-de-objetos", 
+            "text": "Usamos el par\u00e1metro  -First  para seleccionar X objetos desde el principio o  -Last  para hacerlo desde el final.  Por ejemplo   Get-EventLog -List | Select -First 1 | Get-Member", 
+            "title": "Seleccionando el n\u00famero de objetos"
+        }, 
+        {
+            "location": "/sintaxis/select/#enlaces-externos", 
+            "text": "PowerShell Basics: Select-Object | IT Pro .", 
+            "title": "Enlaces externos"
+        }, 
+        {
             "location": "/sistema-archivos/directorios/", 
             "text": "Obtener los ficheros de un directorio\n\n\nPara obtener una lista de los archivos de un directorio empleamos el cmdlet \nGet-ChildItem\n. Para obtener un item especifico usamos \nGet-Item\n.\n\n\nFuente:\n \nget_files_dir.ps1\n\n\nPara obtener todos los elementos del directorio actual:\n\n\nGet-ChildItem\n\n\n\n\nPodemos buscar aquellos elementos que cumplan un patr\u00f3n:\n\n\nGet-ChildItem *.ps1\n\n\n\n\nSi queremos buscar de forma recursiva dentro de las subcarpetas tambi\u00e9n\n\n\nGet-ChildItem *.txt -Recurse\n\n\n\n\nEspecificamos la ruta donde queremos buscar y excluimos ciertos elementos\n\n\nGet-ChildItem -Path C:\\Windows -Exclude *.png\n\n\n\n\nSi solo queremos listar los directorios.\n\n\nGet-ChildItem \nC:\\Windows\n | where {$_.Attributes -match'Directory'}\n\n\n\n\nBuscar los ficheros modificados antes de una determinada fecha\n\n\nRecursos externos\n\n\n\n\nGet-ChildItem\n: Gets the items and child items in one or more specified locations.\n\n\nTrabajar con archivos y carpetas\n: Navegar a trav\u00e9s de unidades de Windows PowerShell y manipular los elementos son procesos similares al de manipulaci\u00f3n de archivos y carpetas en unidades de disco f\u00edsico de Windows. Explicaremos c\u00f3mo tratar con tareas espec\u00edficas de manipulaci\u00f3n de archivos y carpetas en esta secci\u00f3n.", 
             "title": "Directorios"
@@ -234,6 +249,31 @@
             "location": "/active-directory/grupos/#usuarios-y-grupos", 
             "text": "Obtener los nombres de los grupos a los que pertenece un usuario:  Get-ADPrincipalGroupMembership 'b.sinclair' | Select name  Algo similar pero ahora queremos obtener las cuentas que pertecenen a un grupo:  Get-ADGroupMember -identity 'Nombre del grupo' -recursive | select name  Remove-ADGroupMember -Identity 'Nombre del grupo' -Member 'b.sinclair'", 
             "title": "Usuarios y grupos"
+        }, 
+        {
+            "location": "/exchange/basico/", 
+            "text": "Obtener informaci\u00f3n servidores buzones de correo\n\n\nEl cmdlet \nGet-MailboxServer\n permite obtener informaci\u00f3n sobre los servidores de correo.\n\n\nFuente:\n \nShow-MailBox-Server.ps1\n\n\nGet-MailboxServer\n\n\n\n\nObtener informaci\u00f3n de un buzon\n\n\nFuente:\n \nShow-MailBox-User.ps1\n\n\nPodemos ver si tiene establecida una cuota de correo en la tercera columna.\n\n\nGet-Mailbox -Identity 'b.sinclair'\n\n\n\n\nPero un buz\u00f3n de Exchange Online tiene asociada m\u00e1s informaci\u00f3n, adem\u00e1s de las cuatro propiedades devueltas por el cmdlet Get-Mailbox.\n\n\nGet-Mailbox -Identity 'b.sinclair' | Select-Object *\n# Tambi\u00e9n puede usar el cmdlet Select-Object para especificar un conjunto de valores de propiedad que se van a mostrar.\nGet-Mailbox -Identity 'b.sinclair' | Select-Object DisplayName, LitigationHoldEnabled, LitigationHoldDate, LitigationHoldOwner, LitigationHoldDuration\n\n\n\n\nBases de datos Mailbox\n\n\nPara obtener los nombres de la bases de datos usadas como Mailbox:\n\n\nGet-MailboxDatabase\n# Si queremos obtener los buzones de una base de datos concreta\nGet-MailboxDatabase \nMailbox Database 1\n  | Get-Mailbox \n\n\n\n\nTambi\u00e9n podemos obtener estad\u00edsticas e incluso obtener el tama\u00f1op total de cada buzones en una BD.\n\n\nGet-MailboxDatabase \nMailbox Database 1\n | Get-MailboxStatistics | Sort totalitemsize -desc | ft displayname, totalitemsize, itemcount\n\n\n\n\nAlernativamente podemos podemos obtener los datos de un buz\u00f3n de correo espec\u00edfico:\n\n\nGet-MailboxStatistics -identity b.sinclair| fl\n\n\n\n\nEnlaces externos\n\n\n\n\nGet-MailboxServer - TechNet - Microsoft\n.\n\n\nList of active mailboxes (PowerShell) - CodeTwo\n.\n\n\ncunninghamp/Get-MailboxReport.ps1\n.\n\n\nBrowsing Mailbox Databases in Exchange 2007 and 2010\n.\n\n\nGet-MailboxReport.ps1 \u2013 PowerShell Script to Generate Mailbox Reports\n.\n\n\nHow to Calculate Exchange 2010 Mailbox Sizes with PowerShell\n.\n\n\nThe essential guide to PowerShell in Exchange\n.", 
+            "title": "B\u00e1sico"
+        }, 
+        {
+            "location": "/exchange/basico/#obtener-informacion-servidores-buzones-de-correo", 
+            "text": "El cmdlet  Get-MailboxServer  permite obtener informaci\u00f3n sobre los servidores de correo.  Fuente:   Show-MailBox-Server.ps1  Get-MailboxServer", 
+            "title": "Obtener informaci\u00f3n servidores buzones de correo"
+        }, 
+        {
+            "location": "/exchange/basico/#obtener-informacion-de-un-buzon", 
+            "text": "Fuente:   Show-MailBox-User.ps1  Podemos ver si tiene establecida una cuota de correo en la tercera columna.  Get-Mailbox -Identity 'b.sinclair'  Pero un buz\u00f3n de Exchange Online tiene asociada m\u00e1s informaci\u00f3n, adem\u00e1s de las cuatro propiedades devueltas por el cmdlet Get-Mailbox.  Get-Mailbox -Identity 'b.sinclair' | Select-Object *\n# Tambi\u00e9n puede usar el cmdlet Select-Object para especificar un conjunto de valores de propiedad que se van a mostrar.\nGet-Mailbox -Identity 'b.sinclair' | Select-Object DisplayName, LitigationHoldEnabled, LitigationHoldDate, LitigationHoldOwner, LitigationHoldDuration", 
+            "title": "Obtener informaci\u00f3n de un buzon"
+        }, 
+        {
+            "location": "/exchange/basico/#bases-de-datos-mailbox", 
+            "text": "Para obtener los nombres de la bases de datos usadas como Mailbox:  Get-MailboxDatabase\n# Si queremos obtener los buzones de una base de datos concreta\nGet-MailboxDatabase  Mailbox Database 1   | Get-Mailbox   Tambi\u00e9n podemos obtener estad\u00edsticas e incluso obtener el tama\u00f1op total de cada buzones en una BD.  Get-MailboxDatabase  Mailbox Database 1  | Get-MailboxStatistics | Sort totalitemsize -desc | ft displayname, totalitemsize, itemcount  Alernativamente podemos podemos obtener los datos de un buz\u00f3n de correo espec\u00edfico:  Get-MailboxStatistics -identity b.sinclair| fl", 
+            "title": "Bases de datos Mailbox"
+        }, 
+        {
+            "location": "/exchange/basico/#enlaces-externos", 
+            "text": "Get-MailboxServer - TechNet - Microsoft .  List of active mailboxes (PowerShell) - CodeTwo .  cunninghamp/Get-MailboxReport.ps1 .  Browsing Mailbox Databases in Exchange 2007 and 2010 .  Get-MailboxReport.ps1 \u2013 PowerShell Script to Generate Mailbox Reports .  How to Calculate Exchange 2010 Mailbox Sizes with PowerShell .  The essential guide to PowerShell in Exchange .", 
+            "title": "Enlaces externos"
         }, 
         {
             "location": "/recursos/", 

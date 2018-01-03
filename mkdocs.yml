@@ -9,6 +9,7 @@ pages:
         - 'For': 'sintaxis/for.md'
         - 'Foreach': 'sintaxis/foreach.md'
         - 'Function': 'sintaxis/function.md'
+        - 'Select': 'sintaxis/select.md'
     - Sistema archivos:
         - 'Directorios': 'sistema-archivos/directorios.md'
     - Bases de datos:
@@ -18,4 +19,6 @@ pages:
     - Active Directory:
         - 'Cuentas usuarios':  'active-directory/cuentas-usuarios.md'
         - 'Grupos': 'active-directory/grupos.md'
+    - Exchange Server:
+         - 'Básico': 'exchange/basico.md'
     - Recursos: recursos.md

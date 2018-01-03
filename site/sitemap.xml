@@ -35,6 +35,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/sintaxis/select/</loc>
+     <lastmod>2018-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
@@ -77,6 +83,16 @@
         
     <url>
      <loc>/active-directory/grupos/</loc>
+     <lastmod>2018-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/exchange/basico/</loc>
      <lastmod>2018-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
