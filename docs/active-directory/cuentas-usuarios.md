@@ -12,6 +12,11 @@ Get-ADUser -Identity 'b.sinclair'
 Get-ADUser -Filter 'Name -like "Bob Sinclair"'
 ```
 
+Para ver que propiedades podemos consultar de un objeto usuario es siempre útil tener enlaces como estos a mano:
+
+* [Active Directory: Get-ADUser Default and Extended Properties ...](https://social.technet.microsoft.com/wiki/contents/articles/12037.active-directory-get-aduser-default-and-extended-properties.aspx).
+* [User Object Attributes (Windows) - MSDN - Microsoft](https://msdn.microsoft.com/en-us/library/ms677979(v=vs.85).aspx).
+
 # Propiedades adicionales
 
 Si queremos visualizar propiedades que no se muestran por defecto, por ejemplo la oficina de trabajo y la descripción de la cuenta:
@@ -39,9 +44,6 @@ Get-ADUser -Identity 'b.sinclair' -Properties Manager
 # Para comprobar si la clave a expirado
 Get-ADUser -Identity 'b.sinclair' -Properties PasswordExpired
 ```
-
-# Add, Remove, Replace and Clear
-
 
 # Ejemplos avanzados
 
@@ -90,4 +92,4 @@ Set-ADAccountPassword -Identity b.sinclair -Reset -NewPassword (ConvertTo-Secure
 * [PowerShell: Get-ADUser to retrieve password last set and expiry information](https://www.oxfordsbsguy.com/2013/11/25/powershell-get-aduser-to-retrieve-password-last-set-and-expiry-information/).
 * [Obtaining the password expiry date with PowerShell – 4sysops](https://4sysops.com/archives/obtaining-the-password-expiry-date-with-powershell/).
 * [Select-Object - PowerShell - SS64.com](https://ss64.com/ps/select-object.html).
-* 
+* [Active Directory: Get-ADUser Default and Extended Properties ...](https://social.technet.microsoft.com/wiki/contents/articles/12037.active-directory-get-aduser-default-and-extended-properties.aspx).

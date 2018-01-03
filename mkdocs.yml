@@ -17,4 +17,5 @@ pages:
         - 'Event Logs': 'admin/event-log.md'
     - Active Directory:
         - 'Cuentas usuarios':  'active-directory/cuentas-usuarios.md'
+        - 'Grupos': 'active-directory/grupos.md'
     - Recursos: recursos.md

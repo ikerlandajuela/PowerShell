@@ -126,9 +126,6 @@
     <li class="toctree-l3"><a href="#modificar-las-propiedades-de-un-usuarios">Modificar las propiedades de un usuarios</a></li>
     
 
-    <li class="toctree-l3"><a href="#add-remove-replace-and-clear">Add, Remove, Replace and Clear</a></li>
-    
-
     <li class="toctree-l3"><a href="#ejemplos-avanzados">Ejemplos avanzados</a></li>
     
 
@@ -139,6 +136,10 @@
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../grupos/">Grupos</a>
                 </li>
     </ul>
 	    </li>
@@ -196,6 +197,11 @@
 Get-ADUser -Filter 'Name -like &quot;Bob Sinclair&quot;'
 </code></pre>
 
+<p>Para ver que propiedades podemos consultar de un objeto usuario es siempre útil tener enlaces como estos a mano:</p>
+<ul>
+<li><a href="https://social.technet.microsoft.com/wiki/contents/articles/12037.active-directory-get-aduser-default-and-extended-properties.aspx">Active Directory: Get-ADUser Default and Extended Properties ...</a>.</li>
+<li><a href="https://msdn.microsoft.com/en-us/library/ms677979(v=vs.85).aspx">User Object Attributes (Windows) - MSDN - Microsoft</a>.</li>
+</ul>
 <h1 id="propiedades-adicionales">Propiedades adicionales</h1>
 <p>Si queremos visualizar propiedades que no se muestran por defecto, por ejemplo la oficina de trabajo y la descripción de la cuenta:</p>
 <pre><code class="powershell">Get-ADUser -Identity 'b.sinclair' -Properties Description,Office
@@ -218,7 +224,6 @@ Get-ADUser -Identity 'b.sinclair' -Properties Manager
 Get-ADUser -Identity 'b.sinclair' -Properties PasswordExpired
 </code></pre>
 
-<h1 id="add-remove-replace-and-clear">Add, Remove, Replace and Clear</h1>
 <h1 id="ejemplos-avanzados">Ejemplos avanzados</h1>
 <p><strong>Fuente:</strong> <a href="../../src/active_directory/users/Filter-Users.ps1">Filter-Users.ps1</a></p>
 <p>Las fecha de caducidad de la clave y la fecha cuando se estableció la clave por última vez siempre son valores interesantes para los admins. Si queremos realizar varias operaciones sobre una lista de usuarios primero lo almacenamos en una lista de objetos.</p>
@@ -254,7 +259,7 @@ Set-ADAccountPassword -Identity b.sinclair -Reset -NewPassword (ConvertTo-Secure
 <li><a href="https://www.oxfordsbsguy.com/2013/11/25/powershell-get-aduser-to-retrieve-password-last-set-and-expiry-information/">PowerShell: Get-ADUser to retrieve password last set and expiry information</a>.</li>
 <li><a href="https://4sysops.com/archives/obtaining-the-password-expiry-date-with-powershell/">Obtaining the password expiry date with PowerShell – 4sysops</a>.</li>
 <li><a href="https://ss64.com/ps/select-object.html">Select-Object - PowerShell - SS64.com</a>.</li>
-<li></li>
+<li><a href="https://social.technet.microsoft.com/wiki/contents/articles/12037.active-directory-get-aduser-default-and-extended-properties.aspx">Active Directory: Get-ADUser Default and Extended Properties ...</a>.</li>
 </ul>
               
             </div>
@@ -263,7 +268,7 @@ Set-ADAccountPassword -Identity b.sinclair -Reset -NewPassword (ConvertTo-Secure
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../recursos/" class="btn btn-neutral float-right" title="Recursos">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../grupos/" class="btn btn-neutral float-right" title="Grupos">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../../admin/event-log/" class="btn btn-neutral" title="Event Logs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -297,7 +302,7 @@ Set-ADAccountPassword -Identity b.sinclair -Reset -NewPassword (ConvertTo-Secure
         <span><a href="../../admin/event-log/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../recursos/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../grupos/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
