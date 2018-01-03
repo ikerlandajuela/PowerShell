@@ -236,6 +236,31 @@
             "title": "Usuarios y grupos"
         }, 
         {
+            "location": "/exchange/basico/", 
+            "text": "Obtener informaci\u00f3n servidores buzones de correo\n\n\nEl cmdlet \nGet-MailboxServer\n permite obtener informaci\u00f3n sobre los servidores de correo.\n\n\nFuente:\n \nShow-MailBox-Server.ps1\n\n\nGet-MailboxServer\n\n\n\n\nObtener informaci\u00f3n de un buzon\n\n\nFuente:\n \nShow-MailBox-User.ps1\n\n\nPodemos ver si tiene establecida una cuota de correo en la tercera columna.\n\n\nGet-Mailbox -Identity 'b.sinclair'\n\n\n\n\nPero un buz\u00f3n de Exchange Online tiene asociada m\u00e1s informaci\u00f3n, adem\u00e1s de las cuatro propiedades devueltas por el cmdlet Get-Mailbox.\n\n\nGet-Mailbox -Identity 'b.sinclair' | Select-Object *\n# Tambi\u00e9n puede usar el cmdlet Select-Object para especificar un conjunto de valores de propiedad que se van a mostrar.\nGet-Mailbox -Identity 'b.sinclair' | Select-Object DisplayName, LitigationHoldEnabled, LitigationHoldDate, LitigationHoldOwner, LitigationHoldDuration\n\n\n\n\nBases de datos Mailbox\n\n\nPara obtener los nombres de la bases de datos usadas como Mailbox:\n\n\nGet-MailboxDatabase\n# Si queremos obtener los buzones de una base de datos concreta\nGet-MailboxDatabase \nMailbox Database 1\n  | Get-Mailbox \n\n\n\n\nTambi\u00e9n podemos obtener estad\u00edsticas e incluso obtener el tama\u00f1op total de cada buzones en una BD.\n\n\nGet-MailboxDatabase \nMailbox Database 1\n | Get-MailboxStatistics | Sort totalitemsize -desc | ft displayname, totalitemsize, itemcount\n\n\n\n\nAlernativamente podemos podemos obtener los datos de un buz\u00f3n de correo espec\u00edfico:\n\n\nGet-MailboxStatistics -identity b.sinclair| fl\n\n\n\n\nEnlaces externos\n\n\n\n\nGet-MailboxServer - TechNet - Microsoft\n.\n\n\nList of active mailboxes (PowerShell) - CodeTwo\n.\n\n\ncunninghamp/Get-MailboxReport.ps1\n.\n\n\nBrowsing Mailbox Databases in Exchange 2007 and 2010\n.\n\n\nGet-MailboxReport.ps1 \u2013 PowerShell Script to Generate Mailbox Reports\n.\n\n\nHow to Calculate Exchange 2010 Mailbox Sizes with PowerShell\n.\n\n\nThe essential guide to PowerShell in Exchange\n.", 
+            "title": "B\u00e1sico"
+        }, 
+        {
+            "location": "/exchange/basico/#obtener-informacion-servidores-buzones-de-correo", 
+            "text": "El cmdlet  Get-MailboxServer  permite obtener informaci\u00f3n sobre los servidores de correo.  Fuente:   Show-MailBox-Server.ps1  Get-MailboxServer", 
+            "title": "Obtener informaci\u00f3n servidores buzones de correo"
+        }, 
+        {
+            "location": "/exchange/basico/#obtener-informacion-de-un-buzon", 
+            "text": "Fuente:   Show-MailBox-User.ps1  Podemos ver si tiene establecida una cuota de correo en la tercera columna.  Get-Mailbox -Identity 'b.sinclair'  Pero un buz\u00f3n de Exchange Online tiene asociada m\u00e1s informaci\u00f3n, adem\u00e1s de las cuatro propiedades devueltas por el cmdlet Get-Mailbox.  Get-Mailbox -Identity 'b.sinclair' | Select-Object *\n# Tambi\u00e9n puede usar el cmdlet Select-Object para especificar un conjunto de valores de propiedad que se van a mostrar.\nGet-Mailbox -Identity 'b.sinclair' | Select-Object DisplayName, LitigationHoldEnabled, LitigationHoldDate, LitigationHoldOwner, LitigationHoldDuration", 
+            "title": "Obtener informaci\u00f3n de un buzon"
+        }, 
+        {
+            "location": "/exchange/basico/#bases-de-datos-mailbox", 
+            "text": "Para obtener los nombres de la bases de datos usadas como Mailbox:  Get-MailboxDatabase\n# Si queremos obtener los buzones de una base de datos concreta\nGet-MailboxDatabase  Mailbox Database 1   | Get-Mailbox   Tambi\u00e9n podemos obtener estad\u00edsticas e incluso obtener el tama\u00f1op total de cada buzones en una BD.  Get-MailboxDatabase  Mailbox Database 1  | Get-MailboxStatistics | Sort totalitemsize -desc | ft displayname, totalitemsize, itemcount  Alernativamente podemos podemos obtener los datos de un buz\u00f3n de correo espec\u00edfico:  Get-MailboxStatistics -identity b.sinclair| fl", 
+            "title": "Bases de datos Mailbox"
+        }, 
+        {
+            "location": "/exchange/basico/#enlaces-externos", 
+            "text": "Get-MailboxServer - TechNet - Microsoft .  List of active mailboxes (PowerShell) - CodeTwo .  cunninghamp/Get-MailboxReport.ps1 .  Browsing Mailbox Databases in Exchange 2007 and 2010 .  Get-MailboxReport.ps1 \u2013 PowerShell Script to Generate Mailbox Reports .  How to Calculate Exchange 2010 Mailbox Sizes with PowerShell .  The essential guide to PowerShell in Exchange .", 
+            "title": "Enlaces externos"
+        }, 
+        {
             "location": "/recursos/", 
             "text": "Libros\n\n\n\n\nGitBook \ndevops-collective-inc\n: A US 501(c)(3) nonprofit dedicated to DevOps and automation education.\n\n\nThe Big Book of PowerShell Gotchas\n: PowerShell is full of \"gotchas\" - little things that just get in your way and are hard to figure out on your own. This short book is intended to help you figure them out and avoid them.\n\n\nCreating HTML Reports in PowerShell\n: Create beautiful, colorful, multi-section HTML reports from PowerShell - with very little knowledge of CSS or HTML needed!.    \n\n\n\n\n\n\nhttp://ramblingcookiemonster.github.io/Pages/PowerShellResources/index.html\n.\n\n\n\n\nCmdlets\n\n\n\n\nWindows PowerShell Cookbook\n: The following applies to example files from material published by O\u2019Reilly Media, Inc. \n\n\nCmdlet Samples\n: This section describes sample code that is provided in the Windows PowerShell 2.0 SDK.\n\n\nA Task-Based Guide to Windows PowerShell Cmdlets\n: Cmdlets are the heart-and-soul of Windows PowerShell, Microsoft's latest command shell/scripting language. \n\n\n\n\nWebs", 
             "title": "Recursos"
