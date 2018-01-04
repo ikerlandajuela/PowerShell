@@ -5,7 +5,9 @@ repo_url: https://github.com/ikerlandajuela/PowerShell/
 pages:
     - Inicio: index.md
     - Sintaxis:
-        - 'Arrays': 'sintaxis/array.md'   
+        - 'Variables': 'sintaxis/variables.md'
+        - 'If': 'sintaxis/if.md'
+        - 'Arrays': 'sintaxis/array.md'
         - 'For': 'sintaxis/for.md'
         - 'Foreach': 'sintaxis/foreach.md'
         - 'Function': 'sintaxis/function.md'
