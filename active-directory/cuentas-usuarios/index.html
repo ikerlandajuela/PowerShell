@@ -148,6 +148,9 @@
     <li class="toctree-l3"><a href="#seguridad-de-cuentas-de-usuarios">Seguridad de cuentas de usuarios</a></li>
     
 
+    <li class="toctree-l3"><a href="#crear-una-cuenta-ad-y-exchange-para-un-usuario">Crear una cuenta AD y Exchange para un usuario</a></li>
+    
+
     <li class="toctree-l3"><a href="#recursos-externos">Recursos externos</a></li>
     
 
@@ -279,6 +282,55 @@ Unlock-ADAccount -Identity 'b.sinclair'
 Set-ADAccountPassword -Identity b.sinclair -Reset -NewPassword (ConvertTo-SecureString -AsPlainText &quot;p@ssw0rd&quot; -Force)
 </code></pre>
 
+<h1 id="crear-una-cuenta-ad-y-exchange-para-un-usuario">Crear una cuenta AD y Exchange para un usuario</h1>
+<p><strong>Fuente:</strong> <a href="../../src/active_directory/users/New-UserAccount.ps1">New-UserAccount.ps1</a></p>
+<p>Vamos a crear un usuario de AD y su buzón de correo en Exchange, para poder ejecutar el script deben estar cargados los módulos AD y Exhange.</p>
+<p>Empezamos el script comprobando previamente si existe el buzón, es importante saber también que cuando borramos el buzón se elimina también el objeto de usuario de AD.</p>
+<pre><code class="powershell">$Mailboxes = Get-Mailbox -Identity 'b.sinclair' | measure-object
+if ( $Mailboxes.Count -gt 0 ) 
+{
+        Remove-Mailbox -Identity 'b.sinclair'
+}
+</code></pre>
+
+<p>Podemos hacer una comprobación similar para una cuenta AD.</p>
+<pre><code class="powershell">$Users =  Get-ADUser -Identity 'b.sinclair' | measure-object
+if ( $Users.Count -gt 0 ) 
+{       
+    Remove-ADUser -Identity 'b.sinclair'
+}
+</code></pre>
+
+<p>Después de esas comprobaciones vamos al caso concreto, para crear el usuario en AD vamos a usar tres cmdlets: <strong>New-ADUser</strong>, <strong>Set-ADUser</strong>,<strong>Add-ADGroupMember</strong>. El último comando no es imprescindible, nos permite incorporar la cuenta a un grupo.</p>
+<p>Vamos a definir los parámetros a pasar al comando <strong>New-ADUser</strong> en un array. Definimos en variables simples los valores de los campos, por ejemplo:</p>
+<pre><code class="powershell">$PlainPassword = &quot;ClaveInicial&quot;
+$SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+
+$MyName = &quot;Bob&quot;
+$MySurname = &quot;Sinclair&quot;
+$MySamAccountName = &quot;b.sinclair&quot;
+</code></pre>
+
+<p>Ahora sí creamos el array:</p>
+<pre><code class="powershell">$parms = @{ 
+        Name = $MyName + &quot; &quot; + $MySurname
+        GivenName = $MyName
+        Surname = $MySurname
+        SamAccountName = $MySamAccountName 
+        }
+</code></pre>
+
+<p>Y creamos el usuario:</p>
+<pre><code class="powershell">New-ADUser @parms
+Set-ADUser -Identity $MySamAccountName -ChangePasswordAtLogon $False
+Add-ADGroupMember -Identity &quot;Escritorio Remoto&quot; -Member $MySamAccountName
+</code></pre>
+
+<p>Ahora ya podemos crear la cuenta de correo en Exchange:</p>
+<pre><code class="powershell">Enable-Mailbox -Identity $MyEmailAddress -Database &quot;Mailbox Database 12&quot; 
+Enable-Mailbox -Identity $MyEmailAddress -Archive
+</code></pre>
+
 <h1 id="recursos-externos">Recursos externos</h1>
 <ul>
 <li><a href="https://technet.microsoft.com/en-us/library/ee617241.aspx">Get-ADUser - TechNet - Microsoft</a>.</li>
@@ -287,6 +339,7 @@ Set-ADAccountPassword -Identity b.sinclair -Reset -NewPassword (ConvertTo-Secure
 <li><a href="https://4sysops.com/archives/obtaining-the-password-expiry-date-with-powershell/">Obtaining the password expiry date with PowerShell – 4sysops</a>.</li>
 <li><a href="https://ss64.com/ps/select-object.html">Select-Object - PowerShell - SS64.com</a>.</li>
 <li><a href="https://social.technet.microsoft.com/wiki/contents/articles/12037.active-directory-get-aduser-default-and-extended-properties.aspx">Active Directory: Get-ADUser Default and Extended Properties ...</a>.</li>
+<li><a href="https://technet.microsoft.com/es-es/library/jj984357(v=exchg.150).aspx">Habilitar o deshabilitar un buzón de archivo en Exchange Online ...</a>.</li>
 </ul>
               
             </div>
