@@ -7,8 +7,23 @@
         }, 
         {
             "location": "/sintaxis/variables/", 
-            "text": "$myVar = 2\n$myVar\n\n$myVar++\n# NO funciona\n#$myVar**\n$myVar\n\n$myVar+=2\n#$myVar = $myVar + 2\n$myVar\n\n$myVar*=2\n#$myVar = $myVar * 2\n$myVar", 
+            "text": "Orientaci\u00f3n a objeto\n\n\nUna de las grandezas de \nPowerShell\n es que guarda la informaci\u00f3n en su tipo nativo: Los \nobjetos\n. PowerShell emplea los \nobject\n del framework .NET. \n\n\nUn objeto basicamente representa una entidad con datos (tambi\u00e9n llamados atributos o propiedades) y unos m\u00e9todos (firmas o funciones) que expone para operar con estos datos. Es una forma de encapsular informaci\u00f3n. Por ahora es suficiente con saber esto, m\u00e1s adelante se explorar\u00e1 m\u00e1s en profundidad los objetos de PS (un objeto es el resultado de la instanciaci\u00f3n de una clase).\n\n\nLos nombres de variables en PS siempre van precedidad del car\u00e1cter '$', por ejemplo una variable que contendra una cadena de texto con el nombre de un usuario podriamos definirla como \n$UserName\n.  \n\n\nLos valores se asignan a una variable usando el operador '=', siguiendo el ejemplo anterior:\n\n\n$UserName = \nBob\n\n$UserAge = 43\n\n\n\n\nPS \n\n\n$myVar = 2\n$myVar\n\n$myVar++\n# NO funciona\n#$myVar**\n$myVar\n\n$myVar+=2\n#$myVar = $myVar + 2\n$myVar\n\n$myVar*=2\n#$myVar = $myVar * 2\n$myVar\n\n\n\n\nEnlaces externos\n\n\n\n\nClase Object (System) - MSDN - Microsoft\n.\n\n\nPowerShell Basics: Introduction to Objects - Windows IT Pro\n.\n\n\nPowerShell Basics: Custom Objects | IT Pro\n.\n\n\nPowerShell objects: A tutorial | Computerworld\n.\n\n\nhttp://www.tomsitpro.com/articles/powershell-variables,2-797.html\n.", 
             "title": "Variables"
+        }, 
+        {
+            "location": "/sintaxis/variables/#orientacion-a-objeto", 
+            "text": "Una de las grandezas de  PowerShell  es que guarda la informaci\u00f3n en su tipo nativo: Los  objetos . PowerShell emplea los  object  del framework .NET.   Un objeto basicamente representa una entidad con datos (tambi\u00e9n llamados atributos o propiedades) y unos m\u00e9todos (firmas o funciones) que expone para operar con estos datos. Es una forma de encapsular informaci\u00f3n. Por ahora es suficiente con saber esto, m\u00e1s adelante se explorar\u00e1 m\u00e1s en profundidad los objetos de PS (un objeto es el resultado de la instanciaci\u00f3n de una clase).  Los nombres de variables en PS siempre van precedidad del car\u00e1cter '$', por ejemplo una variable que contendra una cadena de texto con el nombre de un usuario podriamos definirla como  $UserName .    Los valores se asignan a una variable usando el operador '=', siguiendo el ejemplo anterior:  $UserName =  Bob \n$UserAge = 43  PS   $myVar = 2\n$myVar\n\n$myVar++\n# NO funciona\n#$myVar**\n$myVar\n\n$myVar+=2\n#$myVar = $myVar + 2\n$myVar\n\n$myVar*=2\n#$myVar = $myVar * 2\n$myVar", 
+            "title": "Orientaci\u00f3n a objeto"
+        }, 
+        {
+            "location": "/sintaxis/variables/#enlaces-externos", 
+            "text": "Clase Object (System) - MSDN - Microsoft .  PowerShell Basics: Introduction to Objects - Windows IT Pro .  PowerShell Basics: Custom Objects | IT Pro .  PowerShell objects: A tutorial | Computerworld .  http://www.tomsitpro.com/articles/powershell-variables,2-797.html .", 
+            "title": "Enlaces externos"
+        }, 
+        {
+            "location": "/sintaxis/objetos/", 
+            "text": "Una de las grandezas de \nPowerShell\n es que guarda la informaci\u00f3n en su tipo nativo: Los objetos. \n\n\n$myVar = 2\n$myVar\n\n$myVar++\n# NO funciona\n#$myVar**\n$myVar\n\n$myVar+=2\n#$myVar = $myVar + 2\n$myVar\n\n$myVar*=2\n#$myVar = $myVar * 2\n$myVar", 
+            "title": "Objetos"
         }, 
         {
             "location": "/sintaxis/if/", 

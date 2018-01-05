@@ -61,7 +61,17 @@
     <a class="current" href="./">Variables</a>
     <ul class="subnav">
             
+    <li class="toctree-l3"><a href="#orientacion-a-objeto">Orientación a objeto</a></li>
+    
+
+    <li class="toctree-l3"><a href="#enlaces-externos">Enlaces externos</a></li>
+    
+
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../objetos/">Objetos</a>
                 </li>
                 <li class="">
                     
@@ -193,7 +203,17 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="powershell">$myVar = 2
+                <h1 id="orientacion-a-objeto">Orientación a objeto</h1>
+<p>Una de las grandezas de <strong>PowerShell</strong> es que guarda la información en su tipo nativo: Los <strong>objetos</strong>. PowerShell emplea los <em>object</em> del framework .NET. </p>
+<p>Un objeto basicamente representa una entidad con datos (también llamados atributos o propiedades) y unos métodos (firmas o funciones) que expone para operar con estos datos. Es una forma de encapsular información. Por ahora es suficiente con saber esto, más adelante se explorará más en profundidad los objetos de PS (un objeto es el resultado de la instanciación de una clase).</p>
+<p>Los nombres de variables en PS siempre van precedidad del carácter '$', por ejemplo una variable que contendra una cadena de texto con el nombre de un usuario podriamos definirla como <code>$UserName</code>.  </p>
+<p>Los valores se asignan a una variable usando el operador '=', siguiendo el ejemplo anterior:</p>
+<pre><code class="powershell">$UserName = &quot;Bob&quot;
+$UserAge = 43
+</code></pre>
+
+<p>PS </p>
+<pre><code class="powershell">$myVar = 2
 $myVar
 
 $myVar++
@@ -209,6 +229,15 @@ $myVar*=2
 #$myVar = $myVar * 2
 $myVar
 </code></pre>
+
+<h1 id="enlaces-externos">Enlaces externos</h1>
+<ul>
+<li><a href="https://msdn.microsoft.com/es-es/library/system.object(v=vs.110).aspx">Clase Object (System) - MSDN - Microsoft</a>.</li>
+<li><a href="http://www.itprotoday.com/management-mobility/powershell-basics-introduction-objects">PowerShell Basics: Introduction to Objects - Windows IT Pro</a>.</li>
+<li><a href="http://www.itprotoday.com/management-mobility/powershell-basics-custom-objects">PowerShell Basics: Custom Objects | IT Pro</a>.</li>
+<li><a href="https://www.computerworld.com/article/2954261/data-center/understanding-and-using-objects-in-powershell.html">PowerShell objects: A tutorial | Computerworld</a>.</li>
+<li><a href="http://www.tomsitpro.com/articles/powershell-variables,2-797.html">http://www.tomsitpro.com/articles/powershell-variables,2-797.html</a>.</li>
+</ul>
               
             </div>
           </div>
@@ -216,7 +245,7 @@ $myVar
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../if/" class="btn btn-neutral float-right" title="If">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../objetos/" class="btn btn-neutral float-right" title="Objetos">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../.." class="btn btn-neutral" title="Inicio"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -250,7 +279,7 @@ $myVar
         <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../if/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../objetos/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
