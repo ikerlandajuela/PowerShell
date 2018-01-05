@@ -6,6 +6,7 @@ pages:
     - Inicio: index.md
     - Sintaxis:
         - 'Variables': 'sintaxis/variables.md'
+        - 'Objetos': 'sintaxis/objetos.md'
         - 'If': 'sintaxis/if.md'
         - 'Arrays': 'sintaxis/array.md'
         - 'For': 'sintaxis/for.md'
