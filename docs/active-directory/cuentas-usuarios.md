@@ -85,6 +85,71 @@ Unlock-ADAccount -Identity 'b.sinclair'
 Set-ADAccountPassword -Identity b.sinclair -Reset -NewPassword (ConvertTo-SecureString -AsPlainText "p@ssw0rd" -Force)
 ```
 
+# Crear una cuenta AD y Exchange para un usuario
+
+**Fuente:** [New-UserAccount.ps1](/src/active_directory/users/New-UserAccount.ps1)
+
+Vamos a crear un usuario de AD y su buzón de correo en Exchange, para poder ejecutar el script deben estar cargados los módulos AD y Exhange.
+
+Empezamos el script comprobando previamente si existe el buzón, es importante saber también que cuando borramos el buzón se elimina también el objeto de usuario de AD.
+
+```powershell
+$Mailboxes = Get-Mailbox -Identity 'b.sinclair' | measure-object
+if ( $Mailboxes.Count -gt 0 ) 
+{
+		Remove-Mailbox -Identity 'b.sinclair'
+}
+```
+
+Podemos hacer una comprobación similar para una cuenta AD.
+
+```powershell
+$Users =  Get-ADUser -Identity 'b.sinclair' | measure-object
+if ( $Users.Count -gt 0 ) 
+{		
+	Remove-ADUser -Identity 'b.sinclair'
+}
+```
+
+Después de esas comprobaciones vamos al caso concreto, para crear el usuario en AD vamos a usar tres cmdlets: **New-ADUser**, **Set-ADUser**,**Add-ADGroupMember**. El último comando no es imprescindible, nos permite incorporar la cuenta a un grupo.
+
+Vamos a definir los parámetros a pasar al comando **New-ADUser** en un array. Definimos en variables simples los valores de los campos, por ejemplo:
+
+```powershell
+$PlainPassword = "ClaveInicial"
+$SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+
+$MyName = "Bob"
+$MySurname = "Sinclair"
+$MySamAccountName = "b.sinclair"
+```
+
+Ahora sí creamos el array:
+
+```powershell
+$parms = @{ 
+		Name = $MyName + " " + $MySurname
+		GivenName = $MyName
+		Surname = $MySurname
+		SamAccountName = $MySamAccountName 
+		}
+```
+
+Y creamos el usuario:
+
+```powershell
+New-ADUser @parms
+Set-ADUser -Identity $MySamAccountName -ChangePasswordAtLogon $False
+Add-ADGroupMember -Identity "Escritorio Remoto" -Member $MySamAccountName
+```
+
+Ahora ya podemos crear la cuenta de correo en Exchange:
+
+```powershell
+Enable-Mailbox -Identity $MyEmailAddress -Database "Mailbox Database 12" 
+Enable-Mailbox -Identity $MyEmailAddress -Archive
+```
+ 
 # Recursos externos
 
 * [Get-ADUser - TechNet - Microsoft](https://technet.microsoft.com/en-us/library/ee617241.aspx).
@@ -93,3 +158,4 @@ Set-ADAccountPassword -Identity b.sinclair -Reset -NewPassword (ConvertTo-Secure
 * [Obtaining the password expiry date with PowerShell – 4sysops](https://4sysops.com/archives/obtaining-the-password-expiry-date-with-powershell/).
 * [Select-Object - PowerShell - SS64.com](https://ss64.com/ps/select-object.html).
 * [Active Directory: Get-ADUser Default and Extended Properties ...](https://social.technet.microsoft.com/wiki/contents/articles/12037.active-directory-get-aduser-default-and-extended-properties.aspx).
+* [Habilitar o deshabilitar un buzón de archivo en Exchange Online ...](https://technet.microsoft.com/es-es/library/jj984357(v=exchg.150).aspx).
