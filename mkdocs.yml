@@ -13,10 +13,8 @@ pages:
         - 'Foreach': 'sintaxis/foreach.md'
         - 'Function': 'sintaxis/function.md'
         - 'Select': 'sintaxis/select.md'
-    - Sistema archivos:
+    - Sistema:
         - 'Directorios': 'sistema-archivos/directorios.md'
-    - Bases de datos:
-        - 'SQLite': 'bases_de_datos/sqlite/sqlite.md'
     - Admin:
         - 'Event Logs': 'admin/event-log.md'
     - Active Directory:
@@ -24,4 +22,6 @@ pages:
         - 'Grupos': 'active-directory/grupos.md'
     - Exchange Server:
          - 'Básico': 'exchange/basico.md'
+    - Bases de datos:
+        - 'SQLite': 'bases_de_datos/sqlite/sqlite.md'
     - Recursos: recursos.md

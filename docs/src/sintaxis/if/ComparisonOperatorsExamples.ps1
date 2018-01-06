@@ -1,0 +1,1 @@
+(dir).Count -ge 4

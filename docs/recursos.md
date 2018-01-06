@@ -1,3 +1,8 @@
+# Entornos de desarrollo
+
+* [Visual Studio Code - Code Editing. Redefined](https://code.visualstudio.com/).
+
+
 # Libros
 
 * GitBook [devops-collective-inc](https://www.gitbook.com/@devops-collective-inc): A US 501(c)(3) nonprofit dedicated to DevOps and automation education.
