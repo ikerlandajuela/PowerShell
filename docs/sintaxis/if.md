@@ -119,3 +119,5 @@ $MatchColor
 * [PowerShell Hacks: Ternarys and Null-coalescing operators](http://fearthecowboy.com/powershell/2015/12/11/PowerShell-A-Better-Ternary/).
 * [A Simpler If/Then Conditional Logic in PowerShell](https://www.adamtheautomator.com/a-simpler-ifthen-conditional-logic-in-powershell/).
 * [Comparison Operators in PowerShell - TechNet Articles - United ...](https://social.technet.microsoft.com/wiki/contents/articles/23819.comparison-operators-in-powershell.aspx).
+* [Powershell: Alternative to ternary operator](http://www.karthikscorner.com/sharepoint/powershell-alternative-ternary-operator/).
+* [Conditional Logic in PowerShell](https://www.adamtheautomator.com/a-simpler-ifthen-conditional-logic-in-powershell/	).

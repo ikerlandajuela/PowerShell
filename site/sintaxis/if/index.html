@@ -217,7 +217,14 @@
               
                 <h1 id="introduccion">Introducción</h1>
 <p>Si queremos evaluar una condición bajo la cual se ejecute una porción de código usamos las sentencias condicionales <code>if</code>, <code>elseif</code>, y <code>else</code>.</p>
-<p>En este primer ejemplo vamos evaluando condiciones de forma encadenada comprobando si la variable <code>$temperature</code> se ajusta a un determinado límite. Empleamos el operador de comparación <code>-le</code> (<a href="https://ss64.com/ps/syntax-compare.html">Comparison operators - PowerShell - SS64.com</a>) que comprueba si la variable es menor o igual que un entero. </p>
+<p>Este ejemplo es muy sencillo, podría ser usado perfectamente para condicionar la ejecución del unos comandos a una determinada fecha o hora.</p>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/if/IfDate.ps1">IfDate.ps1</a></p>
+<pre><code class="powershell">$Calendar = Get-Date
+If ($Calendar.Month -eq '5') {&quot;Este mes es Mayo&quot;}
+Else {&quot;No es Mayo&quot;}
+</code></pre>
+
+<p>En este ejemplo vamos evaluando condiciones de forma encadenada comprobando si la variable <code>$temperature</code> se ajusta a un determinado límite. Empleamos el operador de comparación <code>-le</code> (<a href="https://ss64.com/ps/syntax-compare.html">Comparison operators - PowerShell - SS64.com</a>) que comprueba si la variable es menor o igual que un entero (less or equal). </p>
 <p><strong>Fuente:</strong> <a href="../../src/sintaxis/if/IfTemperature.ps1">IfTemperature.ps1</a></p>
 <pre><code class="powershell">$temperature = 90
 if($temperature -le 0)
@@ -356,6 +363,19 @@ if (-Not ($demo)) { write &quot;Zero, null or Empty&quot;}
 if (!($demo)) { write &quot;Zero, null or Empty&quot;}
 </code></pre>
 
+<pre><code class="powershell"># PowerShell If AND Statement Simple Example
+Clear-Host
+$Calendar = Get-Date
+If ($Calendar.Day -eq '25' -And $Calendar.Month -eq '12') 
+{
+    &quot;Christmas Day&quot;
+}
+Else 
+{
+    &quot;It's not Christmas yet! &quot; + $Calendar.Month +&quot;/&quot; +$Calendar.Day 
+}
+</code></pre>
+
 <h1 id="operadores-ternarios">Operadores ternarios</h1>
 <pre><code class="powershell">#$CarColor = 'Red'
 $CarColor = 'Blue' 
@@ -368,6 +388,9 @@ $MatchColor
 <li><a href="https://blogs.msdn.microsoft.com/kebab/2013/06/09/an-introduction-to-error-handling-in-powershell/">An Introduction to Error Handling in PowerShell – Keith Babinec's ...</a>.</li>
 <li><a href="http://fearthecowboy.com/powershell/2015/12/11/PowerShell-A-Better-Ternary/">PowerShell Hacks: Ternarys and Null-coalescing operators</a>.</li>
 <li><a href="https://www.adamtheautomator.com/a-simpler-ifthen-conditional-logic-in-powershell/">A Simpler If/Then Conditional Logic in PowerShell</a>.</li>
+<li><a href="https://social.technet.microsoft.com/wiki/contents/articles/23819.comparison-operators-in-powershell.aspx">Comparison Operators in PowerShell - TechNet Articles - United ...</a>.</li>
+<li><a href="http://www.karthikscorner.com/sharepoint/powershell-alternative-ternary-operator/">Powershell: Alternative to ternary operator</a>.</li>
+<li><a href="https://www.adamtheautomator.com/a-simpler-ifthen-conditional-logic-in-powershell/">Conditional Logic in PowerShell</a>.</li>
 </ul>
               
             </div>
