@@ -69,6 +69,24 @@
     <a class="current" href="./">If</a>
     <ul class="subnav">
             
+    <li class="toctree-l3"><a href="#introduccion">Introducción</a></li>
+    
+
+    <li class="toctree-l3"><a href="#asignacion-de-variables-con-if">Asignación de variables con If</a></li>
+    
+
+    <li class="toctree-l3"><a href="#operadores-de-comparacion">Operadores de comparación</a></li>
+    
+
+    <li class="toctree-l3"><a href="#operadores-logicos">Operadores lógicos</a></li>
+    
+
+    <li class="toctree-l3"><a href="#operadores-ternarios">Operadores ternarios</a></li>
+    
+
+    <li class="toctree-l3"><a href="#enlaces-externos">Enlaces externos</a></li>
+    
+
     </ul>
                 </li>
                 <li class="">
@@ -96,22 +114,11 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Sistema archivos</span>
+    <span class="caption-text">Sistema</span>
     <ul class="subnav">
                 <li class="">
                     
     <a class="" href="../../sistema-archivos/directorios/">Directorios</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Bases de datos</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../bases_de_datos/sqlite/sqlite/">SQLite</a>
                 </li>
     </ul>
 	    </li>
@@ -149,6 +156,17 @@
                 <li class="">
                     
     <a class="" href="../../exchange/basico/">Básico</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Bases de datos</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../bases_de_datos/sqlite/sqlite/">SQLite</a>
                 </li>
     </ul>
 	    </li>
@@ -197,55 +215,160 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="powershell">Write-Host &quot;Definimos variables&quot;
-$myVar1=1
-$myVar2=2
-
-Write-Host &quot;Comparamos si son iguales&quot;
-if ( $myVar1 -lt $myVar2) 
+                <h1 id="introduccion">Introducción</h1>
+<p>Si queremos evaluar una condición bajo la cual se ejecute una porción de código usamos las sentencias condicionales <code>if</code>, <code>elseif</code>, y <code>else</code>.</p>
+<p>En este primer ejemplo vamos evaluando condiciones de forma encadenada comprobando si la variable <code>$temperature</code> se ajusta a un determinado límite. Empleamos el operador de comparación <code>-le</code> (<a href="https://ss64.com/ps/syntax-compare.html">Comparison operators - PowerShell - SS64.com</a>) que comprueba si la variable es menor o igual que un entero. </p>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/if/IfTemperature.ps1">IfTemperature.ps1</a></p>
+<pre><code class="powershell">$temperature = 90
+if($temperature -le 0)
 {
-    &quot;Var 1 es menor que var2&quot; 
+    &quot;Balmy Canadian Summer&quot;
 }
-elseif ( $myVar1 -gt $myVar2) 
+elseif($temperature -le 32)
 {
-    &quot;Var 1 es mayor que var2&quot; 
-} 
-else
-{
-    Write-Host &quot;Son iguales!&quot;
+    &quot;Freezing&quot;
 }
-</code></pre>
-
-<pre><code class="powershell">$myVar1 = $false
-$myVar2 = $false
-
-# $false realmente contiene &quot;False&quot;
-$myVar1
-
-if (!$myVar1) { &quot;myVar1 es false&quot; }
-
-if ( $myVar1 -and $myVar2)
+elseif($temperature -le 50)
 {
-    &quot;las dos variables son true&quot;
+    &quot;Cold&quot;
+}
+elseif($temperature -le 70)
+{
+    &quot;Warm&quot;
 }
 else
 {
-    &quot;alguna de ellas es false&quot;
-} 
-</code></pre>
-
-<pre><code class="powershell">$myVar1Numero = 7
-$myVar2Numero = 2
-
-if ( ($myVar1Numero -lt 5) -and ($myVar2Numero -gt 1) )
-{
-    &quot;HOla&quot;
-}
-else
-{
-    &quot;Adios&quot;
+    &quot;Hot&quot;
 }
 </code></pre>
+
+<h1 id="asignacion-de-variables-con-if">Asignación de variables con If</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/if/IfVarAssignment.ps1">IfVarAssignment.ps1</a></p>
+<p>Adicionalmente podemos usar las expresiones condicionales para asignar el valor a una variable.</p>
+<pre><code class="powershell">$result = if(Get-Process -Name notepad) { &quot;Running&quot; } else { &quot;Not running&quot; }
+</code></pre>
+
+<h1 id="operadores-de-comparacion">Operadores de comparación</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/if/ComparisonOperatorsExamples.ps1">ComparisonOperatorsExamples.ps1</a></p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-eq</td>
+<td>Equal</td>
+</tr>
+<tr>
+<td>-ne</td>
+<td>Not equal</td>
+</tr>
+<tr>
+<td>-ge</td>
+<td>Greater than or equal</td>
+</tr>
+<tr>
+<td>-gt</td>
+<td>Greater than</td>
+</tr>
+<tr>
+<td>-lt</td>
+<td>Less than</td>
+</tr>
+<tr>
+<td>-le</td>
+<td>Less than or equal</td>
+</tr>
+<tr>
+<td>-like</td>
+<td>Wildcard comparison</td>
+</tr>
+<tr>
+<td>-notlike</td>
+<td>Wildcard comparison</td>
+</tr>
+<tr>
+<td>-match</td>
+<td>Regular expression comparison</td>
+</tr>
+<tr>
+<td>-notmatch</td>
+<td>Regular expression comparison</td>
+</tr>
+<tr>
+<td>-replace</td>
+<td>Replace operator</td>
+</tr>
+<tr>
+<td>-contains</td>
+<td>Containment operator</td>
+</tr>
+<tr>
+<td>-notcontains</td>
+<td>Containment operator</td>
+</tr>
+<tr>
+<td>-in</td>
+<td>Like –contains, but with the operands reversed.(PowerShell 3.0)</td>
+</tr>
+<tr>
+<td>-notin</td>
+<td>Like –notcontains, but with the operands reversed.(PowerShell 3.0)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="operadores-logicos">Operadores lógicos</h1>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-and</td>
+<td>Logical And</td>
+</tr>
+<tr>
+<td>-or</td>
+<td>Logical Or</td>
+</tr>
+<tr>
+<td>-xor</td>
+<td>Logical exclusive Or</td>
+</tr>
+<tr>
+<td>-not</td>
+<td>logical not</td>
+</tr>
+<tr>
+<td>!</td>
+<td>logical not</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="powershell">$demo = $null
+if (-Not ($demo)) { write &quot;Zero, null or Empty&quot;}
+if (!($demo)) { write &quot;Zero, null or Empty&quot;}
+</code></pre>
+
+<h1 id="operadores-ternarios">Operadores ternarios</h1>
+<pre><code class="powershell">#$CarColor = 'Red'
+$CarColor = 'Blue' 
+$MatchColor = @{$true = 'The car color is blue'; $false = 'The car color is not blue'}[$CarColor -eq 'Blue']
+$MatchColor
+</code></pre>
+
+<h1 id="enlaces-externos">Enlaces externos</h1>
+<ul>
+<li><a href="https://blogs.msdn.microsoft.com/kebab/2013/06/09/an-introduction-to-error-handling-in-powershell/">An Introduction to Error Handling in PowerShell – Keith Babinec's ...</a>.</li>
+<li><a href="http://fearthecowboy.com/powershell/2015/12/11/PowerShell-A-Better-Ternary/">PowerShell Hacks: Ternarys and Null-coalescing operators</a>.</li>
+<li><a href="https://www.adamtheautomator.com/a-simpler-ifthen-conditional-logic-in-powershell/">A Simpler If/Then Conditional Logic in PowerShell</a>.</li>
+</ul>
               
             </div>
           </div>

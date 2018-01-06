@@ -61,7 +61,16 @@
     <a class="current" href="./">Variables</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#orientacion-a-objeto">Orientación a objeto</a></li>
+    <li class="toctree-l3"><a href="#introduccion">Introducción</a></li>
+    
+
+    <li class="toctree-l3"><a href="#como-comprobar-variables">Como comprobar variables</a></li>
+    
+
+    <li class="toctree-l3"><a href="#enteros">Enteros</a></li>
+    
+
+    <li class="toctree-l3"><a href="#datetime">DateTime</a></li>
     
 
     <li class="toctree-l3"><a href="#enlaces-externos">Enlaces externos</a></li>
@@ -102,22 +111,11 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Sistema archivos</span>
+    <span class="caption-text">Sistema</span>
     <ul class="subnav">
                 <li class="">
                     
     <a class="" href="../../sistema-archivos/directorios/">Directorios</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Bases de datos</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../bases_de_datos/sqlite/sqlite/">SQLite</a>
                 </li>
     </ul>
 	    </li>
@@ -155,6 +153,17 @@
                 <li class="">
                     
     <a class="" href="../../exchange/basico/">Básico</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Bases de datos</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../bases_de_datos/sqlite/sqlite/">SQLite</a>
                 </li>
     </ul>
 	    </li>
@@ -203,31 +212,131 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="orientacion-a-objeto">Orientación a objeto</h1>
+                <h1 id="introduccion">Introducción</h1>
 <p>Una de las grandezas de <strong>PowerShell</strong> es que guarda la información en su tipo nativo: Los <strong>objetos</strong>. PowerShell emplea los <em>object</em> del framework .NET. </p>
 <p>Un objeto basicamente representa una entidad con datos (también llamados atributos o propiedades) y unos métodos (firmas o funciones) que expone para operar con estos datos. Es una forma de encapsular información. Por ahora es suficiente con saber esto, más adelante se explorará más en profundidad los objetos de PS (un objeto es el resultado de la instanciación de una clase).</p>
 <p>Los nombres de variables en PS siempre van precedidad del carácter '$', por ejemplo una variable que contendra una cadena de texto con el nombre de un usuario podriamos definirla como <code>$UserName</code>.  </p>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/function/BasicVarsTypes.ps1">BasicVarsTypes.ps1</a></p>
 <p>Los valores se asignan a una variable usando el operador '=', siguiendo el ejemplo anterior:</p>
-<pre><code class="powershell">$UserName = &quot;Bob&quot;
+<pre><code class="powershell"># Variables de tipo string (cadena de texto) y int (entero)
+$UserName = &quot;Bob&quot;
 $UserAge = 43
 </code></pre>
 
-<p>PS </p>
-<pre><code class="powershell">$myVar = 2
-$myVar
+<p>Si queremos establecer el mismo valor a varias variables</p>
+<pre><code class="powershell">$a = $b = $c = 1
+</code></pre>
 
-$myVar++
-# NO funciona
-#$myVar**
-$myVar
+<p>Si queremos hacerlo con diferentes valores en una línea</p>
+<pre><code class="powershell">$a, $b, $c = 1, 2, 3
+</code></pre>
 
-$myVar+=2
-#$myVar = $myVar + 2
-$myVar
+<p>PS soporta infinidad de tipos de datos: cadenas de texto (string), carácteres individuales (char), bytes, números enteros (int), booleanos (bool $True/$False)...</p>
+<p>Para determinar el tipo de una variable podemos usar </p>
+<pre><code class="powershell">$b.GetType().Name
+</code></pre>
 
-$myVar*=2
-#$myVar = $myVar * 2
-$myVar
+<p>Lista de los tipos más comunes:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo dato</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Array]</td>
+<td>Colección de elementos</td>
+</tr>
+<tr>
+<td>[Bool]</td>
+<td>Verdadero ($true) o falso ($false)</td>
+</tr>
+<tr>
+<td>[DateTime]</td>
+<td>Fecha - hora</td>
+</tr>
+<tr>
+<td>[Guid]</td>
+<td>Identificador único global de 32-bytes</td>
+</tr>
+<tr>
+<td>[HashTable]</td>
+<td>Colección de pares clave - valores</td>
+</tr>
+<tr>
+<td>[Int32], [Int]</td>
+<td>Entero de 32 bits</td>
+</tr>
+<tr>
+<td>[PsObject]</td>
+<td>PowerShell object</td>
+</tr>
+<tr>
+<td>[Regex]</td>
+<td>Expresión regular</td>
+</tr>
+<tr>
+<td>[ScriptBlock]</td>
+<td></td>
+</tr>
+<tr>
+<td>[Single], [Float]</td>
+<td>Número flotante con decimales</td>
+</tr>
+<tr>
+<td>[String]</td>
+<td>Cadena de texto</td>
+</tr>
+<tr>
+<td>[Switch]</td>
+<td>PowerShell switch parameter</td>
+</tr>
+<tr>
+<td>[TimeSpan]</td>
+<td>Intervalo de tiempo</td>
+</tr>
+<tr>
+<td>[XmlDocument]</td>
+<td>Documento XML</td>
+</tr>
+</tbody>
+</table>
+<p>Los booleanos se evaluan como una condición binaria de verdadero ($true) o falso ($false).</p>
+<pre><code class="powershell"># PS define las variables $true y $false para los booleanos
+$isChecked = $false
+if (!$isChecked) { &quot;No&quot; }
+</code></pre>
+
+<h1 id="como-comprobar-variables">Como comprobar variables</h1>
+<p>https://mcpmag.com/articles/2015/12/14/test-variables-in-powershell.aspx</p>
+<h1 id="enteros">Enteros</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/function/IntVars.ps1">IntVars.ps1</a></p>
+<p>Con las variables de tipo numéricas podemos realizar las operaciones matemáticas estándar como: +, -, *, /. </p>
+<pre><code class="powershell">$segundosPorDia = 24 * 60 * 60
+$semanasPorAnio = 365 / 7
+</code></pre>
+
+<p>También existen operadores ++ y -- que incrementan o decrementan en una unidad</p>
+<pre><code class="powershell">$myNum = 1
+$myNum = $myNum + 1
+# es equivalente a 
+$myNum++
+</code></pre>
+
+<p>Si queremos operar sobre el mismo número podemos sintetizar la expresión:</p>
+<pre><code class="powershell"># Equivalente a  $myNum = $myNum*2 
+$myNum*=2 
+
+$myNum+=2 
+</code></pre>
+
+<h1 id="datetime">DateTime</h1>
+<pre><code class="powershell">[DateTime]$Date = &quot;February 28, 2015&quot; 
+$Today = Get-Date 
+$Days = ($Today - $Date).Days 
+Write-Host &quot;The hacker encrypted all your servers $Days day(s) ago.&quot;
 </code></pre>
 
 <h1 id="enlaces-externos">Enlaces externos</h1>
@@ -237,6 +346,10 @@ $myVar
 <li><a href="http://www.itprotoday.com/management-mobility/powershell-basics-custom-objects">PowerShell Basics: Custom Objects | IT Pro</a>.</li>
 <li><a href="https://www.computerworld.com/article/2954261/data-center/understanding-and-using-objects-in-powershell.html">PowerShell objects: A tutorial | Computerworld</a>.</li>
 <li><a href="http://www.tomsitpro.com/articles/powershell-variables,2-797.html">http://www.tomsitpro.com/articles/powershell-variables,2-797.html</a>.</li>
+<li><a href="https://ss64.com/ps/syntax-datatypes.html">Powershell Data Types - PowerShell - SS64.com</a>.</li>
+<li><a href="https://4sysops.com/archives/the-powershell-variable-naming-value-data-type/">The PowerShell variable – Naming, value, data type – 4sysops</a>.</li>
+<li><a href="https://4sysops.com/archives/display-and-search-all-variables-of-a-powershell-script-with-get-variable/">Display and search all variables of a PowerShell script with Get-Variable</a>.</li>
+<li><a href="https://4sysops.com/archives/powershell-variable-properties-description-visibility-options-attributes/">PowerShell variable properties: Description, Visibility, Options, Attributes</a>.</li>
 </ul>
               
             </div>
