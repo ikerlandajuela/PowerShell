@@ -4,12 +4,12 @@ for ($i=1;$i -le $rowNumber; $i++)
 {
 	for ($j=1; $j -le ($rowNumber-$i); $j++)
 	{
-			Write-Host –NoNewLine " "
+			Write-Host " " –NoNewLine 
 	}
 	
 	for ($k=1; $k -le ($i*2); $k++)
 	{
-			Write-Host –NoNewLine "*"
+			Write-Host "*" –NoNewLine
 	}
 	Write-Host " "
 }
