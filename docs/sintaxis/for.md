@@ -52,6 +52,80 @@ Algo más avanzando es hacerlo con una tubería (_pipe_).
 $myarray |foreach { $_ }
 ```
 
+# Ejercicios
+
+Programa que sume los 10 primeros números enteros naturales
+
+**Fuente:** [SumFirst10Int.ps1](/src/sintaxis/bucles/for/SumFirst10Int.ps1)
+
+```powershell
+#$sum=0
+for ($i=1; $i -le 10 ; $i++)  { $sum+=$i }
+$sum
+```
+
+- - -
+
+Programa que muestre el cubo de los primeros 5 números enteros (1...5), la salida del programa debería ser algo como:
+
+```powershell
+Cubo 1 es: 1
+Cubo 2 es: 8
+Cubo 3 es: 27
+Cubo 4 es: 64
+Cubo 5 es: 125
+```
+
+**Fuente:** [IntCube.ps1](/src/sintaxis/bucles/for/IntCube.ps1)
+
+```powershell
+for ($i=1; $i -le 5 ; $i++)  { "Cubo $i es: " + ($i*$i*$i) }
+```
+
+- - -
+
+Tabla multiplicar del 15 por ejemplo, la salida debería ser algo como
+
+**Fuente:** [TablaMultiplicar.ps1](/src/sintaxis/bucles/for/TablaMultiplicar.ps1)
+
+
+```powershell
+15 X 1 = 15 
+...
+... 
+15 X 10 = 150
+```
+
+
+- - -
+
+**Ordenamiento Bubble Sort** en orden ascendente: El algoritmo de [ordenación de burbuja](https://es.wikipedia.org/wiki/Ordenamiento_de_burbuja) que permita ordenar un array de enteros de menor a mayor.
+
+**Fuente:** [BubleSortArrayFor.ps1](/src/sintaxis/bucles/for/BubleSortArrayFor.ps1)
+
+_"Funciona revisando cada elemento de la lista que va a ser ordenada con el siguiente, intercambiándolos de posición si están en el orden equivocado. Es necesario revisar varias veces toda la lista hasta que no se necesiten más intercambios, lo cual significa que la lista está ordenada. Este algoritmo obtiene su nombre de la forma con la que suben por la lista los elementos durante los intercambios, como si fueran pequeñas "burbujas". También es conocido como el método del intercambio directo. Dado que solo usa comparaciones para operar elementos, se lo considera un algoritmo de comparación, siendo uno de los más sencillo de implementar."_
+
+- - -
+
+```powershell
+$myArray = @(5,1,4,2,8)
+
+for ($i=0; $i -lt $myArray.length; $i++) 
+{
+	for($j=0; $j -lt ($myArray.length - $i -1); $j++)
+	{		
+		if ( $myarray[$j] -gt $myarray[$j+1] )
+		{
+			# swap array elements		
+			$myarray[$j],$myarray[$j+1] = $myarray[$j+1],$myarray[$j]
+		}		
+	}
+}
+
+$myArray 
+```
+
+
 # Recursos
 
 * [https://ss64.com/ps/for.html](https://ss64.com/ps/for.html).
