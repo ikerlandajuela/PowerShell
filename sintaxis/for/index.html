@@ -83,6 +83,9 @@
     <li class="toctree-l3"><a href="#bucle-for-con-arrays">Bucle For con Arrays</a></li>
     
 
+    <li class="toctree-l3"><a href="#ejercicios">Ejercicios</a></li>
+    
+
     <li class="toctree-l3"><a href="#recursos">Recursos</a></li>
     
 
@@ -244,6 +247,58 @@ for ($i=0; $i -lt $myarray.length; $i++)
 
 <p>Algo más avanzando es hacerlo con una tubería (<em>pipe</em>).</p>
 <pre><code class="powershell">$myarray |foreach { $_ }
+</code></pre>
+
+<h1 id="ejercicios">Ejercicios</h1>
+<p>Programa que sume los 10 primeros números enteros naturales</p>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/bucles/for/SumFirst10Int.ps1">SumFirst10Int.ps1</a></p>
+<pre><code class="powershell">#$sum=0
+for ($i=1; $i -le 10 ; $i++)  { $sum+=$i }
+$sum
+</code></pre>
+
+<hr />
+<p>Programa que muestre el cubo de los primeros 5 números enteros (1...5), la salida del programa debería ser algo como:</p>
+<pre><code class="powershell">Cubo 1 es: 1
+Cubo 2 es: 8
+Cubo 3 es: 27
+Cubo 4 es: 64
+Cubo 5 es: 125
+</code></pre>
+
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/bucles/for/IntCube.ps1">IntCube.ps1</a></p>
+<pre><code class="powershell">for ($i=1; $i -le 5 ; $i++)  { &quot;Cubo $i es: &quot; + ($i*$i*$i) }
+</code></pre>
+
+<hr />
+<p>Tabla multiplicar del 15 por ejemplo, la salida debería ser algo como</p>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/bucles/for/TablaMultiplicar.ps1">TablaMultiplicar.ps1</a></p>
+<pre><code class="powershell">15 X 1 = 15 
+...
+... 
+15 X 10 = 150
+</code></pre>
+
+<hr />
+<p><strong>Ordenamiento Bubble Sort</strong> en orden ascendente: El algoritmo de <a href="https://es.wikipedia.org/wiki/Ordenamiento_de_burbuja">ordenación de burbuja</a> que permita ordenar un array de enteros de menor a mayor.</p>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/bucles/for/BubleSortArrayFor.ps1">BubleSortArrayFor.ps1</a></p>
+<p><em>"Funciona revisando cada elemento de la lista que va a ser ordenada con el siguiente, intercambiándolos de posición si están en el orden equivocado. Es necesario revisar varias veces toda la lista hasta que no se necesiten más intercambios, lo cual significa que la lista está ordenada. Este algoritmo obtiene su nombre de la forma con la que suben por la lista los elementos durante los intercambios, como si fueran pequeñas "burbujas". También es conocido como el método del intercambio directo. Dado que solo usa comparaciones para operar elementos, se lo considera un algoritmo de comparación, siendo uno de los más sencillo de implementar."</em></p>
+<hr />
+<pre><code class="powershell">$myArray = @(5,1,4,2,8)
+
+for ($i=0; $i -lt $myArray.length; $i++) 
+{
+    for($j=0; $j -lt ($myArray.length - $i -1); $j++)
+    {       
+        if ( $myarray[$j] -gt $myarray[$j+1] )
+        {
+            # swap array elements       
+            $myarray[$j],$myarray[$j+1] = $myarray[$j+1],$myarray[$j]
+        }       
+    }
+}
+
+$myArray 
 </code></pre>
 
 <h1 id="recursos">Recursos</h1>

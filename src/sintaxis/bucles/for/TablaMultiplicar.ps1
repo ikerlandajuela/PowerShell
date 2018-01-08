@@ -1,0 +1,1 @@
+for ($i=1; $i -le 5 ; $i++)  { "Cubo $i es: " + ($i*$i*$i) }
