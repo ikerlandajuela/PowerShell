@@ -54,9 +54,9 @@ $myarray |foreach { $_ }
 
 # Ejercicios
 
-Programa que sume los 10 primeros números enteros naturales
-
 **Fuente:** [SumFirst10Int.ps1](/src/sintaxis/bucles/for/SumFirst10Int.ps1)
+
+Programa que sume los 10 primeros números enteros naturales:
 
 ```powershell
 #$sum=0
@@ -68,6 +68,8 @@ $sum
 
 Programa que muestre el cubo de los primeros 5 números enteros (1...5), la salida del programa debería ser algo como:
 
+**Fuente:** [IntCube.ps1](/src/sintaxis/bucles/for/IntCube.ps1)
+
 ```powershell
 Cubo 1 es: 1
 Cubo 2 es: 8
@@ -76,18 +78,15 @@ Cubo 4 es: 64
 Cubo 5 es: 125
 ```
 
-**Fuente:** [IntCube.ps1](/src/sintaxis/bucles/for/IntCube.ps1)
-
 ```powershell
 for ($i=1; $i -le 5 ; $i++)  { "Cubo $i es: " + ($i*$i*$i) }
 ```
 
 - - -
 
-Tabla multiplicar del 15 por ejemplo, la salida debería ser algo como
-
 **Fuente:** [TablaMultiplicar.ps1](/src/sintaxis/bucles/for/TablaMultiplicar.ps1)
 
+Tabla multiplicar del 15 por ejemplo, la salida debería ser algo como
 
 ```powershell
 15 X 1 = 15 
@@ -96,12 +95,48 @@ Tabla multiplicar del 15 por ejemplo, la salida debería ser algo como
 15 X 10 = 150
 ```
 
+```powershell
+for ($i=1;$i -le 10;$i++) { "15x$i="+(15*$i) }
+```
 
 - - -
 
-**Ordenamiento Bubble Sort** en orden ascendente: El algoritmo de [ordenación de burbuja](https://es.wikipedia.org/wiki/Ordenamiento_de_burbuja) que permita ordenar un array de enteros de menor a mayor.
+Programa que escriba las tablas de multiplicar del 1 al 10.
+
+Salida:
+
+**Fuente:** [TablaMultiplicar2.ps1](/src/sintaxis/bucles/for/TablaMultiplicar2.ps1)
+
+```powershell
+1x1 = 1, 2x1 = 2, 3x1 = 3, 4x1 = 4, 5x1 = 5, 6x1 = 6, 7x1 = 7, 8x1 = 8 
+... 
+1x10 = 10, 2x10 = 20, 3x10 = 30, 4x10 = 40, 5x10 = 50, 6x10 = 60, 7x10 = 70, 8x10 = 80 
+```
+
+```powershell
+for ($i=1;$i -le 10;$i++) 
+{ 
+	$cadena=""
+	for ($j=1;$j -le 10;$j++) 
+	{
+		$cadena+= "$i*$j="+ ($i*$j)+", "
+	}
+	$cadena
+}
+```
+
+- - -
+
+**Fuente:** [Write-EquilateralTriangle.ps1](/src/sintaxis/bucles/for/Write-EquilateralTriangle.ps1)
+
+Programa que "pinte" en consola un triangulo equilatero relleno de asteriscos de 10 filas.
+
+
+- - -
 
 **Fuente:** [BubleSortArrayFor.ps1](/src/sintaxis/bucles/for/BubleSortArrayFor.ps1)
+
+**Ordenamiento Bubble Sort** en orden ascendente: El algoritmo de [ordenación de burbuja](https://es.wikipedia.org/wiki/Ordenamiento_de_burbuja) que permita ordenar un array de enteros de menor a mayor.
 
 _"Funciona revisando cada elemento de la lista que va a ser ordenada con el siguiente, intercambiándolos de posición si están en el orden equivocado. Es necesario revisar varias veces toda la lista hasta que no se necesiten más intercambios, lo cual significa que la lista está ordenada. Este algoritmo obtiene su nombre de la forma con la que suben por la lista los elementos durante los intercambios, como si fueran pequeñas "burbujas". También es conocido como el método del intercambio directo. Dado que solo usa comparaciones para operar elementos, se lo considera un algoritmo de comparación, siendo uno de los más sencillo de implementar."_
 
