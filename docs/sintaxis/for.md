@@ -132,6 +132,7 @@ for ($i=1;$i -le 10;$i++)
 Programa que "pinte" en consola un triangulo equilatero relleno de asteriscos de 10 filas.
 
 
+
 - - -
 
 **Fuente:** [BubleSortArrayFor.ps1](/src/sintaxis/bucles/for/BubleSortArrayFor.ps1)
