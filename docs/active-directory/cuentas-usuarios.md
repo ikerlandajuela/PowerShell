@@ -165,7 +165,7 @@ Write-Host "Cree una contraseña segura usando un servicio como https://password
 $UserId = Read-Host "Deme Identidad del usuario (ejemplo: 'b.sinclair')"
 
 # El sistema solicitara la nueva contraseña y confirmación
-# https://passwordsgenerator.net/ Ejemplo: 7!c!`2Ecuk
+# https://passwordsgenerator.net/ 
 Set-ADAccountPassword $UserId -NewPassword $newpwd -Reset -PassThru | Set-ADuser -ChangePasswordAtLogon $True
 ```
 
