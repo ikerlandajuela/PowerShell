@@ -1,0 +1,1 @@
+https://blog.varonis.com/how-to-use-powershell-objects-and-data-piping/

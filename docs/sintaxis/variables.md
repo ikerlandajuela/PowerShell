@@ -104,8 +104,11 @@ $Days = ($Today - $Date).Days
 Write-Host "The hacker encrypted all your servers $Days day(s) ago."
 ```
 
+[Usando PowerShell para Resolver Problemas Matemáticos](https://esgeeks.com/powershell-para-resolver-problemas-matematicos/)
+
 # Enlaces externos
 
+* [Usando PowerShell para Resolver Problemas Matemáticos](https://esgeeks.com/powershell-para-resolver-problemas-matematicos/)
 * [Clase Object (System) - MSDN - Microsoft](https://msdn.microsoft.com/es-es/library/system.object(v=vs.110).aspx).
 * [PowerShell Basics: Introduction to Objects - Windows IT Pro](http://www.itprotoday.com/management-mobility/powershell-basics-introduction-objects).
 * [PowerShell Basics: Custom Objects | IT Pro](http://www.itprotoday.com/management-mobility/powershell-basics-custom-objects).

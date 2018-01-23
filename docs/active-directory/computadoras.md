@@ -1,0 +1,1 @@
+http://www.sysadmit.com/2018/01/windows-anadir-quitar-equipo-del-dominio-PowerShell.html?m=1

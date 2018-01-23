@@ -10,6 +10,7 @@ Este es el ejemplo más sencillo, **la siguiente consulta obtiene sólo algunas 
 Get-ADUser -Identity 'b.sinclair'
 # Podemos hacer lo mismo filtrando por la propiedad Name
 Get-ADUser -Filter 'Name -like "Bob Sinclair"'
+Get-ADUser -Filter 'Name -like "Oscar*"'
 ```
 
 Para ver que propiedades podemos consultar de un objeto usuario es siempre útil tener enlaces como estos a mano:
@@ -124,6 +125,8 @@ $MySurname = "Sinclair"
 $MySamAccountName = "b.sinclair"
 ```
 
+* **ADVERTENCIA**: Es posible que este no funcione porque no genera una cadena compleja de clave inicial
+
 Ahora sí creamos el array:
 
 ```powershell
@@ -149,7 +152,23 @@ Ahora ya podemos crear la cuenta de correo en Exchange:
 Enable-Mailbox -Identity $MyEmailAddress -Database "Mailbox Database 12" 
 Enable-Mailbox -Identity $MyEmailAddress -Archive
 ```
- 
+
+# Resetear la clave de usuario
+
+**Fuente:** [Reset-ADUserPassword.ps1](/src/active_directory/users/Reset-ADUserPassword.ps1)
+
+* **Advertencia**: Todo funciona a la perfección excepto forzar a cambiar la clave en el próximo login.
+
+```powershell
+Write-Host "Cree una contraseña segura usando un servicio como https://passwordsgenerator.net/"
+
+$UserId = Read-Host "Deme Identidad del usuario (ejemplo: 'b.sinclair')"
+
+# El sistema solicitara la nueva contraseña y confirmación
+# https://passwordsgenerator.net/ Ejemplo: 7!c!`2Ecuk
+Set-ADAccountPassword $UserId -NewPassword $newpwd -Reset -PassThru | Set-ADuser -ChangePasswordAtLogon $True
+```
+
 # Recursos externos
 
 * [Get-ADUser - TechNet - Microsoft](https://technet.microsoft.com/en-us/library/ee617241.aspx).
@@ -159,3 +178,5 @@ Enable-Mailbox -Identity $MyEmailAddress -Archive
 * [Select-Object - PowerShell - SS64.com](https://ss64.com/ps/select-object.html).
 * [Active Directory: Get-ADUser Default and Extended Properties ...](https://social.technet.microsoft.com/wiki/contents/articles/12037.active-directory-get-aduser-default-and-extended-properties.aspx).
 * [Habilitar o deshabilitar un buzón de archivo en Exchange Online ...](https://technet.microsoft.com/es-es/library/jj984357(v=exchg.150).aspx).
+* [Reset a user password with PowerShell – 4sysops](https://4sysops.com/archives/powershell-password-resets/).
+* [Generate a random and complex passwords](https://gallery.technet.microsoft.com/Generate-a-random-and-5c879ed5).
