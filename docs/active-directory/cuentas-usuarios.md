@@ -180,3 +180,4 @@ Set-ADAccountPassword $UserId -NewPassword $newpwd -Reset -PassThru | Set-ADuser
 * [Habilitar o deshabilitar un buzón de archivo en Exchange Online ...](https://technet.microsoft.com/es-es/library/jj984357(v=exchg.150).aspx).
 * [Reset a user password with PowerShell – 4sysops](https://4sysops.com/archives/powershell-password-resets/).
 * [Generate a random and complex passwords](https://gallery.technet.microsoft.com/Generate-a-random-and-5c879ed5).
+* [Reset password in Active Directory using PowerShell](http://blog.simonw.se/reset-password-in-active-directory-using-powershell/).
