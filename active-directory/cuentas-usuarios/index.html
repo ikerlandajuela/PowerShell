@@ -140,6 +140,9 @@
     <li class="toctree-l3"><a href="#crear-una-cuenta-ad-y-exchange-para-un-usuario">Crear una cuenta AD y Exchange para un usuario</a></li>
     
 
+    <li class="toctree-l3"><a href="#resetear-la-clave-de-usuario">Resetear la clave de usuario</a></li>
+    
+
     <li class="toctree-l3"><a href="#recursos-externos">Recursos externos</a></li>
     
 
@@ -225,6 +228,7 @@
 <pre><code class="powershell">Get-ADUser -Identity 'b.sinclair'
 # Podemos hacer lo mismo filtrando por la propiedad Name
 Get-ADUser -Filter 'Name -like &quot;Bob Sinclair&quot;'
+Get-ADUser -Filter 'Name -like &quot;Oscar*&quot;'
 </code></pre>
 
 <p>Para ver que propiedades podemos consultar de un objeto usuario es siempre útil tener enlaces como estos a mano:</p>
@@ -311,6 +315,9 @@ $MySurname = &quot;Sinclair&quot;
 $MySamAccountName = &quot;b.sinclair&quot;
 </code></pre>
 
+<ul>
+<li><strong>ADVERTENCIA</strong>: Es posible que este no funcione porque no genera una cadena compleja de clave inicial</li>
+</ul>
 <p>Ahora sí creamos el array:</p>
 <pre><code class="powershell">$parms = @{ 
         Name = $MyName + &quot; &quot; + $MySurname
@@ -331,6 +338,20 @@ Add-ADGroupMember -Identity &quot;Escritorio Remoto&quot; -Member $MySamAccountN
 Enable-Mailbox -Identity $MyEmailAddress -Archive
 </code></pre>
 
+<h1 id="resetear-la-clave-de-usuario">Resetear la clave de usuario</h1>
+<p><strong>Fuente:</strong> <a href="../../src/active_directory/users/Reset-ADUserPassword.ps1">Reset-ADUserPassword.ps1</a></p>
+<ul>
+<li><strong>Advertencia</strong>: Todo funciona a la perfección excepto forzar a cambiar la clave en el próximo login.</li>
+</ul>
+<pre><code class="powershell">Write-Host &quot;Cree una contraseña segura usando un servicio como https://passwordsgenerator.net/&quot;
+
+$UserId = Read-Host &quot;Deme Identidad del usuario (ejemplo: 'b.sinclair')&quot;
+
+# El sistema solicitara la nueva contraseña y confirmación
+# https://passwordsgenerator.net/ Ejemplo: 7!c!`2Ecuk
+Set-ADAccountPassword $UserId -NewPassword $newpwd -Reset -PassThru | Set-ADuser -ChangePasswordAtLogon $True
+</code></pre>
+
 <h1 id="recursos-externos">Recursos externos</h1>
 <ul>
 <li><a href="https://technet.microsoft.com/en-us/library/ee617241.aspx">Get-ADUser - TechNet - Microsoft</a>.</li>
@@ -340,6 +361,8 @@ Enable-Mailbox -Identity $MyEmailAddress -Archive
 <li><a href="https://ss64.com/ps/select-object.html">Select-Object - PowerShell - SS64.com</a>.</li>
 <li><a href="https://social.technet.microsoft.com/wiki/contents/articles/12037.active-directory-get-aduser-default-and-extended-properties.aspx">Active Directory: Get-ADUser Default and Extended Properties ...</a>.</li>
 <li><a href="https://technet.microsoft.com/es-es/library/jj984357(v=exchg.150).aspx">Habilitar o deshabilitar un buzón de archivo en Exchange Online ...</a>.</li>
+<li><a href="https://4sysops.com/archives/powershell-password-resets/">Reset a user password with PowerShell – 4sysops</a>.</li>
+<li><a href="https://gallery.technet.microsoft.com/Generate-a-random-and-5c879ed5">Generate a random and complex passwords</a>.</li>
 </ul>
               
             </div>
