@@ -157,16 +157,14 @@ Enable-Mailbox -Identity $MyEmailAddress -Archive
 
 **Fuente:** [Reset-ADUserPassword.ps1](/src/active_directory/users/Reset-ADUserPassword.ps1)
 
-* **Advertencia**: Todo funciona a la perfección excepto forzar a cambiar la clave en el próximo login.
-
 ```powershell
 Write-Host "Cree una contraseña segura usando un servicio como https://passwordsgenerator.net/"
-
 $UserId = Read-Host "Deme Identidad del usuario (ejemplo: 'b.sinclair')"
 
-# El sistema solicitara la nueva contraseña y confirmación
-# https://passwordsgenerator.net/ 
-Set-ADAccountPassword $UserId -NewPassword $newpwd -Reset -PassThru | Set-ADuser -ChangePasswordAtLogon $True
+$Newpwd = Read-Host "Deme nueva clave (compleja)" 
+
+Set-ADAccountPassword $UserId -NewPassword (ConvertTo-SecureString -AsPlainText -String "$Newpwd" -force)
+Set-ADUser -Identity $UserId -ChangePasswordAtLogon $true
 ```
 
 # Recursos externos
