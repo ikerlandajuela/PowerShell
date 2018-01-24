@@ -340,9 +340,6 @@ Enable-Mailbox -Identity $MyEmailAddress -Archive
 
 <h1 id="resetear-la-clave-de-usuario">Resetear la clave de usuario</h1>
 <p><strong>Fuente:</strong> <a href="../../src/active_directory/users/Reset-ADUserPassword.ps1">Reset-ADUserPassword.ps1</a></p>
-<ul>
-<li><strong>Advertencia</strong>: Todo funciona a la perfección excepto forzar a cambiar la clave en el próximo login.</li>
-</ul>
 <pre><code class="powershell">Write-Host &quot;Cree una contraseña segura usando un servicio como https://passwordsgenerator.net/&quot;
 $UserId = Read-Host &quot;Deme Identidad del usuario (ejemplo: 'b.sinclair')&quot;
 
