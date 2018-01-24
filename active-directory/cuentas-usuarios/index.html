@@ -344,12 +344,12 @@ Enable-Mailbox -Identity $MyEmailAddress -Archive
 <li><strong>Advertencia</strong>: Todo funciona a la perfección excepto forzar a cambiar la clave en el próximo login.</li>
 </ul>
 <pre><code class="powershell">Write-Host &quot;Cree una contraseña segura usando un servicio como https://passwordsgenerator.net/&quot;
-
 $UserId = Read-Host &quot;Deme Identidad del usuario (ejemplo: 'b.sinclair')&quot;
 
-# El sistema solicitara la nueva contraseña y confirmación
-# https://passwordsgenerator.net/ Ejemplo: 7!c!`2Ecuk
-Set-ADAccountPassword $UserId -NewPassword $newpwd -Reset -PassThru | Set-ADuser -ChangePasswordAtLogon $True
+$Newpwd = Read-Host &quot;Deme nueva clave (compleja)&quot; 
+
+Set-ADAccountPassword $UserId -NewPassword (ConvertTo-SecureString -AsPlainText -String &quot;$Newpwd&quot; -force)
+Set-ADUser -Identity $UserId -ChangePasswordAtLogon $true
 </code></pre>
 
 <h1 id="recursos-externos">Recursos externos</h1>
@@ -363,6 +363,7 @@ Set-ADAccountPassword $UserId -NewPassword $newpwd -Reset -PassThru | Set-ADuser
 <li><a href="https://technet.microsoft.com/es-es/library/jj984357(v=exchg.150).aspx">Habilitar o deshabilitar un buzón de archivo en Exchange Online ...</a>.</li>
 <li><a href="https://4sysops.com/archives/powershell-password-resets/">Reset a user password with PowerShell – 4sysops</a>.</li>
 <li><a href="https://gallery.technet.microsoft.com/Generate-a-random-and-5c879ed5">Generate a random and complex passwords</a>.</li>
+<li><a href="http://blog.simonw.se/reset-password-in-active-directory-using-powershell/">Reset password in Active Directory using PowerShell</a>.</li>
 </ul>
               
             </div>
