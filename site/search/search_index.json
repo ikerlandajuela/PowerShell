@@ -201,6 +201,21 @@
             "title": "Recursos externos"
         }, 
         {
+            "location": "/sintaxis/while/", 
+            "text": "while (condition) {command_block}\n\n\n\n\nEjercicios\n\n\nFuente:\n \nwhile-guess-pwd.ps1\n\n\nEnlaces externos\n\n\n\n\nWindows PowerShell Do While.. Until Loops - Computer Performance", 
+            "title": "While"
+        }, 
+        {
+            "location": "/sintaxis/while/#ejercicios", 
+            "text": "Fuente:   while-guess-pwd.ps1", 
+            "title": "Ejercicios"
+        }, 
+        {
+            "location": "/sintaxis/while/#enlaces-externos", 
+            "text": "Windows PowerShell Do While.. Until Loops - Computer Performance", 
+            "title": "Enlaces externos"
+        }, 
+        {
             "location": "/sintaxis/select/", 
             "text": "PowerShell destaca por el uso de los objetos de datos y como se pueden transmitir estos incluso usando tuber\u00edas (pipe) de un comando a otro. El cmdlet Select-Object como su nombre indica selecciona objetos. \n\n\nSeleccionando el n\u00famero de objetos\n\n\nUsamos el par\u00e1metro \n-First\n para seleccionar X objetos desde el principio o \n-Last\n para hacerlo desde el final.\n\n\nPor ejemplo \n\n\nGet-EventLog -List | Select -First 1 | Get-Member\n\n\n\n\nEnlaces externos\n\n\n\n\nPowerShell Basics: Select-Object | IT Pro\n.", 
             "title": "Select"

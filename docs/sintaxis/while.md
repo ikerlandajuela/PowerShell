@@ -4,6 +4,9 @@ Sintaxis:
 while (condition) {command_block}
 ```
 
+# Ejercicios
+
+**Fuente:** [while-guess-pwd.ps1](/src/sintaxis/bucles/while/while-guess-pwd.ps1)
 
 # Enlaces externos
 

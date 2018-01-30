@@ -12,6 +12,7 @@ pages:
         - 'For': 'sintaxis/for.md'
         - 'Foreach': 'sintaxis/foreach.md'
         - 'Function': 'sintaxis/function.md'
+        - 'While': 'sintaxis/while.md'
         - 'Select': 'sintaxis/select.md'
     - Sistema:
         - 'Directorios': 'sistema-archivos/directorios.md'
