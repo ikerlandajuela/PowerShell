@@ -202,8 +202,13 @@
         }, 
         {
             "location": "/sintaxis/while/", 
-            "text": "while (condition) {command_block}\n\n\n\n\nEnlaces externos\n\n\n\n\nWindows PowerShell Do While.. Until Loops - Computer Performance", 
+            "text": "while (condition) {command_block}\n\n\n\n\nEjercicios\n\n\nFuente:\n \nwhile-guess-pwd.ps1\n\n\nEnlaces externos\n\n\n\n\nWindows PowerShell Do While.. Until Loops - Computer Performance", 
             "title": "While"
+        }, 
+        {
+            "location": "/sintaxis/while/#ejercicios", 
+            "text": "Fuente:   while-guess-pwd.ps1", 
+            "title": "Ejercicios"
         }, 
         {
             "location": "/sintaxis/while/#enlaces-externos", 
