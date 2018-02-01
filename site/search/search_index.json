@@ -202,12 +202,12 @@
         }, 
         {
             "location": "/sintaxis/while/", 
-            "text": "while (condition) {command_block}\n\n\n\n\nEjercicios\n\n\nFuente:\n \nwhile-guess-pwd.ps1\n\n\nEnlaces externos\n\n\n\n\nWindows PowerShell Do While.. Until Loops - Computer Performance", 
+            "text": "while (condition) {command_block}\n\n\n\n\nEjercicios\n\n\nScript que solicita al usuario que introduzca una contrase\u00f1a y la compara con una contrase\u00f1a interna definida en una variable, utilizamos el bucle \nWhile\n y las condicionales \nIf\n.\n\n\nFuente:\n \nwhile-guess-pwd.ps1\n\n\nEnlaces externos\n\n\n\n\nWindows PowerShell Do While.. Until Loops - Computer Performance", 
             "title": "While"
         }, 
         {
             "location": "/sintaxis/while/#ejercicios", 
-            "text": "Fuente:   while-guess-pwd.ps1", 
+            "text": "Script que solicita al usuario que introduzca una contrase\u00f1a y la compara con una contrase\u00f1a interna definida en una variable, utilizamos el bucle  While  y las condicionales  If .  Fuente:   while-guess-pwd.ps1", 
             "title": "Ejercicios"
         }, 
         {
