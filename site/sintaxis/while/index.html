@@ -89,7 +89,16 @@
     <a class="current" href="./">While</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#ejercicios">Ejercicios</a></li>
+    <li class="toctree-l3"><a href="#ejercicio-adivinar-la-clave">Ejercicio: Adivinar la clave</a></li>
+    
+
+    <li class="toctree-l3"><a href="#menu-de-usuario-basico-con-do-while">Menú de usuario básico con do { ... } While</a></li>
+    
+
+    <li class="toctree-l3"><a href="#ejercicio-introducir-comando-de-usuario">Ejercicio : Introducir comando de usuario</a></li>
+    
+
+    <li class="toctree-l3"><a href="#ejercicio-yes-no-question">Ejercicio : Yes / No Questión</a></li>
     
 
     <li class="toctree-l3"><a href="#enlaces-externos">Enlaces externos</a></li>
@@ -207,15 +216,123 @@
           <div role="main">
             <div class="section">
               
-                <pre><code>while (condition) {command_block}
+                <p>Cuando se ejecuta una instrucción <code>While</code>, PS evalúa la sección <condition> de la instrucción antes de entrar en la sección <statement list>. La parte de la condición de la instrucción se resuelve como <code>$True</code> o <code>$False</code>. Mientras la condición siga siendo <code>$True</code>, PS vuelve a ejecutar la sección <statement list>.</p>
+<p>La <statement list> de la instrucción contiene uno o varios comandos que se ejecutan cada vez que se entra en el bucle o se repite.</p>
+<pre><code>while (&lt;condition&gt;){&lt;statement list&gt;}
 </code></pre>
 
-<h1 id="ejercicios">Ejercicios</h1>
+<p>El siguiente ejemplo muestra por consola los números del 1 al 3 ambos incluidos (<code>$val</code> se inicializa a 0). Usamos el operador de comparación y mientras la variable no sea 3 (podiamos usar menor o igual <a href="https://ss64.com/ps/syntax-compare.html"><code>-le</code></a> tal vez mejor) se incrementa una unidad a si misma con el operador de incremento y muestra su valor por pantalla.</p>
+<pre><code class="powershell">While($val -ne 3)
+{
+    $val++
+    Write-Host $val
+}
+</code></pre>
+
+<h1 id="ejercicio-adivinar-la-clave">Ejercicio: Adivinar la clave</h1>
 <p>Script que solicita al usuario que introduzca una contraseña y la compara con una contraseña interna definida en una variable, utilizamos el bucle <code>While</code> y las condicionales <code>If</code>.</p>
 <p><strong>Fuente:</strong> <a href="../../src/sintaxis/bucles/while/while-guess-pwd.ps1">while-guess-pwd.ps1</a></p>
+<pre><code class="powershell">Clear-Host
+$ClaveScreta =&quot;miclave&quot;
+$Acabar = &quot;Prueba de nuevo&quot;
+while ($Acabar -ne &quot;n&quot;) 
+{
+    $ClaveUsuario = Read-Host &quot;Adivina la clave&quot;
+    if($ClaveUsuario -eq $ClaveScreta) 
+    {
+        Write-Host &quot;Correcto! Saliendo...&quot;
+        $Acabar =&quot;n&quot;
+    }
+    else
+    {
+        $Acabar = Read-Host &quot;Nuevo intento? (s/n)&quot;
+    }
+} # Fin While
+
+Write-Host &quot;Fin&quot;
+</code></pre>
+
+<h1 id="menu-de-usuario-basico-con-do-while">Menú de usuario básico con do { ... } While</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/bucles/while/while-basic-user-menu.ps1">while-basic-user-menu.ps1</a></p>
+<p>Ahora vamos a implementar el clásico menú de usuario que nos será de utilidad en muchas ocasiones, el cmdlet antes de mostrar las opciones de menú comprueba si existe un fichero (<a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/test-path?view=powershell-5.1">Test-Path</a>) y en caso contrario lo crea y escribe una línea de contenido (<a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/new-item?view=powershell-5.1">New-Item</a>), más adelante veremos para que usamos el fichero. </p>
+<pre><code class="powershell">if (!(Test-Path &quot;test.txt&quot;))
+{
+   New-Item -name test.txt -type &quot;file&quot; -value &quot;my new text&quot;
+   Write-Host &quot;Created new file and text content added&quot;
+}
+</code></pre>
+
+<p>A continuación comenzamos la estructura <code>do { ... } While</code> y mostramos las opciones de menú:</p>
+<ul>
+<li>"d - borra fichero".</li>
+<li>"v - mostrar contenido de fichero".</li>
+<li>"q - salir / quit"</li>
+</ul>
+<p>Leemos la opción introducida por el usuario y la depositamos en una variable que evaluamos en un <code>switch</code>. Si la opción introducida es 'd' borramos el fichero de test creado al principio con <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-5.1">Remove-Item</a>. Para mostrar el contenido del fichero si el usuario introduce 'v' usamos <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-content?view=powershell-5.1">Get-Content</a> del fichero. Cuando selecciona 'q' simplemente mostramos un mensaje de despedida (será la condición de salida del bucle). El resto de casos cuando el usuario no introduce ninguna de las opciones previas se contemplan como <code>default</code> y indicaremos al usuario que la opción introducida no es valida. Al final evaluamos la condición de salida del bucle, mientras la opción introducida no sea 'q' (operador comparación <code>-ne</code> se traduciria como 'not equal') volvemos a ejecutar otra iteración volviendo a mostrar el menú de usuario.</p>
+<pre><code class="powershell">do {
+    Write-Host &quot;============== MENU ==========================&quot;
+    Write-Host &quot;d - borrar fichero.&quot;
+    Write-Host &quot;v - mostrar contenido de fichero&quot;
+    Write-Host &quot;q - salir / quit&quot;
+
+    $OpcionUser = Read-Host &quot;Selecciona opción de menú&quot;
+
+    switch($OpcionUser)
+    {
+        'd'
+        {
+            Write-Host &quot;Borrado fichero&quot;
+            Remove-Item test.txt
+        }
+
+        'v' 
+        {
+            Write-Host &quot;Mostrar contenido de fichero&quot;
+            Get-Content test.txt
+
+        }
+
+        'q'
+        {
+            &quot;Saliendo&quot;
+        }
+
+        default 
+        {
+            Write-Host  &quot;Invalid entry&quot;
+        }
+    } #End switch
+} while($OpcionUser -ne &quot;q&quot;) # End while
+</code></pre>
+
+<h1 id="ejercicio-introducir-comando-de-usuario">Ejercicio : Introducir comando de usuario</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/bucles/while/while-enter-user-cmd.ps1">while-enter-user-cmd.ps1</a></p>
+<pre><code class="powershell">$command = &quot;&quot;;
+while($command -notmatch &quot;quit&quot;)
+{
+    $command = Read-Host &quot;Enter your command&quot;
+}
+</code></pre>
+
+<h1 id="ejercicio-yes-no-question">Ejercicio : Yes / No Questión</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/bucles/while/while-yesno-question.ps1">while-yesno-question.ps1</a></p>
+<pre><code class="powershell">$validResponses = &quot;Yes&quot;,&quot;No&quot;
+$response = &quot;&quot;
+do
+{
+    $response = read-host &quot;Yes or No?&quot;
+} while($validResponses -notcontains $response)
+&quot;Got it.&quot;   
+</code></pre>
+
 <h1 id="enlaces-externos">Enlaces externos</h1>
 <ul>
+<li><a href="https://ss64.com/ps/while.html">While statement - PowerShell - SS64.com</a>.</li>
 <li><a href="http://www.computerperformance.co.uk/powershell/powershell_loops_do_while.htm">Windows PowerShell Do While.. Until Loops - Computer Performance</a></li>
+<li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/test-path?view=powershell-5.1">Test-Path - Microsoft Docs</a>.</li>
+<li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/new-item?view=powershell-5.1">New-Item - Microsoft Docs</a>.</li>
+<li><a href="https://ss64.com/ps/new-item.html">New-Item - PowerShell - SS64.com</a>.</li>
+<li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-5.1">Remove-Item - Microsoft Docs</a>.</li>
 </ul>
               
             </div>
