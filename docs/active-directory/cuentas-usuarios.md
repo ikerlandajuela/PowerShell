@@ -4,6 +4,12 @@
 
 El cmdlet [Get-ADUser](https://technet.microsoft.com/en-us/library/ee617241.aspx) permite obtener los datos de uno o mas usuarios de AD (Active-Directory).
 
+Podemos ver un listado de TODOS los usuarios del dominio y sus propiedades básicas con este comando:
+
+```powershell
+Get-ADUser -filter *
+```
+
 Este es el ejemplo más sencillo, **la siguiente consulta obtiene sólo algunas de la propiedades de la cuenta**, buscamos una cuenta de un empleado ficticio llamado Bob Sinclair:
 
 ```powershell
@@ -23,7 +29,7 @@ Para ver que propiedades podemos consultar de un objeto usuario es siempre útil
 Si queremos visualizar propiedades que no se muestran por defecto, por ejemplo la oficina de trabajo y la descripción de la cuenta:
 
 ```powershell
-Get-ADUser -Identity 'b.sinclair' -Properties Description,Office
+Get-ADUser -Identity 'b.sinclair' -Properties PasswordExpired,PasswordLastSet,PasswordNeverExpires
 # Para ver TODAS las propiedades de forma paginada
 Get-ADUser -Identity 'b.sinclair' -Properties * | more 
 Get-ADUser -Identity 'b.sinclair' -Properties msDS-UserPasswordExpiryTimeComputed, PasswordLastSet, CannotChangePassword, PasswordExpired
@@ -45,6 +51,35 @@ Get-ADUser -Identity 'b.sinclair' -Properties Manager
 # Para comprobar si la clave a expirado
 Get-ADUser -Identity 'b.sinclair' -Properties PasswordExpired
 ```
+
+Modificar las propiedad de usuarios resultantes de una búsqueda, en el siguiente ejemplos obtenemos una lista de cuentas de usuario que tienen la propiedad de que expire clave activada y además está caducada la clave.
+
+```powershell
+$usrLst = Get-ADUser -Filter {(PasswordNeverExpires -eq $False) -and (PasswordExpired -eq $True)}
+foreach($User in $usrLst)
+{
+	$User.department = "Dpto. Administración"
+	Set-ADUser -Instance $User
+}
+```
+
+Asignar un script de inicio a todos los usuarios de la empresa:
+
+```powershell
+$usrLst = Get-ADUser -Filter *
+foreach($User in $usrLst)
+{
+ 
+ $User.Scriptpath = "ini.vbs"
+ Set-ADUser -Instance $User
+}
+```
+
+Enlaces:
+
+* [Modify Logon Scirpt (scriptPath)–PowerShell - TechNet Gallery](https://gallery.technet.microsoft.com/scriptcenter/7b08aa42-a910-4c28-955f-38578f2b9ee8).
+* [PowerShell: Get-ADUser to retrieve logon scripts and home directories ...](https://www.oxfordsbsguy.com/2013/04/29/powershell-get-aduser-to-retrieve-logon-scripts-and-home-directories-part-2/).
+
 
 # Ejemplos avanzados
 
@@ -153,6 +188,7 @@ Enable-Mailbox -Identity $MyEmailAddress -Database "Mailbox Database 12"
 Enable-Mailbox -Identity $MyEmailAddress -Archive
 ```
 
+
 # Resetear la clave de usuario
 
 **Fuente:** [Reset-ADUserPassword.ps1](/src/active_directory/users/Reset-ADUserPassword.ps1)
@@ -167,6 +203,27 @@ Set-ADAccountPassword $UserId -NewPassword (ConvertTo-SecureString -AsPlainText 
 Set-ADUser -Identity $UserId -ChangePasswordAtLogon $true
 ```
 
+# Buscar usuarios con una propiedad determinada
+
+También podemos buscar todos los que contengan en su nombre de cuenta la expresión “perez”:
+
+```powershell
+Get-ADUser -filter {samaccountname -like "*perez*"}
+```
+
+Podemos también listar todos los usuarios activos (Enabled = True):
+
+```powershell
+PS C:\> Get-ADUser -Filter {Enabled -eq "True"} | Select-Object SamAccountName,Name,Surname,GivenName | Format-Table
+```
+
+Usuarios que no han cambiado su contraseña en los últimos 100 días (**no estoy seguro si este cmdlet funciona bien**):
+
+```powershell
+$200_Days = (Get-Date).adddays(-200)
+Get-ADUser -filter {(passwordlastset -le $200_Days) -and (PasswordNeverExpires -eq $False) -and (Enabled -eq $True)}  
+```
+
 # Recursos externos
 
 * [Get-ADUser - TechNet - Microsoft](https://technet.microsoft.com/en-us/library/ee617241.aspx).
@@ -179,3 +236,4 @@ Set-ADUser -Identity $UserId -ChangePasswordAtLogon $true
 * [Reset a user password with PowerShell – 4sysops](https://4sysops.com/archives/powershell-password-resets/).
 * [Generate a random and complex passwords](https://gallery.technet.microsoft.com/Generate-a-random-and-5c879ed5).
 * [Reset password in Active Directory using PowerShell](http://blog.simonw.se/reset-password-in-active-directory-using-powershell/).
+* [POWERSHELL – TRABAJANDO CON LOS USUARIOS DEL DOMINIO](https://mytcpip.com/2018/01/26/powershell-trabajando-con-los-usuarios-del-dominio/).
