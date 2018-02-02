@@ -147,6 +147,9 @@
     <li class="toctree-l3"><a href="#resetear-la-clave-de-usuario">Resetear la clave de usuario</a></li>
     
 
+    <li class="toctree-l3"><a href="#buscar-usuarios-con-una-propiedad-determinada">Buscar usuarios con una propiedad determinada</a></li>
+    
+
     <li class="toctree-l3"><a href="#recursos-externos">Recursos externos</a></li>
     
 
@@ -228,6 +231,10 @@
                 <h1 id="visualizar-las-propiedades-de-una-cuenta">Visualizar las propiedades de una cuenta</h1>
 <p><strong>Fuente:</strong> <a href="../../src/active_directory/users/Get-ADUser-basics.ps1">Get-ADUser-basics.ps1</a></p>
 <p>El cmdlet <a href="https://technet.microsoft.com/en-us/library/ee617241.aspx">Get-ADUser</a> permite obtener los datos de uno o mas usuarios de AD (Active-Directory).</p>
+<p>Podemos ver un listado de TODOS los usuarios del dominio y sus propiedades básicas con este comando:</p>
+<pre><code class="powershell">Get-ADUser -filter *
+</code></pre>
+
 <p>Este es el ejemplo más sencillo, <strong>la siguiente consulta obtiene sólo algunas de la propiedades de la cuenta</strong>, buscamos una cuenta de un empleado ficticio llamado Bob Sinclair:</p>
 <pre><code class="powershell">Get-ADUser -Identity 'b.sinclair'
 # Podemos hacer lo mismo filtrando por la propiedad Name
@@ -242,7 +249,7 @@ Get-ADUser -Filter 'Name -like &quot;Oscar*&quot;'
 </ul>
 <h1 id="propiedades-adicionales">Propiedades adicionales</h1>
 <p>Si queremos visualizar propiedades que no se muestran por defecto, por ejemplo la oficina de trabajo y la descripción de la cuenta:</p>
-<pre><code class="powershell">Get-ADUser -Identity 'b.sinclair' -Properties Description,Office
+<pre><code class="powershell">Get-ADUser -Identity 'b.sinclair' -Properties PasswordExpired,PasswordLastSet,PasswordNeverExpires
 # Para ver TODAS las propiedades de forma paginada
 Get-ADUser -Identity 'b.sinclair' -Properties * | more 
 Get-ADUser -Identity 'b.sinclair' -Properties msDS-UserPasswordExpiryTimeComputed, PasswordLastSet, CannotChangePassword, PasswordExpired
@@ -262,6 +269,30 @@ Get-ADUser -Identity 'b.sinclair' -Properties Manager
 Get-ADUser -Identity 'b.sinclair' -Properties PasswordExpired
 </code></pre>
 
+<p>Modificar las propiedad de usuarios resultantes de una búsqueda, en el siguiente ejemplos obtenemos una lista de cuentas de usuario que tienen la propiedad de que expire clave activada y además está caducada la clave.</p>
+<pre><code class="powershell">$usrLst = Get-ADUser -Filter {(PasswordNeverExpires -eq $False) -and (PasswordExpired -eq $True)}
+foreach($User in $usrLst)
+{
+    $User.department = &quot;Dpto. Administración&quot;
+    Set-ADUser -Instance $User
+}
+</code></pre>
+
+<p>Asignar un script de inicio a todos los usuarios de la empresa:</p>
+<pre><code class="powershell">$usrLst = Get-ADUser -Filter *
+foreach($User in $usrLst)
+{
+
+ $User.Scriptpath = &quot;ini.vbs&quot;
+ Set-ADUser -Instance $User
+}
+</code></pre>
+
+<p>Enlaces:</p>
+<ul>
+<li><a href="https://gallery.technet.microsoft.com/scriptcenter/7b08aa42-a910-4c28-955f-38578f2b9ee8">Modify Logon Scirpt (scriptPath)–PowerShell - TechNet Gallery</a>.</li>
+<li><a href="https://www.oxfordsbsguy.com/2013/04/29/powershell-get-aduser-to-retrieve-logon-scripts-and-home-directories-part-2/">PowerShell: Get-ADUser to retrieve logon scripts and home directories ...</a>.</li>
+</ul>
 <h1 id="ejemplos-avanzados">Ejemplos avanzados</h1>
 <p><strong>Fuente:</strong> <a href="../../src/active_directory/users/Filter-Users.ps1">Filter-Users.ps1</a></p>
 <p>Las fecha de caducidad de la clave y la fecha cuando se estableció la clave por última vez siempre son valores interesantes para los admins. Si queremos realizar varias operaciones sobre una lista de usuarios primero lo almacenamos en una lista de objetos.</p>
@@ -353,6 +384,20 @@ Set-ADAccountPassword $UserId -NewPassword (ConvertTo-SecureString -AsPlainText 
 Set-ADUser -Identity $UserId -ChangePasswordAtLogon $true
 </code></pre>
 
+<h1 id="buscar-usuarios-con-una-propiedad-determinada">Buscar usuarios con una propiedad determinada</h1>
+<p>También podemos buscar todos los que contengan en su nombre de cuenta la expresión “perez”:</p>
+<pre><code class="powershell">Get-ADUser -filter {samaccountname -like &quot;*perez*&quot;}
+</code></pre>
+
+<p>Podemos también listar todos los usuarios activos (Enabled = True):</p>
+<pre><code class="powershell">PS C:\&gt; Get-ADUser -Filter {Enabled -eq &quot;True&quot;} | Select-Object SamAccountName,Name,Surname,GivenName | Format-Table
+</code></pre>
+
+<p>Usuarios que no han cambiado su contraseña en los últimos 100 días (<strong>no estoy seguro si este cmdlet funciona bien</strong>):</p>
+<pre><code class="powershell">$200_Days = (Get-Date).adddays(-200)
+Get-ADUser -filter {(passwordlastset -le $200_Days) -and (PasswordNeverExpires -eq $False) -and (Enabled -eq $True)}  
+</code></pre>
+
 <h1 id="recursos-externos">Recursos externos</h1>
 <ul>
 <li><a href="https://technet.microsoft.com/en-us/library/ee617241.aspx">Get-ADUser - TechNet - Microsoft</a>.</li>
@@ -365,6 +410,7 @@ Set-ADUser -Identity $UserId -ChangePasswordAtLogon $true
 <li><a href="https://4sysops.com/archives/powershell-password-resets/">Reset a user password with PowerShell – 4sysops</a>.</li>
 <li><a href="https://gallery.technet.microsoft.com/Generate-a-random-and-5c879ed5">Generate a random and complex passwords</a>.</li>
 <li><a href="http://blog.simonw.se/reset-password-in-active-directory-using-powershell/">Reset password in Active Directory using PowerShell</a>.</li>
+<li><a href="https://mytcpip.com/2018/01/26/powershell-trabajando-con-los-usuarios-del-dominio/">POWERSHELL – TRABAJANDO CON LOS USUARIOS DEL DOMINIO</a>.</li>
 </ul>
               
             </div>
