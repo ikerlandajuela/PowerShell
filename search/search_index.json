@@ -397,7 +397,7 @@
         }, 
         {
             "location": "/recursos/", 
-            "text": "Entornos de desarrollo\n\n\n\n\nVisual Studio Code - Code Editing. Redefined\n.\n\n\n\n\nLibros\n\n\n\n\nGitBook \ndevops-collective-inc\n: A US 501(c)(3) nonprofit dedicated to DevOps and automation education.\n\n\nThe Big Book of PowerShell Gotchas\n: PowerShell is full of \"gotchas\" - little things that just get in your way and are hard to figure out on your own. This short book is intended to help you figure them out and avoid them.\n\n\nCreating HTML Reports in PowerShell\n: Create beautiful, colorful, multi-section HTML reports from PowerShell - with very little knowledge of CSS or HTML needed!.    \n\n\n\n\n\n\nhttp://ramblingcookiemonster.github.io/Pages/PowerShellResources/index.html\n.\n\n\n\n\nCmdlets\n\n\n\n\nWindows PowerShell Cookbook\n: The following applies to example files from material published by O\u2019Reilly Media, Inc. \n\n\nCmdlet Samples\n: This section describes sample code that is provided in the Windows PowerShell 2.0 SDK.\n\n\nA Task-Based Guide to Windows PowerShell Cmdlets\n: Cmdlets are the heart-and-soul of Windows PowerShell, Microsoft's latest command shell/scripting language. \n\n\n\n\nWebs", 
+            "text": "Entornos de desarrollo\n\n\n\n\nVisual Studio Code - Code Editing. Redefined\n.\n\n\n\n\nLibros\n\n\n\n\nGitBook \ndevops-collective-inc\n: A US 501(c)(3) nonprofit dedicated to DevOps and automation education.\n\n\nThe Big Book of PowerShell Gotchas\n: PowerShell is full of \"gotchas\" - little things that just get in your way and are hard to figure out on your own. This short book is intended to help you figure them out and avoid them.\n\n\nCreating HTML Reports in PowerShell\n: Create beautiful, colorful, multi-section HTML reports from PowerShell - with very little knowledge of CSS or HTML needed!.    \n\n\n\n\n\n\nhttp://ramblingcookiemonster.github.io/Pages/PowerShellResources/index.html\n.\n\n\n\n\nCmdlets\n\n\n\n\nWindows PowerShell Cookbook\n: The following applies to example files from material published by O\u2019Reilly Media, Inc. \n\n\nCmdlet Samples\n: This section describes sample code that is provided in the Windows PowerShell 2.0 SDK.\n\n\nA Task-Based Guide to Windows PowerShell Cmdlets\n: Cmdlets are the heart-and-soul of Windows PowerShell, Microsoft's latest command shell/scripting language. \n\n\n\n\nWebs\n\n\nOtras herramientas\n\n\n\n\nRemote Desktop Connection Manager\n.", 
             "title": "Recursos"
         }, 
         {
@@ -419,6 +419,11 @@
             "location": "/recursos/#webs", 
             "text": "", 
             "title": "Webs"
+        }, 
+        {
+            "location": "/recursos/#otras-herramientas", 
+            "text": "Remote Desktop Connection Manager .", 
+            "title": "Otras herramientas"
         }
     ]
 }
