@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Directorios - PSFabrik</title>
+  <title>Sesiones remotas - PSFabrik</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Directorios";
-    var mkdocs_page_input_path = "sistema-archivos\\directorios.md";
-    var mkdocs_page_url = "/sistema-archivos/directorios/";
+    var mkdocs_page_name = "Sesiones remotas";
+    var mkdocs_page_input_path = "networking\\remoto.md";
+    var mkdocs_page_url = "/networking/remoto/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -99,21 +99,9 @@
 		
     <span class="caption-text">Sistema</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Directorios</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#obtener-los-ficheros-de-un-directorio">Obtener los ficheros de un directorio</a></li>
-    
-
-    <li class="toctree-l3"><a href="#buscar-los-ficheros-modificados-antes-de-una-determinada-fecha">Buscar los ficheros modificados antes de una determinada fecha</a></li>
-    
-
-    <li class="toctree-l3"><a href="#recursos-externos">Recursos externos</a></li>
-    
-
-    </ul>
+    <a class="" href="../../sistema-archivos/directorios/">Directorios</a>
                 </li>
     </ul>
 	    </li>
@@ -133,9 +121,21 @@
 		
     <span class="caption-text">Networking</span>
     <ul class="subnav">
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../networking/remoto/">Sesiones remotas</a>
+    <a class="current" href="./">Sesiones remotas</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#comandos-ps-en-computadoras-remotas">Comandos PS en computadoras remotas</a></li>
+    
+
+    <li class="toctree-l3"><a href="#iniciar-una-sesion-remota">Iniciar una sesión remota</a></li>
+    
+
+    <li class="toctree-l3"><a href="#enlaces-externos">Enlaces externos</a></li>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -204,14 +204,14 @@
     
       
         
-          <li>Sistema &raquo;</li>
+          <li>Networking &raquo;</li>
         
       
     
-    <li>Directorios</li>
+    <li>Sesiones remotas</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/sistema-archivos/directorios.md"
+        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/networking/remoto.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -221,34 +221,34 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="obtener-los-ficheros-de-un-directorio">Obtener los ficheros de un directorio</h1>
-<p>Para obtener una lista de los archivos de un directorio empleamos el cmdlet <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-5.1">Get-ChildItem</a>. Para obtener un item especifico usamos <a href="">Get-Item</a>.</p>
-<p><strong>Fuente:</strong> <a href="../../src/sistema-archivos/directorios/get_files_dir.ps1">get_files_dir.ps1</a></p>
-<p>Para obtener todos los elementos del directorio actual:</p>
-<pre><code class="powershell">Get-ChildItem
+                <h1 id="comandos-ps-en-computadoras-remotas">Comandos PS en computadoras remotas</h1>
+<p>Las capacidades de PS permiten acceder a sesiones de PS en computadoras remotas, es similar a SSH muy usado en Linux por ejemplo.</p>
+<p>En el ordenador que queramos controlar remotamente, abrimos PowerShell como Administrador. </p>
+<p>Una vez abierto el PS en la computadora destino, ejecutamos este comando WinRM, que instala el control remoto:</p>
+<pre><code class="powershell">PS&gt; Enable-PSRemoting -Force
 </code></pre>
 
-<p>Podemos buscar aquellos elementos que cumplan un patrón:</p>
-<pre><code class="powershell">Get-ChildItem *.ps1
+<p>El siguiente paso será decirle los Equipos que tendrán un control Administrador del WinRM, si ejecutamos el siguiente comando todos los equipos tendrán control de Administrador, pero eso no es lo que queremos. </p>
+<pre><code class="powershell">PS&gt; Set-Item wsman:\localhost\client\trustedhosts *
 </code></pre>
 
-<p>Si queremos buscar de forma recursiva dentro de las subcarpetas también</p>
-<pre><code class="powershell">Get-ChildItem *.txt -Recurse
+<p>Para restringir los equìpos que se puedan conectar como Administradores automáticamente sustituimos el * por nombre o nombres de equipos.</p>
+<p>Ahora reseteamos el servicio WinRM:</p>
+<pre><code class="powershell">PS&gt; Restart-Service WinRM
 </code></pre>
 
-<p>Especificamos la ruta donde queremos buscar y excluimos ciertos elementos</p>
-<pre><code class="powershell">Get-ChildItem -Path C:\Windows -Exclude *.png
+<p>Podemos testear si el servicio WinRM para ver si esta todo bien instalado (donde computadora será el equipo remoto).</p>
+<pre><code class="powershell">PS&gt; Test-WsMan COMPUTADORA
 </code></pre>
 
-<p>Si solo queremos listar los directorios.</p>
-<pre><code class="powershell">Get-ChildItem &quot;C:\Windows&quot; | where {$_.Attributes -match'Directory'}
+<h1 id="iniciar-una-sesion-remota">Iniciar una sesión remota</h1>
+<pre><code class="PowerShell">PS&gt; Enter-PSSession -ComputerName COMPUTER -Credential USER
 </code></pre>
 
-<h1 id="buscar-los-ficheros-modificados-antes-de-una-determinada-fecha">Buscar los ficheros modificados antes de una determinada fecha</h1>
-<h1 id="recursos-externos">Recursos externos</h1>
+<h1 id="enlaces-externos">Enlaces externos</h1>
 <ul>
-<li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-5.1">Get-ChildItem</a>: Gets the items and child items in one or more specified locations.</li>
-<li><a href="https://docs.microsoft.com/es-es/powershell/scripting/getting-started/cookbooks/working-with-files-and-folders?view=powershell-5.1">Trabajar con archivos y carpetas</a>: Navegar a través de unidades de Windows PowerShell y manipular los elementos son procesos similares al de manipulación de archivos y carpetas en unidades de disco físico de Windows. Explicaremos cómo tratar con tareas específicas de manipulación de archivos y carpetas en esta sección.</li>
+<li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-5.1">Enable-PSRemoting - Microsoft Docs</a>.</li>
+<li><a href="https://www.howtogeek.com/117192/how-to-run-powershell-commands-on-remote-computers/">How to Run PowerShell Commands on Remote Computers</a>.</li>
 </ul>
               
             </div>
@@ -257,10 +257,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../admin/event-log/" class="btn btn-neutral float-right" title="Event Logs">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../active-directory/cuentas-usuarios/" class="btn btn-neutral float-right" title="Cuentas usuarios">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../sintaxis/select/" class="btn btn-neutral" title="Select"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../admin/event-log/" class="btn btn-neutral" title="Event Logs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -288,10 +288,10 @@
           <a href="https://github.com/ikerlandajuela/PowerShell/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../sintaxis/select/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../admin/event-log/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../admin/event-log/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../active-directory/cuentas-usuarios/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
