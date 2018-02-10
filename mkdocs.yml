@@ -14,10 +14,13 @@ pages:
         - 'Function': 'sintaxis/function.md'
         - 'While': 'sintaxis/while.md'
         - 'Select': 'sintaxis/select.md'
+        - 'Switch': 'sintaxis/switch.md'
     - Sistema:
         - 'Directorios': 'sistema-archivos/directorios.md'
     - Admin:
         - 'Event Logs': 'admin/event-log.md'
+    - Networking:
+        - 'Sesiones remotas' : 'networking/remoto.md'
     - Active Directory:
         - 'Cuentas usuarios':  'active-directory/cuentas-usuarios.md'
         - 'Grupos': 'active-directory/grupos.md'

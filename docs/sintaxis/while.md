@@ -115,7 +115,7 @@ while($command -notmatch "quit")
 	$command = Read-Host "Enter your command"
 }
 ```
-
+	
 # Ejercicio : Yes / No Questión
 
 **Fuente:** [while-yesno-question.ps1](/src/sintaxis/bucles/while/while-yesno-question.ps1)

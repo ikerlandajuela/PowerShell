@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Básico - PSFabrik</title>
+  <title>Switch - PSFabrik</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "B\u00e1sico";
-    var mkdocs_page_input_path = "exchange\\basico.md";
-    var mkdocs_page_url = "/exchange/basico/";
+    var mkdocs_page_name = "Switch";
+    var mkdocs_page_input_path = "sintaxis\\switch.md";
+    var mkdocs_page_url = "/sintaxis/switch/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -58,43 +58,55 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../sintaxis/variables/">Variables</a>
+    <a class="" href="../variables/">Variables</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../sintaxis/objetos/">Objetos</a>
+    <a class="" href="../objetos/">Objetos</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../sintaxis/if/">If</a>
+    <a class="" href="../if/">If</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../sintaxis/array/">Arrays</a>
+    <a class="" href="../array/">Arrays</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../sintaxis/for/">For</a>
+    <a class="" href="../for/">For</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../sintaxis/foreach/">Foreach</a>
+    <a class="" href="../foreach/">Foreach</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../sintaxis/function/">Function</a>
+    <a class="" href="../function/">Function</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../sintaxis/while/">While</a>
+    <a class="" href="../while/">While</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../sintaxis/select/">Select</a>
+    <a class="" href="../select/">Select</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../sintaxis/switch/">Switch</a>
+    <a class="current" href="./">Switch</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#switch-simple">Switch simple</a></li>
+    
+
+    <li class="toctree-l3"><a href="#switch-casesensitive">Switch -CaseSensitive</a></li>
+    
+
+    <li class="toctree-l3"><a href="#enlaces-externos">Enlaces externos</a></li>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -151,24 +163,9 @@
 		
     <span class="caption-text">Exchange Server</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Básico</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#obtener-informacion-servidores-buzones-de-correo">Obtener información servidores buzones de correo</a></li>
-    
-
-    <li class="toctree-l3"><a href="#obtener-informacion-de-un-buzon">Obtener información de un buzon</a></li>
-    
-
-    <li class="toctree-l3"><a href="#bases-de-datos-mailbox">Bases de datos Mailbox</a></li>
-    
-
-    <li class="toctree-l3"><a href="#enlaces-externos">Enlaces externos</a></li>
-    
-
-    </ul>
+    <a class="" href="../../exchange/basico/">Básico</a>
                 </li>
     </ul>
 	    </li>
@@ -211,14 +208,14 @@
     
       
         
-          <li>Exchange Server &raquo;</li>
+          <li>Sintaxis &raquo;</li>
         
       
     
-    <li>Básico</li>
+    <li>Switch</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/exchange/basico.md"
+        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/sintaxis/switch.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -228,48 +225,35 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="obtener-informacion-servidores-buzones-de-correo">Obtener información servidores buzones de correo</h1>
-<p>El cmdlet <code>Get-MailboxServer</code> permite obtener información sobre los servidores de correo.</p>
-<p><strong>Fuente:</strong> <a href="../../src/exchange/basico/Show-MailBox-Server.ps1">Show-MailBox-Server.ps1</a></p>
-<pre><code class="powershell">Get-MailboxServer
+                <p>Una sentencia <code>switch</code> permite evaluar una variable contra una lista de valores. Cada valor comparado se llama un <code>case</code>. Permite elegir entre una serie de opciones pero sin la necesidad de escribir una larga concatenación de <code>If..Else</code>.</p>
+<h1 id="switch-simple">Switch simple</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/switch/switch-basic.ps1">switch-basic.ps1</a></p>
+<p>Sintaxis básica:</p>
+<pre><code class="powershell">$myvalue = 'Segunda condición'
+switch ($myvalue)
+{
+    'Primera condición' { 'Primera acción' }
+    'Segunda condición' { 'Segunda acción' }
+}
 </code></pre>
 
-<h1 id="obtener-informacion-de-un-buzon">Obtener información de un buzon</h1>
-<p><strong>Fuente:</strong> <a href="../../src/exchange/basico/Show-MailBox-User.ps1">Show-MailBox-User.ps1</a></p>
-<p>Podemos ver si tiene establecida una cuota de correo en la tercera columna.</p>
-<pre><code class="powershell">Get-Mailbox -Identity 'b.sinclair'
-</code></pre>
-
-<p>Pero un buzón de Exchange Online tiene asociada más información, además de las cuatro propiedades devueltas por el cmdlet Get-Mailbox.</p>
-<pre><code class="powershell">Get-Mailbox -Identity 'b.sinclair' | Select-Object *
-# También puede usar el cmdlet Select-Object para especificar un conjunto de valores de propiedad que se van a mostrar.
-Get-Mailbox -Identity 'b.sinclair' | Select-Object DisplayName, LitigationHoldEnabled, LitigationHoldDate, LitigationHoldOwner, LitigationHoldDuration
-</code></pre>
-
-<h1 id="bases-de-datos-mailbox">Bases de datos Mailbox</h1>
-<p>Para obtener los nombres de la bases de datos usadas como Mailbox:</p>
-<pre><code class="powershell">Get-MailboxDatabase
-# Si queremos obtener los buzones de una base de datos concreta
-Get-MailboxDatabase &quot;Mailbox Database 1&quot;  | Get-Mailbox 
-</code></pre>
-
-<p>También podemos obtener estadísticas e incluso obtener el tamañop total de cada buzones en una BD.</p>
-<pre><code class="powershell">Get-MailboxDatabase &quot;Mailbox Database 1&quot; | Get-MailboxStatistics | Sort totalitemsize -desc | ft displayname, totalitemsize, itemcount
-</code></pre>
-
-<p>Alernativamente podemos podemos obtener los datos de un buzón de correo específico:</p>
-<pre><code class="powershell">Get-MailboxStatistics -identity b.sinclair| fl
+<p>En el ejemplo básico de arriba cuando <code>$myvalue</code> contenga 'Primera condición'  se mostrará por la salida 'Primera acción', lo mismo para la segunda condición.</p>
+<p>**No se mostrará nada por la salida si <code>$myvalue</code> no cumple ninguna de las condiciones.</p>
+<h1 id="switch-casesensitive">Switch -CaseSensitive</h1>
+<p><strong>Fuente:</strong> <a href="../../src/sintaxis/switch/switch-CaseSensitive.ps1">switch-CaseSensitive.ps1</a></p>
+<p>El parámetro <code>-CaseSensitive</code> fuerza a que la condición se cumpla distinguiendo entre mayúsculas y minúsculas. El siguiente ejemplo no cumpliria ninguna condición  </p>
+<pre><code class="powershell">$myvalue = 'segunda condición'
+switch  -CaseSensitive ($myvalue)
+{
+    'Primera condición' { 'Primera acción' }
+    'Segunda condición' { 'Segunda acción' }
+}
 </code></pre>
 
 <h1 id="enlaces-externos">Enlaces externos</h1>
 <ul>
-<li><a href="https://technet.microsoft.com/es-es/library/bb123539(v=exchg.160).aspx">Get-MailboxServer - TechNet - Microsoft</a>.</li>
-<li><a href="https://www.codetwo.com/admins-blog/list-of-active-mailboxes-powershell/">List of active mailboxes (PowerShell) - CodeTwo</a>.</li>
-<li><a href="https://github.com/cunninghamp/Get-MailboxReport.ps1">cunninghamp/Get-MailboxReport.ps1</a>.</li>
-<li><a href="https://practical365.com/exchange-server/browsing-mailbox-databases-in-exchange-2007-and-2010/">Browsing Mailbox Databases in Exchange 2007 and 2010</a>.</li>
-<li><a href="https://practical365.com/exchange-server/powershell-script-create-mailbox-size-report-exchange-server-2010/">Get-MailboxReport.ps1 – PowerShell Script to Generate Mailbox Reports</a>.</li>
-<li><a href="https://practical365.com/exchange-server/calculate-exchange-2010-mailbox-sizes-powershell/">How to Calculate Exchange 2010 Mailbox Sizes with PowerShell</a>.</li>
-<li><a href="http://searchexchange.techtarget.com/essentialguide/The-essential-guide-to-PowerShell-in-Exchange">The essential guide to PowerShell in Exchange</a>.</li>
+<li><a href="https://ss64.com/ps/switch.html">Switch - PowerShell - SS64.com</a>.</li>
+<li><a href="http://www.computerperformance.co.uk/powershell/powershell_switch.htm">Windows PowerShell - Switch Statement Examples</a>.</li>
 </ul>
               
             </div>
@@ -278,10 +262,10 @@ Get-MailboxDatabase &quot;Mailbox Database 1&quot;  | Get-Mailbox
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../bases_de_datos/sqlite/sqlite/" class="btn btn-neutral float-right" title="SQLite">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../sistema-archivos/directorios/" class="btn btn-neutral float-right" title="Directorios">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../active-directory/grupos/" class="btn btn-neutral" title="Grupos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../select/" class="btn btn-neutral" title="Select"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -309,10 +293,10 @@ Get-MailboxDatabase &quot;Mailbox Database 1&quot;  | Get-Mailbox
           <a href="https://github.com/ikerlandajuela/PowerShell/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../active-directory/grupos/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../select/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../bases_de_datos/sqlite/sqlite/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../sistema-archivos/directorios/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
