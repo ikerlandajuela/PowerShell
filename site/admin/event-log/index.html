@@ -305,7 +305,14 @@ Get-WinEvent -FilterXml $xml
 </code></pre>
 
 <h1 id="backup-del-log-de-eventos">Backup del log de eventos</h1>
-<p>A menudo querremos guardar la información del log de eventos para analizarlos más tarde.</p>
+<p>A menudo querremos guardar la información del log de eventos para analizarlos más tarde. Con la utilidad <code>wevtutil.exe</code> podemos guardar el log de eventos en un fichero. </p>
+<pre><code class="powershell">PS &gt; C:\Windows\System32\wevtutil.exe epl System c:\temp\system.bak.evtx
+</code></pre>
+
+<p>Después de exportar el log de eventos podemos usar el cmdlet <code>Get-WinEvent</code> para realizar consultas.</p>
+<pre><code class="powershell">PS &gt; Get-WinEvent -FilterHashtable @{Path=&quot;c:\temp\system.bak.evtx&quot;; Level=1,2 } -MaxEvents 2 | Format-Table -Auto
+</code></pre>
+
 <h1 id="enlaces-externos">Enlaces externos</h1>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/format-table?view=powershell-6">Format-Table - Microsoft Docs</a>.</li>
