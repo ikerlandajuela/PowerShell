@@ -109,7 +109,13 @@ A menudo querremos guardar la información del log de eventos para analizarlos m
 PS > C:\Windows\System32\wevtutil.exe epl System c:\temp\system.bak.evtx
 ```
 
-Después de 
+Después de exportar el log de eventos podemos usar el cmdlet `Get-WinEvent` para realizar consultas.
+
+```powershell
+PS > Get-WinEvent -FilterHashtable @{Path="c:\temp\system.bak.evtx"; Level=1,2 } -MaxEvents 2 | Format-Table -Auto
+```
+
+
 
 # Enlaces externos
 
