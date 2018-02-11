@@ -1,0 +1,1 @@
+Get-EventLog System -Newest 10 | Format-Table Index,Source,Message -Auto

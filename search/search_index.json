@@ -246,6 +246,26 @@
             "title": "Enlaces externos"
         }, 
         {
+            "location": "/sintaxis/switch/", 
+            "text": "Una sentencia \nswitch\n permite evaluar una variable contra una lista de valores. Cada valor comparado se llama un \ncase\n. Permite elegir entre una serie de opciones pero sin la necesidad de escribir una larga concatenaci\u00f3n de \nIf..Else\n.\n\n\nSwitch simple\n\n\nFuente:\n \nswitch-basic.ps1\n\n\nSintaxis b\u00e1sica:\n\n\n$myvalue = 'Segunda condici\u00f3n'\nswitch ($myvalue)\n{\n    'Primera condici\u00f3n' { 'Primera acci\u00f3n' }\n    'Segunda condici\u00f3n' { 'Segunda acci\u00f3n' }\n}\n\n\n\n\nEn el ejemplo b\u00e1sico de arriba cuando \n$myvalue\n contenga 'Primera condici\u00f3n'  se mostrar\u00e1 por la salida 'Primera acci\u00f3n', lo mismo para la segunda condici\u00f3n.\n\n\n**No se mostrar\u00e1 nada por la salida si \n$myvalue\n no cumple ninguna de las condiciones.\n\n\nSwitch -CaseSensitive\n\n\nFuente:\n \nswitch-CaseSensitive.ps1\n\n\nEl par\u00e1metro \n-CaseSensitive\n fuerza a que la condici\u00f3n se cumpla distinguiendo entre may\u00fasculas y min\u00fasculas. El siguiente ejemplo no cumpliria ninguna condici\u00f3n  \n\n\n$myvalue = 'segunda condici\u00f3n'\nswitch  -CaseSensitive ($myvalue)\n{\n    'Primera condici\u00f3n' { 'Primera acci\u00f3n' }\n    'Segunda condici\u00f3n' { 'Segunda acci\u00f3n' }\n}\n\n\n\n\nEnlaces externos\n\n\n\n\nSwitch - PowerShell - SS64.com\n.\n\n\nWindows PowerShell - Switch Statement Examples\n.", 
+            "title": "Switch"
+        }, 
+        {
+            "location": "/sintaxis/switch/#switch-simple", 
+            "text": "Fuente:   switch-basic.ps1  Sintaxis b\u00e1sica:  $myvalue = 'Segunda condici\u00f3n'\nswitch ($myvalue)\n{\n    'Primera condici\u00f3n' { 'Primera acci\u00f3n' }\n    'Segunda condici\u00f3n' { 'Segunda acci\u00f3n' }\n}  En el ejemplo b\u00e1sico de arriba cuando  $myvalue  contenga 'Primera condici\u00f3n'  se mostrar\u00e1 por la salida 'Primera acci\u00f3n', lo mismo para la segunda condici\u00f3n.  **No se mostrar\u00e1 nada por la salida si  $myvalue  no cumple ninguna de las condiciones.", 
+            "title": "Switch simple"
+        }, 
+        {
+            "location": "/sintaxis/switch/#switch-casesensitive", 
+            "text": "Fuente:   switch-CaseSensitive.ps1  El par\u00e1metro  -CaseSensitive  fuerza a que la condici\u00f3n se cumpla distinguiendo entre may\u00fasculas y min\u00fasculas. El siguiente ejemplo no cumpliria ninguna condici\u00f3n    $myvalue = 'segunda condici\u00f3n'\nswitch  -CaseSensitive ($myvalue)\n{\n    'Primera condici\u00f3n' { 'Primera acci\u00f3n' }\n    'Segunda condici\u00f3n' { 'Segunda acci\u00f3n' }\n}", 
+            "title": "Switch -CaseSensitive"
+        }, 
+        {
+            "location": "/sintaxis/switch/#enlaces-externos", 
+            "text": "Switch - PowerShell - SS64.com .  Windows PowerShell - Switch Statement Examples .", 
+            "title": "Enlaces externos"
+        }, 
+        {
             "location": "/sistema-archivos/directorios/", 
             "text": "Obtener los ficheros de un directorio\n\n\nPara obtener una lista de los archivos de un directorio empleamos el cmdlet \nGet-ChildItem\n. Para obtener un item especifico usamos \nGet-Item\n.\n\n\nFuente:\n \nget_files_dir.ps1\n\n\nPara obtener todos los elementos del directorio actual:\n\n\nGet-ChildItem\n\n\n\n\nPodemos buscar aquellos elementos que cumplan un patr\u00f3n:\n\n\nGet-ChildItem *.ps1\n\n\n\n\nSi queremos buscar de forma recursiva dentro de las subcarpetas tambi\u00e9n\n\n\nGet-ChildItem *.txt -Recurse\n\n\n\n\nEspecificamos la ruta donde queremos buscar y excluimos ciertos elementos\n\n\nGet-ChildItem -Path C:\\Windows -Exclude *.png\n\n\n\n\nSi solo queremos listar los directorios.\n\n\nGet-ChildItem \nC:\\Windows\n | where {$_.Attributes -match'Directory'}\n\n\n\n\nBuscar los ficheros modificados antes de una determinada fecha\n\n\nRecursos externos\n\n\n\n\nGet-ChildItem\n: Gets the items and child items in one or more specified locations.\n\n\nTrabajar con archivos y carpetas\n: Navegar a trav\u00e9s de unidades de Windows PowerShell y manipular los elementos son procesos similares al de manipulaci\u00f3n de archivos y carpetas en unidades de disco f\u00edsico de Windows. Explicaremos c\u00f3mo tratar con tareas espec\u00edficas de manipulaci\u00f3n de archivos y carpetas en esta secci\u00f3n.", 
             "title": "Directorios"
@@ -267,13 +287,43 @@
         }, 
         {
             "location": "/admin/event-log/", 
-            "text": "Los logs de eventos son el pilar de la monitorizaci\u00f3n de sistemas Win. Para trabajar con los logs PS proporciona dos llamadas, los cmdlets \nGet-EventLog\n y \nGet-WinEvent\n.\n\n\nListado de todos los logs de eventos", 
+            "text": "Los logs de eventos son el pilar de la monitorizaci\u00f3n de sistemas Win. Para trabajar con los logs PS proporciona dos llamadas, los cmdlets \nGet-EventLog\n y \nGet-WinEvent\n.\n\n\nListado de todos los logs de eventos\n\n\nFuente:\n \nList-EventLogs.ps1\n\n\nGet-EventLog -List\n\n\n\n\nPodemos a\u00f1adir el par\u00e1metro \n-ComputerName\n si queremos interactuar con los logs de un equipo remoto.\n\n\nEn mi caso el cmdlet produce la siguiente salida:\n\n\n\n\nUn cmdlet similar para Win Vista o posteriores es \nGet-WinEvent\n que adem\u00e1s de los eventos cl\u00e1sicos tambi\u00e9n captura eventos de aplicaciones y servicios.\n\n\nPS\n Get-WinEvent -ListLog * | Select LogName,RecordCount\n\n\n\n\nSi lo que queremos es usar el visor de eventos gr\u00e1fico de Windows podemos lanzarlo desde de PS con el cmdlet \nShow-EventLog\n.\n\n\n\n\nObtener los logs de eventos m\u00e1s recientes\n\n\nUsamos el par\u00e1metro \n-Newest\n como en el siguiente ejemplo para obtener los 10 \u00faltimos eventos del sistema.\n\n\nFuente:\n \nGet-Newest10.ps1\n\n\nGet-EventLog System -Newest 10 | Format-Table Index,Source,Message -Auto\n\n\n\n\n\n\nPasamos la salida del cmdlet \nGet-EventLog\n usando una tuber\u00eda o pipe a el cmdlet \nFormat-Table\n para formatear la salida como una tabla con las columnas o propiedades del objeto que deseemos visualizar.\n\n\nPodemos hacer los mismo con el cmdlet \nGet-WinEvent\n usando el par\u00e1metro \n-MaxEvents\n:\n\n\nPS\n Get-WinEvent Application -MaxEvents 10 | Format-Table ProviderName,Id,Message -Auto\n\n\n\n\n\n\nBuscar entradas del log de eventos con un texto espec\u00edfico\n\n\nPS \n Get-EventLog System | Where-Object { $_.Message -match \ndisk\n }\n\n\n\n\nComo el cmdlet \nGet-EventLog\n retorna una lista de objetos que representan entradas del log de eventos podemos pasarlo por un pipe y usar el cmdlet \nWhere-Object\n para acceder a los atributos de los objetos.\n\n\nPara obtener una lista detallada:\n\n\nPS\n Get-EventLog System | Where-Object { $_.Message -match \ndisk\n } | Format-List\n\n\n\n\n\n\nObtener y filtrar log de eventos\n\n\nPor ejemplo si queremos obtener una entrada espec\u00edfica:\n\n\nPS \n Get-EventLog System | Where-Object { $_.Index -eq 2920 }\n\n\n\n\nPara obtener una vista detallada:\n\n\nPS \n Get-EventLog System | Where-Object { $_.Index -eq 2920 } | Format-List\n\n\n\n\nUsando el cmdlet \nGet-WinEvent\n con el par\u00e1metro \n-FilterHashtable\n (hash table o matriz asociativa) permite filtrar por LogName, Provider, Name, Path, Keywords, ID, Level, StartTime, EndTime y UserID. El siguiente ejemplo fitra los logs de eventos cr\u00edticos y de error en el log de eventos del sistema (System):\n\n\nGet-WinEvent -FilterHashtable @{ LogName = \nSystem\n; Level = 1,2 }\n\n\n\n\nGet-WinEvent y consultas XML\n\n\nFuente:\n \nGet-WinEvent-XMLQuery.ps1\n.\n\n\n## Gets all Critical and Error events from the last 24 hours\n$xml = @'\n\nQueryList\n\n    \nQuery Id=\n0\n Path=\nSystem\n\n        \nSelect Path=\nSystem\n\n            *[System[(Level=1 or Level=2) and TimeCreated[timediff(@SystemTime) \nlt;= 86400000]]]\n        \n/Select\n\n    \n/Query\n\n\n/QueryList\n\n'@\n\nGet-WinEvent -FilterXml $xml\n\n\n\n\nBackup del log de eventos\n\n\nA menudo querremos guardar la informaci\u00f3n del log de eventos para analizarlos m\u00e1s tarde. Con la utilidad \nwevtutil.exe\n podemos guardar el log de eventos en un fichero. \n\n\nPS \n C:\\Windows\\System32\\wevtutil.exe epl System c:\\temp\\system.bak.evtx\n\n\n\n\nDespu\u00e9s de exportar el log de eventos podemos usar el cmdlet \nGet-WinEvent\n para realizar consultas.\n\n\nPS \n Get-WinEvent -FilterHashtable @{Path=\nc:\\temp\\system.bak.evtx\n; Level=1,2 } -MaxEvents 2 | Format-Table -Auto\n\n\n\n\nEnlaces externos\n\n\n\n\nFormat-Table - Microsoft Docs\n.", 
             "title": "Event Logs"
         }, 
         {
             "location": "/admin/event-log/#listado-de-todos-los-logs-de-eventos", 
-            "text": "", 
+            "text": "Fuente:   List-EventLogs.ps1  Get-EventLog -List  Podemos a\u00f1adir el par\u00e1metro  -ComputerName  si queremos interactuar con los logs de un equipo remoto.  En mi caso el cmdlet produce la siguiente salida:   Un cmdlet similar para Win Vista o posteriores es  Get-WinEvent  que adem\u00e1s de los eventos cl\u00e1sicos tambi\u00e9n captura eventos de aplicaciones y servicios.  PS  Get-WinEvent -ListLog * | Select LogName,RecordCount  Si lo que queremos es usar el visor de eventos gr\u00e1fico de Windows podemos lanzarlo desde de PS con el cmdlet  Show-EventLog .", 
             "title": "Listado de todos los logs de eventos"
+        }, 
+        {
+            "location": "/admin/event-log/#obtener-los-logs-de-eventos-mas-recientes", 
+            "text": "Usamos el par\u00e1metro  -Newest  como en el siguiente ejemplo para obtener los 10 \u00faltimos eventos del sistema.  Fuente:   Get-Newest10.ps1  Get-EventLog System -Newest 10 | Format-Table Index,Source,Message -Auto   Pasamos la salida del cmdlet  Get-EventLog  usando una tuber\u00eda o pipe a el cmdlet  Format-Table  para formatear la salida como una tabla con las columnas o propiedades del objeto que deseemos visualizar.  Podemos hacer los mismo con el cmdlet  Get-WinEvent  usando el par\u00e1metro  -MaxEvents :  PS  Get-WinEvent Application -MaxEvents 10 | Format-Table ProviderName,Id,Message -Auto", 
+            "title": "Obtener los logs de eventos m\u00e1s recientes"
+        }, 
+        {
+            "location": "/admin/event-log/#buscar-entradas-del-log-de-eventos-con-un-texto-especifico", 
+            "text": "PS   Get-EventLog System | Where-Object { $_.Message -match  disk  }  Como el cmdlet  Get-EventLog  retorna una lista de objetos que representan entradas del log de eventos podemos pasarlo por un pipe y usar el cmdlet  Where-Object  para acceder a los atributos de los objetos.  Para obtener una lista detallada:  PS  Get-EventLog System | Where-Object { $_.Message -match  disk  } | Format-List", 
+            "title": "Buscar entradas del log de eventos con un texto espec\u00edfico"
+        }, 
+        {
+            "location": "/admin/event-log/#obtener-y-filtrar-log-de-eventos", 
+            "text": "Por ejemplo si queremos obtener una entrada espec\u00edfica:  PS   Get-EventLog System | Where-Object { $_.Index -eq 2920 }  Para obtener una vista detallada:  PS   Get-EventLog System | Where-Object { $_.Index -eq 2920 } | Format-List  Usando el cmdlet  Get-WinEvent  con el par\u00e1metro  -FilterHashtable  (hash table o matriz asociativa) permite filtrar por LogName, Provider, Name, Path, Keywords, ID, Level, StartTime, EndTime y UserID. El siguiente ejemplo fitra los logs de eventos cr\u00edticos y de error en el log de eventos del sistema (System):  Get-WinEvent -FilterHashtable @{ LogName =  System ; Level = 1,2 }", 
+            "title": "Obtener y filtrar log de eventos"
+        }, 
+        {
+            "location": "/admin/event-log/#get-winevent-y-consultas-xml", 
+            "text": "Fuente:   Get-WinEvent-XMLQuery.ps1 .  ## Gets all Critical and Error events from the last 24 hours\n$xml = @' QueryList \n     Query Id= 0  Path= System \n         Select Path= System \n            *[System[(Level=1 or Level=2) and TimeCreated[timediff(@SystemTime)  lt;= 86400000]]]\n         /Select \n     /Query  /QueryList \n'@\n\nGet-WinEvent -FilterXml $xml", 
+            "title": "Get-WinEvent y consultas XML"
+        }, 
+        {
+            "location": "/admin/event-log/#backup-del-log-de-eventos", 
+            "text": "A menudo querremos guardar la informaci\u00f3n del log de eventos para analizarlos m\u00e1s tarde. Con la utilidad  wevtutil.exe  podemos guardar el log de eventos en un fichero.   PS   C:\\Windows\\System32\\wevtutil.exe epl System c:\\temp\\system.bak.evtx  Despu\u00e9s de exportar el log de eventos podemos usar el cmdlet  Get-WinEvent  para realizar consultas.  PS   Get-WinEvent -FilterHashtable @{Path= c:\\temp\\system.bak.evtx ; Level=1,2 } -MaxEvents 2 | Format-Table -Auto", 
+            "title": "Backup del log de eventos"
+        }, 
+        {
+            "location": "/admin/event-log/#enlaces-externos", 
+            "text": "Format-Table - Microsoft Docs .", 
+            "title": "Enlaces externos"
         }, 
         {
             "location": "/networking/remoto/", 
