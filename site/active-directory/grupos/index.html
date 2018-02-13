@@ -96,6 +96,10 @@
                     
     <a class="" href="../../sintaxis/switch/">Switch</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../../sintaxis/pipe/">Pipe</a>
+                </li>
     </ul>
 	    </li>
           
@@ -116,7 +120,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../admin/event-log/">Event Logs</a>
+    <a class="" href="../../admin/event-log/event-log/">Event Logs</a>
                 </li>
     </ul>
 	    </li>
@@ -146,6 +150,12 @@
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#usuarios-y-grupos">Usuarios y grupos</a></li>
+    
+
+    <li class="toctree-l3"><a href="#buscar-un-grupo-por-nombres">Buscar un grupo por nombres</a></li>
+    
+
+    <li class="toctree-l3"><a href="#referencias-externas">Referencias externas</a></li>
     
 
     </ul>
@@ -230,6 +240,16 @@
 
 <pre><code class="powershell">Remove-ADGroupMember -Identity 'Nombre del grupo' -Member 'b.sinclair'
 </code></pre>
+
+<h1 id="buscar-un-grupo-por-nombres">Buscar un grupo por nombres</h1>
+<p>El siguiente cmlet usa <a href="https://docs.microsoft.com/en-us/powershell/module/addsadministration/get-adgroup?view=win10-ps">Get-ADGroup</a> para obtener los grupos de AD y los filtra por la propiedad del objeto <code>name</code> que comienzen por la cadena especificada y muestra el nombre y descripción de cada grupo:</p>
+<pre><code class="powershell">PS&gt; Get-ADGroup -Filter {name -like &quot;gsDir*&quot;} -Properties Description | Select Name,Description
+</code></pre>
+
+<h1 id="referencias-externas">Referencias externas</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/powershell/module/addsadministration/get-adgroup?view=win10-ps">Get-ADGroup - Microsoft Docs</a>.</li>
+</ul>
               
             </div>
           </div>
