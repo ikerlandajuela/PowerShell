@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,67 +13,67 @@
         
     <url>
      <loc>/sintaxis/variables/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/objetos/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/if/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/array/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/for/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/foreach/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/function/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/while/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/select/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/switch/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/sintaxis/pipe/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -83,7 +83,7 @@
         
     <url>
      <loc>/sistema-archivos/directorios/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -93,7 +93,7 @@
         
     <url>
      <loc>/admin/event-log/event-log/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -103,7 +103,13 @@
         
     <url>
      <loc>/networking/remoto/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/networking/curl/</loc>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -113,13 +119,13 @@
         
     <url>
      <loc>/active-directory/cuentas-usuarios/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/active-directory/grupos/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -129,7 +135,7 @@
         
     <url>
      <loc>/exchange/basico/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -139,7 +145,7 @@
         
     <url>
      <loc>/bases_de_datos/sqlite/sqlite/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -148,7 +154,7 @@
     
     <url>
      <loc>/recursos/</loc>
-     <lastmod>2018-02-13</lastmod>
+     <lastmod>2018-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
