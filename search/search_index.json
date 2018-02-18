@@ -6,6 +6,21 @@
             "title": "Inicio"
         }, 
         {
+            "location": "/general/instalacion/", 
+            "text": "Actualizaci\u00f3n a PS 4.0 (MS Win 7 Pro SP1 x64)\n\n\nWMF (Windows Management Framework) est\u00e1 formado por un conjunto de herramientas entre las que se encuentra Powershell, la versi\u00f3n 4.0 de WMF incluye Powershell 4.0 entre otras cosas como:\n\n\n\n\nPowerShell y el editor de c\u00f3digo ISE (Integrated Script Environment).\n\n\nDSC (Desired State Configuration) \n\n\nWinRM (Windows Remote Management) es un servicio de administraci\u00f3n remota de sesiones PS.\n\n\nWMI (Windows Management Instrumentation).\n\n\nWindows PowerShell Web Services.\n\n\n\n\nPara MS Win 7 necesitamos tener instalados previamente: \n\n\n\n\nWindows 7 and Windows Server 2008 R2 Service Pack 1 (KB976932)\n.\n\n\nMS .NET Framework 4.5\n.\n\n\n\n\nEl fichero instalador depende de si usamos la versi\u00f3n de 32 o 64 bits de MS Win:\n\n\n\n\nx64: \nWindows6.1-KB2819745-x64-MultiPkg.msu\n.\n\n\nx86: \nWindows6.1-KB2819745-x86.msu\n.\n\n\n\n\nEnlaces externos\n\n\n\n\nHow to Install Windows PowerShell 4.0 - TechNet Articles - United ...\n.", 
+            "title": "Instalaci\u00f3n"
+        }, 
+        {
+            "location": "/general/instalacion/#actualizacion-a-ps-40-ms-win-7-pro-sp1-x64", 
+            "text": "WMF (Windows Management Framework) est\u00e1 formado por un conjunto de herramientas entre las que se encuentra Powershell, la versi\u00f3n 4.0 de WMF incluye Powershell 4.0 entre otras cosas como:   PowerShell y el editor de c\u00f3digo ISE (Integrated Script Environment).  DSC (Desired State Configuration)   WinRM (Windows Remote Management) es un servicio de administraci\u00f3n remota de sesiones PS.  WMI (Windows Management Instrumentation).  Windows PowerShell Web Services.   Para MS Win 7 necesitamos tener instalados previamente:    Windows 7 and Windows Server 2008 R2 Service Pack 1 (KB976932) .  MS .NET Framework 4.5 .   El fichero instalador depende de si usamos la versi\u00f3n de 32 o 64 bits de MS Win:   x64:  Windows6.1-KB2819745-x64-MultiPkg.msu .  x86:  Windows6.1-KB2819745-x86.msu .", 
+            "title": "Actualizaci\u00f3n a PS 4.0 (MS Win 7 Pro SP1 x64)"
+        }, 
+        {
+            "location": "/general/instalacion/#enlaces-externos", 
+            "text": "How to Install Windows PowerShell 4.0 - TechNet Articles - United ... .", 
+            "title": "Enlaces externos"
+        }, 
+        {
             "location": "/sintaxis/variables/", 
             "text": "Introducci\u00f3n\n\n\nUna de las grandezas de \nPowerShell\n es que guarda la informaci\u00f3n en su tipo nativo: Los \nobjetos\n. PowerShell emplea los \nobject\n del framework .NET. \n\n\nUn objeto basicamente representa una entidad con datos (tambi\u00e9n llamados atributos o propiedades) y unos m\u00e9todos (firmas o funciones) que expone para operar con estos datos. Es una forma de encapsular informaci\u00f3n. Por ahora es suficiente con saber esto, m\u00e1s adelante se explorar\u00e1 m\u00e1s en profundidad los objetos de PS (un objeto es el resultado de la instanciaci\u00f3n de una clase).\n\n\nLos nombres de variables en PS siempre van precedidad del car\u00e1cter '$', por ejemplo una variable que contendra una cadena de texto con el nombre de un usuario podriamos definirla como \n$UserName\n.  \n\n\nFuente:\n \nBasicVarsTypes.ps1\n\n\nLos valores se asignan a una variable usando el operador '=', siguiendo el ejemplo anterior:\n\n\n# Variables de tipo string (cadena de texto) y int (entero)\n$UserName = \nBob\n\n$UserAge = 43\n\n\n\n\nSi queremos establecer el mismo valor a varias variables\n\n\n$a = $b = $c = 1\n\n\n\n\nSi queremos hacerlo con diferentes valores en una l\u00ednea\n\n\n$a, $b, $c = 1, 2, 3\n\n\n\n\nPS soporta infinidad de tipos de datos: cadenas de texto (string), car\u00e1cteres individuales (char), bytes, n\u00fameros enteros (int), booleanos (bool $True/$False)...\n\n\nPara determinar el tipo de una variable podemos usar \n\n\n$b.GetType().Name\n\n\n\n\nLista de los tipos m\u00e1s comunes:\n\n\n\n\n\n\n\n\nTipo dato\n\n\nDescripci\u00f3n\n\n\n\n\n\n\n\n\n\n\n[Array]\n\n\nColecci\u00f3n de elementos\n\n\n\n\n\n\n[Bool]\n\n\nVerdadero ($true) o falso ($false)\n\n\n\n\n\n\n[DateTime]\n\n\nFecha - hora\n\n\n\n\n\n\n[Guid]\n\n\nIdentificador \u00fanico global de 32-bytes\n\n\n\n\n\n\n[HashTable]\n\n\nColecci\u00f3n de pares clave - valores\n\n\n\n\n\n\n[Int32], [Int]\n\n\nEntero de 32 bits\n\n\n\n\n\n\n[PsObject]\n\n\nPowerShell object\n\n\n\n\n\n\n[Regex]\n\n\nExpresi\u00f3n regular\n\n\n\n\n\n\n[ScriptBlock]\n\n\n\n\n\n\n\n\n[Single], [Float]\n\n\nN\u00famero flotante con decimales\n\n\n\n\n\n\n[String]\n\n\nCadena de texto\n\n\n\n\n\n\n[Switch]\n\n\nPowerShell switch parameter\n\n\n\n\n\n\n[TimeSpan]\n\n\nIntervalo de tiempo\n\n\n\n\n\n\n[XmlDocument]\n\n\nDocumento XML\n\n\n\n\n\n\n\n\nLos booleanos se evaluan como una condici\u00f3n binaria de verdadero ($true) o falso ($false).\n\n\n# PS define las variables $true y $false para los booleanos\n$isChecked = $false\nif (!$isChecked) { \nNo\n }\n\n\n\n\nComo comprobar variables\n\n\nhttps://mcpmag.com/articles/2015/12/14/test-variables-in-powershell.aspx\n\n\nEnteros\n\n\nFuente:\n \nIntVars.ps1\n\n\nCon las variables de tipo num\u00e9ricas podemos realizar las operaciones matem\u00e1ticas est\u00e1ndar como: +, -, *, /. \n\n\n$segundosPorDia = 24 * 60 * 60\n$semanasPorAnio = 365 / 7\n\n\n\n\nTambi\u00e9n existen operadores ++ y -- que incrementan o decrementan en una unidad\n\n\n$myNum = 1\n$myNum = $myNum + 1\n# es equivalente a \n$myNum++\n\n\n\n\nSi queremos operar sobre el mismo n\u00famero podemos sintetizar la expresi\u00f3n:\n\n\n# Equivalente a  $myNum = $myNum*2 \n$myNum*=2 \n\n$myNum+=2 \n\n\n\n\nDateTime\n\n\n[DateTime]$Date = \nFebruary 28, 2015\n \n$Today = Get-Date \n$Days = ($Today - $Date).Days \nWrite-Host \nThe hacker encrypted all your servers $Days day(s) ago.\n\n\n\n\n\nUsando PowerShell para Resolver Problemas Matem\u00e1ticos\n\n\nEnlaces externos\n\n\n\n\nUsando PowerShell para Resolver Problemas Matem\u00e1ticos\n\n\nClase Object (System) - MSDN - Microsoft\n.\n\n\nPowerShell Basics: Introduction to Objects - Windows IT Pro\n.\n\n\nPowerShell Basics: Custom Objects | IT Pro\n.\n\n\nPowerShell objects: A tutorial | Computerworld\n.\n\n\nhttp://www.tomsitpro.com/articles/powershell-variables,2-797.html\n.\n\n\nPowershell Data Types - PowerShell - SS64.com\n.\n\n\nThe PowerShell variable \u2013 Naming, value, data type \u2013 4sysops\n.\n\n\nDisplay and search all variables of a PowerShell script with Get-Variable\n.\n\n\nPowerShell variable properties: Description, Visibility, Options, Attributes\n.", 
             "title": "Variables"
@@ -357,8 +372,23 @@
         }, 
         {
             "location": "/networking/curl/", 
-            "text": "", 
+            "text": "cURL\n es un software orientado a la transferencia de archivos sobre protocolos de red HTTP y FTP entre otros. cURL suele venir de forma nativa en las distribuciones basadas en GNU/Linux y es Open Source. En PS cURL es un alias de \nInvoke-WebRequest\n, podemos comprobarlo con el comando \nGet-Alias\n.\n\n\nPS\n Get-Alias curl\n\nCommandType     Name                                               ModuleName\n-----------     ----                                               ----------\nAlias           curl -\n Invoke-WebRequest\n\n\n\n\nEl siguiente ejemplo b\u00e1sico     \n\n\nPS\n curl http://services.groupkt.com/country/get/all | ConvertFrom-Json | Select name \n\n\n\n\nEnlaces externos\n\n\n\n\nGet-Alias - Microsoft Docs\n.\n\n\nInvoke-WebRequest - Microsoft Docs\n.\n\n\nC\u00f3mo usar comando cURL con PowerShell y descargar archivos\n.\n\n\nRESTful web-services to get and search Countries\n.", 
             "title": "cURL"
+        }, 
+        {
+            "location": "/networking/curl/#enlaces-externos", 
+            "text": "Get-Alias - Microsoft Docs .  Invoke-WebRequest - Microsoft Docs .  C\u00f3mo usar comando cURL con PowerShell y descargar archivos .  RESTful web-services to get and search Countries .", 
+            "title": "Enlaces externos"
+        }, 
+        {
+            "location": "/networking/restful_apis/", 
+            "text": "Enlaces externos\n\n\n\n\nExploiting JSON Web Services Data with PowerShell | IT Pro\n.\n\n\nUsing the GET Method with PowerShell and RESTful APIs\n.", 
+            "title": "RESTful APIs"
+        }, 
+        {
+            "location": "/networking/restful_apis/#enlaces-externos", 
+            "text": "Exploiting JSON Web Services Data with PowerShell | IT Pro .  Using the GET Method with PowerShell and RESTful APIs .", 
+            "title": "Enlaces externos"
         }, 
         {
             "location": "/active-directory/cuentas-usuarios/", 
