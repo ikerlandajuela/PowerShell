@@ -4,6 +4,8 @@ theme: readthedocs
 repo_url: https://github.com/ikerlandajuela/PowerShell/
 pages:
     - Inicio: index.md
+    - General:
+        - 'Instalación': 'general/instalacion.md'
     - Sintaxis:
         - 'Variables': 'sintaxis/variables.md'
         - 'Objetos': 'sintaxis/objetos.md'
@@ -22,6 +24,8 @@ pages:
         - 'Event Logs': 'admin/event-log/event-log.md'
     - Networking:
         - 'Sesiones remotas' : 'networking/remoto.md'
+        - 'cURL': 'networking/curl.md'
+        - 'RESTful APIs': 'networking/restful_apis.md'
     - Active Directory:
         - 'Cuentas usuarios':  'active-directory/cuentas-usuarios.md'
         - 'Grupos': 'active-directory/grupos.md'
