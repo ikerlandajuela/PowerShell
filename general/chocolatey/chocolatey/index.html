@@ -92,6 +92,9 @@
     <li class="toctree-l3"><a href="#aplicaciones-interesantes">Aplicaciones interesantes</a></li>
     
 
+    <li class="toctree-l3"><a href="#psget-busca-e-instala-paquetes-psget">PsGet: Busca e instala paquetes PsGet</a></li>
+    
+
     <li class="toctree-l3"><a href="#enlaces-externos">Enlaces externos</a></li>
     
 
@@ -318,9 +321,25 @@
 </code></pre>
 
 <h1 id="aplicaciones-interesantes">Aplicaciones interesantes</h1>
-<ul>
-<li><a href="https://chocolatey.org/packages/telegram/">Telegram</a>: Mi sistema de mensajería preferido.</li>
-</ul>
+<p><a href="https://chocolatey.org/packages/telegram/">Telegram</a>: Mi sistema de mensajería preferido.</p>
+<p><a href="https://conemu.github.io/">ConEmu</a>: Emulador de la consola de Windows con pestañas.  </p>
+<p><img alt="" src="https://conemu.github.io/img/ConEmu-Maximus5.png" /></p>
+<p><a href="https://git-scm.com/">Git</a> Cliente para el popular servicio de alojamiento de código GitHub.</p>
+<pre><code class="powershell">PS&gt; choco install git.install
+</code></pre>
+
+<p><a href="https://nodejs.org/es/">Node.js</a>: Node.js® es un entorno de ejecución para JavaScript construido con el motor de JavaScript V8 de Chrome. Node.js usa un modelo de operaciones E/S sin bloqueo y orientado a eventos, que lo hace liviano y eficiente. El ecosistema de paquetes de Node.js, npm, es el ecosistema mas grande de librerías de código abierto en el mundo.</p>
+<pre><code class="powershell">PS&gt; choco install nodejs.install 
+</code></pre>
+
+<h1 id="psget-busca-e-instala-paquetes-psget">PsGet: Busca e instala paquetes PsGet</h1>
+<p>Indispensable para programar en PS <a href="http://psget.net/">PsGet</a> también se puede instalar sin Chocolatey con un cmdlet:</p>
+<pre><code class="powershell">PS&gt; (new-object Net.WebClient).DownloadString(&quot;http://psget.net/GetPsGet.ps1&quot;) | iex
+</code></pre>
+
+<pre><code class="powershell">PS&gt; choco install PsGet 
+</code></pre>
+
 <h1 id="enlaces-externos">Enlaces externos</h1>
 <ul>
 <li><a href="https://github.com/chocolatey/choco/wiki">Wiki de Chocolatey en GitHub</a>: Recursos, enlaces y guia básica de uso, mención especial a los <a href="https://github.com/chocolatey/choco/wiki/CommandsReference">comandos disponibles</a>.</li>
