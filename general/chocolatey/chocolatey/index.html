@@ -77,6 +77,12 @@
     <li class="toctree-l3"><a href="#actualizar-una-aplicacion">Actualizar una aplicación</a></li>
     
 
+    <li class="toctree-l3"><a href="#buscando-una-aplicacion">Buscando una aplicación</a></li>
+    
+
+    <li class="toctree-l3"><a href="#cuando-algo-falla-en-chocolatey">Cuando algo falla en Chocolatey</a></li>
+    
+
     <li class="toctree-l3"><a href="#instalando-un-servidor-ssh">Instalando un servidor SSH</a></li>
     
 
@@ -288,13 +294,20 @@
 <pre><code class="powershell">PS&gt; choco install skype
 </code></pre>
 
+<h1 id="buscando-una-aplicacion">Buscando una aplicación</h1>
+<p>Para husmear entre los 5517 y ver todo lo que ofrece usamos el comando <code>search</code>:</p>
+<pre><code class="powershell">PS&gt; choco search 
+</code></pre>
+
+<h1 id="cuando-algo-falla-en-chocolatey">Cuando algo falla en Chocolatey</h1>
+<p>Podemos consultar el fichero de logs, en mi computadora ubicado en <code>C:\ProgramData\chocolatey\logs\chocolatey.log</code>.</p>
 <h1 id="instalando-un-servidor-ssh">Instalando un servidor SSH</h1>
 <p><img alt="" src="https://www.openssh.com/images/openssh.gif" /></p>
 <p>Vamos a instalador un servidor SSH para poder ejecutar comandos remotos en una máquina, usamos el instalador universal de <a href="https://www.openssh.com/">OpenSSH</a> para MS Win. </p>
-<p>Usamos la opción <code>-y</code> (o <code>--yes</code> para confirmar todos los pasos de  la instalación) del comando <a href="https://github.com/chocolatey/choco/wiki/CommandsInstall">install</a> y pasamos dos parametros a OpenSSH.</p>
+<p>Usamos la opción <code>-y</code> (o <code>--yes</code> para confirmar todos los pasos de  la instalación) del comando <a href="https://github.com/chocolatey/choco/wiki/CommandsInstall">install</a> y pasamos dos parametros al propio OpenSSH.</p>
 <ul>
-<li>/SSHServerFeature: </li>
-<li>/SSHAgentFeature: </li>
+<li>/SSHServerFeature: Instala como servicio en el puerto 22.</li>
+<li>/SSHAgentFeature: Instala como agente del servicio.</li>
 </ul>
 <pre><code class="powershell">PS&gt; choco install -y openssh -params '&quot;/SSHServerFeature /SSHAgentFeature&quot;'
 </code></pre>
