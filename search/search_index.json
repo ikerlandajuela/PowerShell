@@ -22,7 +22,7 @@
         }, 
         {
             "location": "/general/chocolatey/chocolatey/", 
-            "text": "Introducci\u00f3n\n\n\n\n\nChocolatey\n es una aplicaci\u00f3n para la consola de MS Win que recuerda al gestor de paquetes de Linux, permite de forma automatizada instalar o actualizar de forma desatendida aplicaciones de Windows como \npaquetes\n (actualmente ya cuenta con 5517 paquetes).\n\n\nInstalando Chocolatey\n\n\nAbrimos PowerShell como administrador\n y ejecutamos el siguiente comando (\nver\n en la Web oficial)\n\n\nPS\n Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))\n\n\n\n\nInstalar aplicaciones\n\n\nInstalar aplicaciones es super sencillo, por ejemplo para instalar \nmRemoteNG\n (gestor de conexiones SSH, RDP, VNC y otros) ejecutamos:\n\n\nPS\n choco install mremoteng\n\n\n\n\nCholatey descarga el instalador \nMSI v1.75.7012 mRemoteNG de GitHub\n y comienza su instalaci\u00f3n de forma autom\u00e1tica.\n\n\nEn un par de minutos ya est\u00e1 instalado y podemos ejecutar la aplicaci\u00f3n.\n\n\n\n\nActualizar una aplicaci\u00f3n\n\n\nChoco tambi\u00e9n sirve para actualizar las aplicaciones. Digamos que quieres actualizar Skype. Abre la terminal y escribe:\n\n\nPS\n choco install skype\n\n\n\n\nEnlaces externos", 
+            "text": "Introducci\u00f3n\n\n\n\n\nChocolatey\n es una aplicaci\u00f3n para la consola de MS Win que recuerda al gestor de paquetes de Linux, permite de forma automatizada instalar o actualizar de forma desatendida aplicaciones de Windows como \npaquetes\n (actualmente ya cuenta con 5517 paquetes).\n\n\nInstalando Chocolatey\n\n\nAbrimos PowerShell como administrador\n y ejecutamos el siguiente comando (\nver\n en la Web oficial)\n\n\nPS\n Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))\n\n\n\n\nInstalar aplicaciones\n\n\nInstalar aplicaciones es super sencillo, por ejemplo para instalar \nmRemoteNG\n (gestor de conexiones SSH, RDP, VNC y otros) ejecutamos:\n\n\nPS\n choco install mremoteng\n\n\n\n\nCholatey descarga el instalador \nMSI v1.75.7012 mRemoteNG de GitHub\n y comienza su instalaci\u00f3n de forma autom\u00e1tica.\n\n\nEn un par de minutos ya est\u00e1 instalado y podemos ejecutar la aplicaci\u00f3n.\n\n\n\n\nActualizar una aplicaci\u00f3n\n\n\nChoco tambi\u00e9n sirve para actualizar las aplicaciones. Digamos que quieres actualizar Skype. Abre la terminal y escribe:\n\n\nPS\n choco install skype\n\n\n\n\nInstalando un servidor SSH\n\n\n\n\nVamos a instalador un servidor SSH para poder ejecutar comandos remotos en una m\u00e1quina, usamos el instalador universal de \nOpenSSH\n para MS Win. \n\n\nUsamos la opci\u00f3n \n-y\n (o \n--yes\n para confirmar todos los pasos de  la instalaci\u00f3n) del comando \ninstall\n y pasamos dos parametros a OpenSSH.\n\n\n\n\n/SSHServerFeature: \n\n\n/SSHAgentFeature: \n\n\n\n\nPS\n choco install -y openssh -params '\n/SSHServerFeature /SSHAgentFeature\n'\n\n\n\n\nChocolatey GUI: Sistema gr\u00e1fico\n\n\nSi queremos aunque no sea necesario podemos instalar el gestor gr\u00e1fico de paquetes Chocolatey para escritorio:\n\n\nPS\n choco install chocolateygui\n\n\n\n\nAplicaciones interesantes\n\n\n\n\nTelegram\n: Mi sistema de mensajer\u00eda preferido.\n\n\n\n\nEnlaces externos\n\n\n\n\nWiki de Chocolatey en GitHub\n: Recursos, enlaces y guia b\u00e1sica de uso, menci\u00f3n especial a los \ncomandos disponibles\n.", 
             "title": "Chocolatey"
         }, 
         {
@@ -46,8 +46,23 @@
             "title": "Actualizar una aplicaci\u00f3n"
         }, 
         {
+            "location": "/general/chocolatey/chocolatey/#instalando-un-servidor-ssh", 
+            "text": "Vamos a instalador un servidor SSH para poder ejecutar comandos remotos en una m\u00e1quina, usamos el instalador universal de  OpenSSH  para MS Win.   Usamos la opci\u00f3n  -y  (o  --yes  para confirmar todos los pasos de  la instalaci\u00f3n) del comando  install  y pasamos dos parametros a OpenSSH.   /SSHServerFeature:   /SSHAgentFeature:    PS  choco install -y openssh -params ' /SSHServerFeature /SSHAgentFeature '", 
+            "title": "Instalando un servidor SSH"
+        }, 
+        {
+            "location": "/general/chocolatey/chocolatey/#chocolatey-gui-sistema-grafico", 
+            "text": "Si queremos aunque no sea necesario podemos instalar el gestor gr\u00e1fico de paquetes Chocolatey para escritorio:  PS  choco install chocolateygui", 
+            "title": "Chocolatey GUI: Sistema gr\u00e1fico"
+        }, 
+        {
+            "location": "/general/chocolatey/chocolatey/#aplicaciones-interesantes", 
+            "text": "Telegram : Mi sistema de mensajer\u00eda preferido.", 
+            "title": "Aplicaciones interesantes"
+        }, 
+        {
             "location": "/general/chocolatey/chocolatey/#enlaces-externos", 
-            "text": "", 
+            "text": "Wiki de Chocolatey en GitHub : Recursos, enlaces y guia b\u00e1sica de uso, menci\u00f3n especial a los  comandos disponibles .", 
             "title": "Enlaces externos"
         }, 
         {

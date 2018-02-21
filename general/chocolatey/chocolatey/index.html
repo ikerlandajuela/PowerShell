@@ -77,6 +77,15 @@
     <li class="toctree-l3"><a href="#actualizar-una-aplicacion">Actualizar una aplicación</a></li>
     
 
+    <li class="toctree-l3"><a href="#instalando-un-servidor-ssh">Instalando un servidor SSH</a></li>
+    
+
+    <li class="toctree-l3"><a href="#chocolatey-gui-sistema-grafico">Chocolatey GUI: Sistema gráfico</a></li>
+    
+
+    <li class="toctree-l3"><a href="#aplicaciones-interesantes">Aplicaciones interesantes</a></li>
+    
+
     <li class="toctree-l3"><a href="#enlaces-externos">Enlaces externos</a></li>
     
 
@@ -279,7 +288,30 @@
 <pre><code class="powershell">PS&gt; choco install skype
 </code></pre>
 
+<h1 id="instalando-un-servidor-ssh">Instalando un servidor SSH</h1>
+<p><img alt="" src="https://www.openssh.com/images/openssh.gif" /></p>
+<p>Vamos a instalador un servidor SSH para poder ejecutar comandos remotos en una máquina, usamos el instalador universal de <a href="https://www.openssh.com/">OpenSSH</a> para MS Win. </p>
+<p>Usamos la opción <code>-y</code> (o <code>--yes</code> para confirmar todos los pasos de  la instalación) del comando <a href="https://github.com/chocolatey/choco/wiki/CommandsInstall">install</a> y pasamos dos parametros a OpenSSH.</p>
+<ul>
+<li>/SSHServerFeature: </li>
+<li>/SSHAgentFeature: </li>
+</ul>
+<pre><code class="powershell">PS&gt; choco install -y openssh -params '&quot;/SSHServerFeature /SSHAgentFeature&quot;'
+</code></pre>
+
+<h1 id="chocolatey-gui-sistema-grafico">Chocolatey GUI: Sistema gráfico</h1>
+<p>Si queremos aunque no sea necesario podemos instalar el gestor gráfico de paquetes Chocolatey para escritorio:</p>
+<pre><code class="powershell">PS&gt; choco install chocolateygui
+</code></pre>
+
+<h1 id="aplicaciones-interesantes">Aplicaciones interesantes</h1>
+<ul>
+<li><a href="https://chocolatey.org/packages/telegram/">Telegram</a>: Mi sistema de mensajería preferido.</li>
+</ul>
 <h1 id="enlaces-externos">Enlaces externos</h1>
+<ul>
+<li><a href="https://github.com/chocolatey/choco/wiki">Wiki de Chocolatey en GitHub</a>: Recursos, enlaces y guia básica de uso, mención especial a los <a href="https://github.com/chocolatey/choco/wiki/CommandsReference">comandos disponibles</a>.</li>
+</ul>
               
             </div>
           </div>
