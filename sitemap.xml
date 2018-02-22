@@ -118,6 +118,16 @@
     
         
     <url>
+     <loc>/computadora/ficheros/</loc>
+     <lastmod>2018-02-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
      <loc>/networking/remoto/</loc>
      <lastmod>2018-02-22</lastmod>
      <changefreq>daily</changefreq>
