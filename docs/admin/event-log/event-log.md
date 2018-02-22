@@ -116,7 +116,6 @@ PS > Get-WinEvent -FilterHashtable @{Path="c:\temp\system.bak.evtx"; Level=1,2 }
 ```
 
 
-
 # Enlaces externos
 
 * [Format-Table - Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/format-table?view=powershell-6).

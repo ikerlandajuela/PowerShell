@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Event Logs - PSFabrik</title>
+  <title>Chocolatey - PSFabrik</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Event Logs";
-    var mkdocs_page_input_path = "admin\\event-log\\event-log.md";
-    var mkdocs_page_url = "/admin/event-log/event-log/";
+    var mkdocs_page_name = "Chocolatey";
+    var mkdocs_page_input_path = "general\\chocolatey\\chocolatey.md";
+    var mkdocs_page_url = "/general/chocolatey/chocolatey/";
   </script>
   
   <script src="../../../js/jquery-2.1.1.min.js"></script>
@@ -58,11 +58,47 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../../general/instalacion/">Instalación</a>
+    <a class="" href="../../instalacion/">Instalación</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../../general/chocolatey/chocolatey/">Chocolatey</a>
+    <a class="current" href="./">Chocolatey</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#introduccion">Introducción</a></li>
+    
+
+    <li class="toctree-l3"><a href="#instalando-chocolatey">Instalando Chocolatey</a></li>
+    
+
+    <li class="toctree-l3"><a href="#instalar-aplicaciones">Instalar aplicaciones</a></li>
+    
+
+    <li class="toctree-l3"><a href="#actualizar-una-aplicacion">Actualizar una aplicación</a></li>
+    
+
+    <li class="toctree-l3"><a href="#buscando-una-aplicacion">Buscando una aplicación</a></li>
+    
+
+    <li class="toctree-l3"><a href="#cuando-algo-falla-en-chocolatey">Cuando algo falla en Chocolatey</a></li>
+    
+
+    <li class="toctree-l3"><a href="#instalando-un-servidor-ssh">Instalando un servidor SSH</a></li>
+    
+
+    <li class="toctree-l3"><a href="#chocolatey-gui-sistema-grafico">Chocolatey GUI: Sistema gráfico</a></li>
+    
+
+    <li class="toctree-l3"><a href="#aplicaciones-interesantes">Aplicaciones interesantes</a></li>
+    
+
+    <li class="toctree-l3"><a href="#psget-busca-e-instala-paquetes-psget">PsGet: Busca e instala paquetes PsGet</a></li>
+    
+
+    <li class="toctree-l3"><a href="#enlaces-externos">Enlaces externos</a></li>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -133,33 +169,9 @@
 		
     <span class="caption-text">Admin</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Event Logs</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#listado-de-todos-los-logs-de-eventos">Listado de todos los logs de eventos</a></li>
-    
-
-    <li class="toctree-l3"><a href="#obtener-los-logs-de-eventos-mas-recientes">Obtener los logs de eventos más recientes</a></li>
-    
-
-    <li class="toctree-l3"><a href="#buscar-entradas-del-log-de-eventos-con-un-texto-especifico">Buscar entradas del log de eventos con un texto específico</a></li>
-    
-
-    <li class="toctree-l3"><a href="#obtener-y-filtrar-log-de-eventos">Obtener y filtrar log de eventos</a></li>
-    
-
-    <li class="toctree-l3"><a href="#get-winevent-y-consultas-xml">Get-WinEvent y consultas XML</a></li>
-    
-
-    <li class="toctree-l3"><a href="#backup-del-log-de-eventos">Backup del log de eventos</a></li>
-    
-
-    <li class="toctree-l3"><a href="#enlaces-externos">Enlaces externos</a></li>
-    
-
-    </ul>
+    <a class="" href="../../../admin/event-log/event-log/">Event Logs</a>
                 </li>
     </ul>
 	    </li>
@@ -247,14 +259,14 @@
     
       
         
-          <li>Admin &raquo;</li>
+          <li>General &raquo;</li>
         
       
     
-    <li>Event Logs</li>
+    <li>Chocolatey</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/admin/event-log/event-log.md"
+        <a href="https://github.com/ikerlandajuela/PowerShell/edit/master/docs/general/chocolatey/chocolatey.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -264,85 +276,74 @@
           <div role="main">
             <div class="section">
               
-                <p>Los logs de eventos son el pilar de la monitorización de sistemas Win. Para trabajar con los logs PS proporciona dos llamadas, los cmdlets <code>Get-EventLog</code> y <code>Get-WinEvent</code>.</p>
-<h1 id="listado-de-todos-los-logs-de-eventos">Listado de todos los logs de eventos</h1>
-<p><strong>Fuente:</strong> <a href="../../../src/admin/event-log/List-EventLogs.ps1">List-EventLogs.ps1</a></p>
-<pre><code class="powershell">Get-EventLog -List
+                <h1 id="introduccion">Introducción</h1>
+<p><img alt="" src="../../../general/chocolatey/01.png" /></p>
+<p><a href="https://chocolatey.org/">Chocolatey</a> es una aplicación para la consola de MS Win que recuerda al gestor de paquetes de Linux, permite de forma automatizada instalar o actualizar de forma desatendida aplicaciones de Windows como <a href="https://chocolatey.org/packages">paquetes</a> (actualmente ya cuenta con 5517 paquetes).</p>
+<h1 id="instalando-chocolatey">Instalando Chocolatey</h1>
+<p><strong>Abrimos PowerShell como administrador</strong> y ejecutamos el siguiente comando (<a href="https://chocolatey.org/install">ver</a> en la Web oficial)</p>
+<pre><code class="powershell">PS&gt; Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 </code></pre>
 
-<p>Podemos añadir el parámetro <code>-ComputerName</code> si queremos interactuar con los logs de un equipo remoto.</p>
-<p>En mi caso el cmdlet produce la siguiente salida:</p>
-<p><img alt="" src="../../../admin/event-log/img/01.png" /></p>
-<p>Un cmdlet similar para Win Vista o posteriores es <code>Get-WinEvent</code> que además de los eventos clásicos también captura eventos de aplicaciones y servicios.</p>
-<pre><code class="powershell">PS&gt; Get-WinEvent -ListLog * | Select LogName,RecordCount
+<h1 id="instalar-aplicaciones">Instalar aplicaciones</h1>
+<p>Instalar aplicaciones es super sencillo, por ejemplo para instalar <a href="https://mremoteng.org/">mRemoteNG</a> (gestor de conexiones SSH, RDP, VNC y otros) ejecutamos:</p>
+<pre><code class="powershell">PS&gt; choco install mremoteng
 </code></pre>
 
-<p>Si lo que queremos es usar el visor de eventos gráfico de Windows podemos lanzarlo desde de PS con el cmdlet <code>Show-EventLog</code>.</p>
-<p><img alt="" src="../../../admin/event-log/img/02.png" /></p>
-<h1 id="obtener-los-logs-de-eventos-mas-recientes">Obtener los logs de eventos más recientes</h1>
-<p>Usamos el parámetro <code>-Newest</code> como en el siguiente ejemplo para obtener los 10 últimos eventos del sistema.</p>
-<p><strong>Fuente:</strong> <a href="../../../src/admin/event-log/Get-Newest10.ps1">Get-Newest10.ps1</a></p>
-<pre><code class="powershell">Get-EventLog System -Newest 10 | Format-Table Index,Source,Message -Auto
+<p>Cholatey descarga el instalador <a href="https://github.com/mRemoteNG/mRemoteNG/releases/download/v1.75.7012/mRemoteNG-Installer-1.75.7012.16814.msi">MSI v1.75.7012 mRemoteNG de GitHub</a> y comienza su instalación de forma automática.</p>
+<p>En un par de minutos ya está instalado y podemos ejecutar la aplicación.</p>
+<p><img alt="" src="../../../general/chocolatey/02.png" /></p>
+<h1 id="actualizar-una-aplicacion">Actualizar una aplicación</h1>
+<p>Choco también sirve para actualizar las aplicaciones. Digamos que quieres actualizar Skype. Abre la terminal y escribe:</p>
+<pre><code class="powershell">PS&gt; choco install skype
 </code></pre>
 
-<p><img alt="" src="../../../admin/event-log/img/03.png" /></p>
-<p>Pasamos la salida del cmdlet <code>Get-EventLog</code> usando una tubería o pipe a el cmdlet <code>Format-Table</code> para formatear la salida como una tabla con las columnas o propiedades del objeto que deseemos visualizar.</p>
-<p>Podemos hacer los mismo con el cmdlet <code>Get-WinEvent</code> usando el parámetro <code>-MaxEvents</code>:</p>
-<pre><code class="powershell">PS&gt; Get-WinEvent Application -MaxEvents 10 | Format-Table ProviderName,Id,Message -Auto
+<h1 id="buscando-una-aplicacion">Buscando una aplicación</h1>
+<p>Para husmear entre los 5517 y ver todo lo que ofrece usamos el comando <code>search</code>:</p>
+<pre><code class="powershell">PS&gt; choco search 
 </code></pre>
 
-<p><img alt="" src="../../../admin/event-log/img/04.png" /></p>
-<h1 id="buscar-entradas-del-log-de-eventos-con-un-texto-especifico">Buscar entradas del log de eventos con un texto específico</h1>
-<pre><code class="powershell">PS &gt; Get-EventLog System | Where-Object { $_.Message -match &quot;disk&quot; }
+<h1 id="cuando-algo-falla-en-chocolatey">Cuando algo falla en Chocolatey</h1>
+<p>Podemos consultar el fichero de logs, en mi computadora ubicado en <code>C:\ProgramData\chocolatey\logs\chocolatey.log</code>.</p>
+<h1 id="instalando-un-servidor-ssh">Instalando un servidor SSH</h1>
+<p><img alt="" src="https://www.openssh.com/images/openssh.gif" /></p>
+<p>Vamos a instalador un servidor SSH para poder ejecutar comandos remotos en una máquina, usamos el instalador universal de <a href="https://www.openssh.com/">OpenSSH</a> para MS Win. </p>
+<p>Usamos la opción <code>-y</code> (o <code>--yes</code> para confirmar todos los pasos de  la instalación) del comando <a href="https://github.com/chocolatey/choco/wiki/CommandsInstall">install</a> y pasamos dos parametros al propio OpenSSH.</p>
+<ul>
+<li>/SSHServerFeature: Instala como servicio en el puerto 22.</li>
+<li>/SSHAgentFeature: Instala como agente del servicio.</li>
+</ul>
+<pre><code class="powershell">PS&gt; choco install -y openssh -params '&quot;/SSHServerFeature /SSHAgentFeature&quot;'
 </code></pre>
 
-<p>Como el cmdlet <code>Get-EventLog</code> retorna una lista de objetos que representan entradas del log de eventos podemos pasarlo por un pipe y usar el cmdlet <code>Where-Object</code> para acceder a los atributos de los objetos.</p>
-<p>Para obtener una lista detallada:</p>
-<pre><code class="powershell">PS&gt; Get-EventLog System | Where-Object { $_.Message -match &quot;disk&quot; } | Format-List
+<h1 id="chocolatey-gui-sistema-grafico">Chocolatey GUI: Sistema gráfico</h1>
+<p>Si queremos aunque no sea necesario podemos instalar el gestor gráfico de paquetes Chocolatey para escritorio:</p>
+<pre><code class="powershell">PS&gt; choco install chocolateygui
 </code></pre>
 
-<p><img alt="" src="../../../admin/event-log/img/05.png" /></p>
-<h1 id="obtener-y-filtrar-log-de-eventos">Obtener y filtrar log de eventos</h1>
-<p>Por ejemplo si queremos obtener una entrada específica:</p>
-<pre><code class="powershell">PS &gt; Get-EventLog System | Where-Object { $_.Index -eq 2920 }
+<h1 id="aplicaciones-interesantes">Aplicaciones interesantes</h1>
+<p><a href="https://chocolatey.org/packages/telegram/">Telegram</a>: Mi sistema de mensajería preferido.</p>
+<p><a href="https://conemu.github.io/">ConEmu</a>: Emulador de la consola de Windows con pestañas.  </p>
+<p><img alt="" src="https://conemu.github.io/img/ConEmu-Maximus5.png" /></p>
+<p><a href="https://git-scm.com/">Git</a> Cliente para el popular servicio de alojamiento de código GitHub.</p>
+<pre><code class="powershell">PS&gt; choco install git.install
 </code></pre>
 
-<p>Para obtener una vista detallada:</p>
-<pre><code class="powershell">PS &gt; Get-EventLog System | Where-Object { $_.Index -eq 2920 } | Format-List
+<p><a href="https://nodejs.org/es/">Node.js</a>: Node.js® es un entorno de ejecución para JavaScript construido con el motor de JavaScript V8 de Chrome. Node.js usa un modelo de operaciones E/S sin bloqueo y orientado a eventos, que lo hace liviano y eficiente. El ecosistema de paquetes de Node.js, npm, es el ecosistema mas grande de librerías de código abierto en el mundo.</p>
+<pre><code class="powershell">PS&gt; choco install nodejs.install 
 </code></pre>
 
-<p>Usando el cmdlet <code>Get-WinEvent</code> con el parámetro <code>-FilterHashtable</code> (hash table o matriz asociativa) permite filtrar por LogName, Provider, Name, Path, Keywords, ID, Level, StartTime, EndTime y UserID. El siguiente ejemplo fitra los logs de eventos críticos y de error en el log de eventos del sistema (System):</p>
-<pre><code class="powershell">Get-WinEvent -FilterHashtable @{ LogName = &quot;System&quot;; Level = 1,2 }
+<h1 id="psget-busca-e-instala-paquetes-psget">PsGet: Busca e instala paquetes PsGet</h1>
+<p>Indispensable para programar en PS <a href="http://psget.net/">PsGet</a> también se puede instalar sin Chocolatey con un cmdlet:</p>
+<pre><code class="powershell">PS&gt; (new-object Net.WebClient).DownloadString(&quot;http://psget.net/GetPsGet.ps1&quot;) | iex
 </code></pre>
 
-<h1 id="get-winevent-y-consultas-xml">Get-WinEvent y consultas XML</h1>
-<p><strong>Fuente:</strong> <a href="../../../src/admin/event-log/Get-WinEvent-XMLQuery.ps1">Get-WinEvent-XMLQuery.ps1</a>.</p>
-<pre><code class="powershell">## Gets all Critical and Error events from the last 24 hours
-$xml = @'
-&lt;QueryList&gt;
-    &lt;Query Id=&quot;0&quot; Path=&quot;System&quot;&gt;
-        &lt;Select Path=&quot;System&quot;&gt;
-            *[System[(Level=1 or Level=2) and TimeCreated[timediff(@SystemTime) &amp;lt;= 86400000]]]
-        &lt;/Select&gt;
-    &lt;/Query&gt;
-&lt;/QueryList&gt;
-'@
-
-Get-WinEvent -FilterXml $xml
-</code></pre>
-
-<h1 id="backup-del-log-de-eventos">Backup del log de eventos</h1>
-<p>A menudo querremos guardar la información del log de eventos para analizarlos más tarde. Con la utilidad <code>wevtutil.exe</code> podemos guardar el log de eventos en un fichero. </p>
-<pre><code class="powershell">PS &gt; C:\Windows\System32\wevtutil.exe epl System c:\temp\system.bak.evtx
-</code></pre>
-
-<p>Después de exportar el log de eventos podemos usar el cmdlet <code>Get-WinEvent</code> para realizar consultas.</p>
-<pre><code class="powershell">PS &gt; Get-WinEvent -FilterHashtable @{Path=&quot;c:\temp\system.bak.evtx&quot;; Level=1,2 } -MaxEvents 2 | Format-Table -Auto
+<p>Si lo queremos instalar con Chocolatey:</p>
+<pre><code class="powershell">PS&gt; choco install PsGet 
 </code></pre>
 
 <h1 id="enlaces-externos">Enlaces externos</h1>
 <ul>
-<li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/format-table?view=powershell-6">Format-Table - Microsoft Docs</a>.</li>
+<li><a href="https://github.com/chocolatey/choco/wiki">Wiki de Chocolatey en GitHub</a>: Recursos, enlaces y guia básica de uso, mención especial a los <a href="https://github.com/chocolatey/choco/wiki/CommandsReference">comandos disponibles</a>.</li>
 </ul>
               
             </div>
@@ -351,10 +352,10 @@ Get-WinEvent -FilterXml $xml
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../../networking/remoto/" class="btn btn-neutral float-right" title="Sesiones remotas">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../../sintaxis/variables/" class="btn btn-neutral float-right" title="Variables">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../../sistema-archivos/directorios/" class="btn btn-neutral" title="Directorios"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../instalacion/" class="btn btn-neutral" title="Instalación"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -382,10 +383,10 @@ Get-WinEvent -FilterXml $xml
           <a href="https://github.com/ikerlandajuela/PowerShell/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../../sistema-archivos/directorios/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../instalacion/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../../networking/remoto/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../../sintaxis/variables/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

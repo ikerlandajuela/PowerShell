@@ -6,6 +6,7 @@ pages:
     - Inicio: index.md
     - General:
         - 'Instalación': 'general/instalacion.md'
+        - 'Chocolatey': 'general/chocolatey/chocolatey.md'
     - Sintaxis:
         - 'Variables': 'sintaxis/variables.md'
         - 'Objetos': 'sintaxis/objetos.md'

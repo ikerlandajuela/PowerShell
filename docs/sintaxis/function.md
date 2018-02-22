@@ -142,3 +142,5 @@ Get-Greeting "Mundo"
 * [Get-WmiObject](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-wmiobject?view=powershell-5.1).
 * [Get-Date](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-date?view=powershell-5.1).
 * [https://ss64.com/ps/return.html](https://ss64.com/ps/return.html).
+* [about_Functions_Advanced_Parameters | Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters?view=powershell-6).
+* [PowerShell advanced functions – The CmdletBinding and Parameter ...](https://4sysops.com/archives/powershell-advanced-functions-the-cmdletbinding-and-parameter-attribute/).
