@@ -23,6 +23,8 @@ pages:
         - 'Directorios': 'sistema-archivos/directorios.md'
     - Admin:
         - 'Event Logs': 'admin/event-log/event-log.md'
+    - Computadora:
+        - 'Ficheros': 'computadora/ficheros.md'
     - Networking:
         - 'Sesiones remotas' : 'networking/remoto.md'
         - 'cURL': 'networking/curl.md'

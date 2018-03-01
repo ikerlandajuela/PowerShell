@@ -173,6 +173,9 @@ $parms = @{
 		}
 ```
 
+Podemos modificar cualquier propiedad del objeto, en algunos casos como el pais `Country` debemos usar codificaciones especiales ("ES" para españa).
+
+
 Y creamos el usuario:
 
 ```powershell
@@ -188,6 +191,9 @@ Enable-Mailbox -Identity $MyEmailAddress -Database "Mailbox Database 12"
 Enable-Mailbox -Identity $MyEmailAddress -Archive
 ```
 
+La tabla en este enlace es muy útil con todas las propiedades y su tipo, la imagen inferior sólo es una muestra de toda la tabla:
+
+![](/active-directory/cuentas-usuarios-img/01.png)
 
 # Resetear la clave de usuario
 
