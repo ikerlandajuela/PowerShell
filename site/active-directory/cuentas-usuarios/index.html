@@ -415,6 +415,7 @@ $MySamAccountName = &quot;b.sinclair&quot;
         }
 </code></pre>
 
+<p>Podemos modificar cualquier propiedad del objeto, en algunos casos como el pais <code>Country</code> debemos usar codificaciones especiales ("ES" para españa).</p>
 <p>Y creamos el usuario:</p>
 <pre><code class="powershell">New-ADUser @parms
 Set-ADUser -Identity $MySamAccountName -ChangePasswordAtLogon $False
@@ -426,6 +427,8 @@ Add-ADGroupMember -Identity &quot;Escritorio Remoto&quot; -Member $MySamAccountN
 Enable-Mailbox -Identity $MyEmailAddress -Archive
 </code></pre>
 
+<p>La tabla en este enlace es muy útil con todas las propiedades y su tipo, la imagen inferior sólo es una muestra de toda la tabla:</p>
+<p><img alt="" src="../../active-directory/cuentas-usuarios-img/01.png" /></p>
 <h1 id="resetear-la-clave-de-usuario">Resetear la clave de usuario</h1>
 <p><strong>Fuente:</strong> <a href="../../src/active_directory/users/Reset-ADUserPassword.ps1">Reset-ADUserPassword.ps1</a></p>
 <pre><code class="powershell">Write-Host &quot;Cree una contraseña segura usando un servicio como https://passwordsgenerator.net/&quot;

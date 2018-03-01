@@ -194,6 +194,9 @@
     <a class="current" href="./">Básico</a>
     <ul class="subnav">
             
+    <li class="toctree-l3"><a href="#importar-modulo-exhange">Importar módulo Exhange</a></li>
+    
+
     <li class="toctree-l3"><a href="#obtener-informacion-servidores-buzones-de-correo">Obtener información servidores buzones de correo</a></li>
     
 
@@ -266,7 +269,17 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="obtener-informacion-servidores-buzones-de-correo">Obtener información servidores buzones de correo</h1>
+                <h1 id="importar-modulo-exhange">Importar módulo Exhange</h1>
+<p>Para poder ejecutar cmdlet-s Exchange en PS debemos cumplir dos requisitos previos:</p>
+<ul>
+<li>Instalar 'Exchange Management Tools' (si no está previamente instalado).</li>
+<li>Importar el módulo de Exchange en la sesión PS.</li>
+</ul>
+<p>Dependiendo de la versión de Exchange el cmdlet para importar el módulo varia, para Exchange 2010 es el siguiente:</p>
+<pre><code class="powershell">PS&gt; Add-PSSnapin Microsoft.Exchange.Management.PowerShell.E2010;
+</code></pre>
+
+<h1 id="obtener-informacion-servidores-buzones-de-correo">Obtener información servidores buzones de correo</h1>
 <p>El cmdlet <code>Get-MailboxServer</code> permite obtener información sobre los servidores de correo.</p>
 <p><strong>Fuente:</strong> <a href="../../src/exchange/basico/Show-MailBox-Server.ps1">Show-MailBox-Server.ps1</a></p>
 <pre><code class="powershell">Get-MailboxServer

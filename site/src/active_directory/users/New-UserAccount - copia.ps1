@@ -1,8 +1,4 @@
 # Deben estar cargados Modulos Mailbox y AD
-# http://www.kouti.com/tables/userattributes.htm
-
-import-module activedirectory
-
 
 $debugPreference = "Continue"
 $mailBoxDatabase = "Mailbox Database 12"
@@ -10,7 +6,7 @@ $mailBoxDatabase = "Mailbox Database 12"
 Write-Debug "Comprobando si existe buzon de correo con identidad b.sinclair"
 
 # Borramos previamente datos
-# OJO!! Al quitar el buzon tambien se quita objeto de AD
+# Al quitar el buzon tambien se quita objeto de AD???
 $Mailboxes = Get-Mailbox -Identity 'b.sinclair' | measure-object
 if ( $Mailboxes.Count -gt 0 ) 
 {
@@ -37,20 +33,11 @@ else
 # ------------------------------------------------------------------------
 # Crear nuevo usuario en AD
 # ------------------------------------------------------------------------
-# TODO: Obtener nuevas claves complejas de forma automática en lugar de usar https://passwordsgenerator.net/
 $PlainPassword = "ClaveInicial"
 $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
 
-# Name - String - cn (Relative Distinguished Name)
 $MyName = "Bob"
-# 
 $MySurname = "Sinclair"
-#In the AD attribute sAMAccountName, the account logon name or the user object is stored 
-# - in fact the legacy NetBIOS form as used in the naming notation "Domain\LogonName".
-# The attribute samAccountName is a mandatory attribute (a MUST attribute) for user objects.
-# For the purpose of clarity the sAMAccountName should always be conform to the user principal name (UPN), 
-# the modern logon name of a AD User. Hereby the sAMAccountName has to be equal to the 
-# prefix part of the attribute "userPrincipalName"
 $MySamAccountName = "b.sinclair"
 # Ruta dentro del arbol AD
 $MyPath = "Pruebas"
@@ -74,7 +61,7 @@ $parms = @{
 		GivenName = $MyName
 		Surname = $MySurname
 		SamAccountName = $MySamAccountName
-		UserPrincipalName = $MySamAccountName + '@koopera.local'
+		UserPrincipalName = $MySamAccountName + '@koopera.org'
 		Enabled = $True
 		AccountPassword = $SecurePassword
 		Path = 'OU=' + $MyPath + ',OU=Usuarios,OU=Koopera,DC=koopera,DC=local'

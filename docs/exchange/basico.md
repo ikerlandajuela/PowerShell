@@ -1,3 +1,17 @@
+# Importar módulo Exhange
+
+Para poder ejecutar cmdlet-s Exchange en PS debemos cumplir dos requisitos previos:
+
+* Instalar 'Exchange Management Tools' (si no está previamente instalado).
+* Importar el módulo de Exchange en la sesión PS.
+
+Dependiendo de la versión de Exchange el cmdlet para importar el módulo varia, para Exchange 2010 es el siguiente:
+
+```powershell
+PS> Add-PSSnapin Microsoft.Exchange.Management.PowerShell.E2010;
+```
+
+
 # Obtener información servidores buzones de correo
 
 El cmdlet `Get-MailboxServer` permite obtener información sobre los servidores de correo.

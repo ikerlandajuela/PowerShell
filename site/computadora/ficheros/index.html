@@ -152,6 +152,12 @@
     <li class="toctree-l3"><a href="#trabajando-con-ficheros-csv">Trabajando con ficheros CSV</a></li>
     
 
+    <li class="toctree-l3"><a href="#importar-desde-un-csv">Importar desde un CSV</a></li>
+    
+
+    <li class="toctree-l3"><a href="#importar-como-objetos-casting-propiedades">Importar como objetos [casting propiedades]</a></li>
+    
+
     <li class="toctree-l3"><a href="#enlaces-externos">Enlaces externos</a></li>
     
 
@@ -271,8 +277,37 @@
 PS&gt; Get-Content C:\temp\FileList.csv
 </code></pre>
 
-<p>Podemos abrir facilmente el fichero en Excel con el siguiente comando:</p>
-<pre><code class="powershell">PS&gt; Invoque-Item C:\temp\FileList.csv
+<p>Podemos abrir facilmente el fichero en Excel (o el programa que tengamos configurado como predeterminado para esa tipo de archivos) con el siguiente comando:</p>
+<pre><code class="powershell">PS&gt; Invoke-Item C:\temp\FileList.csv
+</code></pre>
+
+<h1 id="importar-desde-un-csv">Importar desde un CSV</h1>
+<p><img alt="" src="../../computadora/ficheros/img/01.png" /></p>
+<p><code>Get-Content</code> lee el contenido del fichero interpretandolo como cadenas de texto, si queremos trabajar con colecciones de registros usaremos <code>Import-CSV</code>, facilmente podemos volcarlo a una variable y recorrer su contenido.</p>
+<pre><code class="powershell">PS&gt; $MyFileList = Import-CSV C:\temp\FileList.csv
+PS&gt; $MyFileList
+PS&gt; $MyFileList | Get-Member
+PS&gt; ForEach ($Item in $MyFileList) {&quot;Name:&quot;+$Item.(&quot;Name&quot;) }
+PS&gt; ForEach ($Item in $MyFileList) {&quot;Name:&quot;+$Item.(&quot;Length&quot;) }
+</code></pre>
+
+<p>O acceder a cada objeto del resultado por su índice:</p>
+<pre><code class="powershell">PS&gt; Write-Host $MyFileList[0].Name 
+</code></pre>
+
+<h1 id="importar-como-objetos-casting-propiedades">Importar como objetos [casting propiedades]</h1>
+<p><strong>Fuente:</strong> <a href="../../src/computadora/Import-CSV-Obj.ps1">Import-CSV-Obj.ps1</a></p>
+<pre><code class="powershell">dir C:\ | Select-Object -Property Name,Length | Export-Csv .\FileList.csv
+
+$MyFileList = Import-CSV C:\temp\FileList.csv
+
+$MyFileList | ForEach-Object {
+    #Cast properties
+    $_Name = [string]$_.Name    
+    $_Lenght = [int]$_.Length
+    # Escribir objeto
+    $_
+} 
 </code></pre>
 
 <h1 id="enlaces-externos">Enlaces externos</h1>
